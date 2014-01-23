@@ -14,7 +14,7 @@ pf.validate = {
   ],
   errorMessages: {
     Required:                 "fill out this field",
-    Email:                    "include a valid email address",
+    Email:                    "give us a valid email address",
     Matches:                  "make sure fields match",
     MinLength:                "use at least #{} characters",
     MaxLength:                "use fewer than #{} characters",
@@ -23,15 +23,21 @@ pf.validate = {
     Integer:                  "use a whole number in this field",
     Number:                   "use a number in this field",
     substitutions: {
-      name: {
-        Required: "tell us your name"
+      'name': {
+        Required:             "tell us your name"
       },
-      firstName: {
-        Required: "tell us your first name"
+      'firstName': {
+        Required:             "tell us your first name"
       },
-      lastName: {
-        Required: "tell us your last name"
+      'lastName': {
+        Required:             "tell us your last name"
       },
+      'password': {
+        Required:             "enter your password",
+        MinLength:            "use a password with at least #{} characters",
+        MaxLength:            "use a password with no more than #{} characters",
+        Matches:              "make sure passwords match"
+      }
     },
   },
   dataAttributes: {
@@ -62,42 +68,56 @@ pf.validate = {
     }
   },
   removeRequiredIfOtherErrors: function(errorMessageArray) {
-    // Remove Required error message if there are any other messages
+    // Remove "Required" error message if there are any other messages
     if (errorMessageArray.length > 1) {
-      errorMessageArray.splice(errorMessageArray.indexOf(pf.validate.errorMessages.Required),1);
+      // Default Required Message
+      // alert(errorMessageArray.indexOf(pf.validate.errorMessages.Required) + " :: " + pf.validate.errorMessages.Required);
+      // // errorMessageArray.splice(errorMessageArray.indexOf(pf.validate.errorMessages.Required),1);
+      // // Substitutions
+ //      var substitutionHash = pf.validate.errorMessages.substitutions;
+ //      $.each(substitutionHash, function(substitutionName, substitutionValue) {
+ //        var subRequired = pf.validate.errorMessages.substitutions[substitutionName].Required;
+ //        if (subRequired !== 'undefined' && subRequired !== undefined && subRequired !== false) {
+ //          if (substitutionValue.Required == subRequired) {
+ //            // alert(substitutionValue);
+ //          } else {
+ //            alert "hi";
+ //          }
+ //          // if (subRequired) {
+ //          //   errorMessageArray.splice(errorMessageArray.indexOf(subRequired),1);
+ //          // }
+ // //         alert(subRequired + ' :: ' + errorMessageArray.indexOf(subRequired));
+ //        }
+ //      });
     };
     return errorMessageArray;
   },
   sanitizeErrorMessages: function(errorMessageArray) {
-    errorMessageArray = pf.validate.removeRequiredIfOtherErrors(errorMessageArray);
-    // Cleverer joins (, / and)
-
-    // Custom messages for password etc.
-    return errorMessageArray;
+    return pf.validate.removeRequiredIfOtherErrors(errorMessageArray);
   },
-  joinErrorMessages: function(errorMessageArray) {//
+  joinErrorMessages: function(errorMessageArray) {
     var e = [];
     $.each(errorMessageArray, function(index, errorMessage) {
       if (index == 0) {
-        errorMessage = "Please " + errorMessage;
+        errorMessage = pf.common.firstLetterToUpperCase(errorMessage); // Capitalise first letter of first error message
       };
       if (index == errorMessageArray.length - 1) {
-        e.push(pf.common.removeTrailingPeriod(errorMessage) + ".");
+        e.push(pf.common.removeTrailingPeriod(errorMessage) + ""); // Add period to last error message
       } else if (index == 0 && errorMessageArray.length == 2) {
-        e.push(pf.common.removeTrailingPeriod(errorMessage) + " and");
+        e.push(pf.common.removeTrailingPeriod(errorMessage) + " and"); // Add 'and' to last error message of 2
       } else if (index == 0) {
-        e.push(pf.common.removeTrailingPeriod(errorMessage) + ",");
+        e.push(pf.common.removeTrailingPeriod(errorMessage) + ","); // Add comma to first error message (3 or more total messages)
       } else if (index == errorMessageArray.length - 2) {
-        e.push(pf.common.removeTrailingPeriod(errorMessage) + ", and");
+        e.push(pf.common.removeTrailingPeriod(errorMessage) + ", and"); // Add ', and' to second to last message (3 or more total messages)
       } else if (index > 0) {
-        e.push(pf.common.removeTrailingPeriod(errorMessage) + ",");
+        e.push(pf.common.removeTrailingPeriod(errorMessage) + ","); // Else add comma to any message that's not the first one
       };
     });
     return e.join(pf.validate.conventions.errorMessageSeparator);
   },
   processErrorMessages: function(errorMessageArray) {
     if ($.isArray(errorMessageArray)) {
-      return (pf.validate.joinErrorMessages(errorMessageArray));
+      return (pf.validate.joinErrorMessages(pf.validate.sanitizeErrorMessages(errorMessageArray)));
     } else if (typeof(errorMessageArray) == 'string') {
       return errorMessageArray;
     } else {
@@ -159,6 +179,9 @@ pf.validate = {
   isPhoneField: function($element) {
     return ($element.attr("type") == "phone"); // Return binary (true/false)
   },
+  isPasswordField: function($element) {
+    return ($element.attr("type") == "password"); // Return binary (true/false)
+  },
   isValidEmailField: function($element) {
     return (pf.common.isValidEmailAddress(pf.common.stripTrailingSpaces($element.val()))); // Return binary (true/false)
   },
@@ -177,6 +200,10 @@ pf.validate = {
     var attr = $element.attr(pf.validate.dataAttributes.customValidation);
     return (typeof attr !== 'undefined' && attr !== false); // Return binary (true/false)
   },
+  hasFieldType: function($element) {
+    var attr = $element.attr(pf.validate.dataAttributes.fieldType);
+    return (typeof attr !== 'undefined' && attr !== false); // Return binary (true/false)
+  },
   shouldBeNumber: function($element) {
     var attr = $element.attr(pf.validate.dataAttributes.shouldBeNumber);
     return (typeof attr !== 'undefined' && attr !== false); // Return binary (true/false)
@@ -193,6 +220,9 @@ pf.validate = {
   needsToBeMatched: function(errorMessage) {
     return (errorMessage.indexOf(pf.validate.conventions.matchElementID.error.indicator) >= 0) ? pf.validate.getMatchIDFromErrorMessage(errorMessage) : false;
   },
+  getFieldType: function ($element) {
+    return $element.attr(pf.validate.dataAttributes.fieldType);
+  },
   getMatchIDFromErrorMessage: function (errorMessage) {
     var toMatchID = errorMessage.match(pf.validate.conventions.matchElementID.error.regex);
     toMatchID += ""; // Ensure it's a string
@@ -204,8 +234,23 @@ pf.validate = {
   getMaxLength: function($element) {
     return $element.attr(pf.validate.dataAttributes.maxLength);
   },
+  processErrorMessageSubstitutions: function(string,$element) {
+    if (typeof $element !== 'undefined' && $element !== false) {
+      if (pf.validate.hasFieldType($element) || pf.validate.isPasswordField($element)) {
+        var fieldType = (pf.validate.isPasswordField($element)) ? 'password' : pf.common.snakeCaseToCamelCase(pf.validate.getFieldType($element));
+
+        alert(typeof(pf.validate.errorMessages.substitutions[fieldType]) == 'object');
+        var substitutionHash = pf.validate.errorMessages.substitutions[fieldType];
+        $.each(substitutionHash, function(substitutionName, substitutionValue) {
+          string = (pf.validate.errorMessages[substitutionName] == string) ? substitutionValue : string;
+        });
+      };
+    };
+    return string;
+  },
   processErrorMessage: function(string,validationName,$element) {
     var value;
+    string = pf.validate.processErrorMessageSubstitutions(string,$element);
     switch (validationName) {
       case 'MinLength':
         value = pf.validate.getMinLength($element);
@@ -292,7 +337,7 @@ pf.validate = {
       var resultHolder = pf.validate.validateThatValueMatches($element,$matchWithID);
       // TECHDEBT - Not happy that this breaks convention by having !resultHolder
       if (!resultHolder) {
-        var matchErrorMessage = pf.validate.errorMessages.Matches + pf.common.interpolateString(pf.validate.snippets.matchElementIDHolder,$matchWithID) // Add hidden element to hold ID
+        var matchErrorMessage = pf.validate.errorMessages.Matches + pf.common.interpolateString(pf.validate.processErrorMessage(pf.validate.snippets.matchElementIDHolder,$element),$matchWithID) // Add hidden element to hold ID
         errorMessage.push (matchErrorMessage); // Set match error message
       };
     };
@@ -306,7 +351,7 @@ pf.validate = {
 
     // FINALLY - Are there any error messages?
     if (errorMessage.length > 0) {
-      return (pf.validate.processErrorMessages(pf.validate.sanitizeErrorMessages(errorMessage)));
+      return (pf.validate.processErrorMessages(errorMessage));
     } else {
       pf.validate.removeErrorClasses($element);
       return false;

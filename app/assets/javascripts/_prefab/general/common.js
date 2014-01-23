@@ -26,6 +26,15 @@ pf.common = {
   camelCaseToSnakeCase: function(string) {
     return string.replace(/([A-Z])/g, function($1){return "_"+$1.toLowerCase();});
   },
+  snakeCaseToCamelCase: function(string) {
+    return string.replace(/(\_\w)/g, function(m){return m[1].toUpperCase();});
+  },
+  firstLetterToUpperCase: function(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  },
+  firstLetterToLowerCase: function(string) {
+    return string.charAt(0).toLowerCase() + string.slice(1);
+  },
   isNumber: function(number) {
     return (!isNaN(number) && !pf.common.isEmpty(number)); // Return binary (true/false)
   },

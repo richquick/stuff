@@ -69,6 +69,26 @@ describe("pf:", function() {
         expect(pf.common.stringToID('_hello')).toEqual(false);
       });
     });
+    describe("pf.common.camelCaseToSnakeCase:", function() {
+      it("is a function", function() {
+        expect(typeof pf.common.camelCaseToSnakeCase).toEqual('function');
+      });
+    });
+    describe("pf.common.snakeCaseToCamelCase:", function() {
+      it("is a function", function() {
+        expect(typeof pf.common.snakeCaseToCamelCase).toEqual('function');
+      });
+    });
+    describe("pf.common.firstLetterToUpperCase:", function() {
+      it("is a function", function() {
+        expect(typeof pf.common.firstLetterToUpperCase).toEqual('function');
+      });
+    });
+    describe("pf.common.firstLetterToLowerCase:", function() {
+      it("is a function", function() {
+        expect(typeof pf.common.firstLetterToLowerCase).toEqual('function');
+      });
+    });
     describe("pf.common.hasTrailingPeriod:", function() {
       it("is a function", function() {
         expect(typeof pf.common.hasTrailingPeriod).toEqual('function');
@@ -263,6 +283,11 @@ describe("pf:", function() {
         expect(typeof pf.validate.removeRequiredIfOtherErrors).toEqual('function');
       });
     });
+    describe("pf.validate.substituteErrorMessages:", function() {
+      it("is a function", function() {
+        expect(typeof pf.validate.substituteErrorMessages).toEqual('function');
+      });
+    });
     describe("pf.validate.sanitizeErrorMessages:", function() {
       it("is a function", function() {
         expect(typeof pf.validate.sanitizeErrorMessages).toEqual('function');
@@ -271,6 +296,11 @@ describe("pf:", function() {
     describe("pf.validate.joinErrorMessages:", function() {
       it("is a function", function() {
         expect(typeof pf.validate.joinErrorMessages).toEqual('function');
+      });
+    });
+    describe("pf.validate.processErrorMessageSubstitutions:", function() {
+      it("is a function", function() {
+        expect(typeof pf.validate.processErrorMessageSubstitutions).toEqual('function');
       });
     });
     describe("pf.validate.processErrorMessages:", function() {
@@ -381,6 +411,20 @@ describe("pf:", function() {
         expect(pf.validate.isPhoneField($('<a type="email">'))).toEqual(false);
       });
     });
+    describe("pf.validate.isPasswordField:", function() {
+      it("is a function", function() {
+        expect(typeof pf.validate.isPasswordField).toEqual('function');
+      });
+      it("should pass for password input tag", function() {
+        expect(pf.validate.isPasswordField($('<input type="password">'))).toEqual(true);
+      });
+      it("should fail for text input tag", function() {
+        expect(pf.validate.isPasswordField($('<input type="text">'))).toEqual(false);
+      });
+      it("should fail for non input tag with type=email", function() {
+        expect(pf.validate.isPasswordField($('<a type="email">'))).toEqual(false);
+      });
+    });
     describe("pf.validate.isValidEmailField:", function() {
       it("is a function", function() {
         expect(typeof pf.validate.isValidEmailField).toEqual('function');
@@ -407,6 +451,11 @@ describe("pf:", function() {
       });
       it("should fail for phone input tag with invalid phone number", function() {
         expect(pf.validate.isValidPhoneField($('<input type="phone" value="hello@this.com">'))).toEqual(false);
+      });
+    });
+    describe("pf.validate.hasFieldType:", function() {
+      it("is a function", function() {
+        expect(typeof pf.validate.hasFieldType).toEqual('function');
       });
     });
     describe("pf.validate.hasMinLength:", function() {
@@ -487,6 +536,11 @@ describe("pf:", function() {
     describe("pf.validate.getMatchIDFromErrorMessage:", function() {
       it("is a function", function() {
         expect(typeof pf.validate.getMatchIDFromErrorMessage).toEqual('function');
+      });
+    });
+    describe("pf.validate.getFieldType:", function() {
+      it("is a function", function() {
+        expect(typeof pf.validate.getFieldType).toEqual('function');
       });
     });
     describe("pf.validate.getMinLength:", function() {
