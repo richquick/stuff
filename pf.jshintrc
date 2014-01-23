@@ -1,4 +1,4 @@
 {
-  // Whether `===` and `!==` should be required (instead of `==` and `!=`).
-  "eqeqeq": false
+  "eqeqeq": false,
+  "multistr": true
 }
