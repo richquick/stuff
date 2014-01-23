@@ -98,14 +98,14 @@ pf.validate = {
   joinErrorMessages: function(errorMessageArray) {
     var e = [];
     $.each(errorMessageArray, function(index, errorMessage) {
-      if (index == 0) {
+      if (index === 0) {
         errorMessage = pf.common.firstLetterToUpperCase(errorMessage); // Capitalise first letter of first error message
       }
       if (index == errorMessageArray.length - 1) {
         e.push(pf.common.removeTrailingPeriod(errorMessage) + ""); // Add period to last error message
-      } else if (index == 0 && errorMessageArray.length == 2) {
+      } else if (index === 0 && errorMessageArray.length == 2) {
         e.push(pf.common.removeTrailingPeriod(errorMessage) + " and"); // Add 'and' to last error message of 2
-      } else if (index == 0) {
+      } else if (index === 0) {
         e.push(pf.common.removeTrailingPeriod(errorMessage) + ","); // Add comma to first error message (3 or more total messages)
       } else if (index == errorMessageArray.length - 2) {
         e.push(pf.common.removeTrailingPeriod(errorMessage) + ", and"); // Add ', and' to second to last message (3 or more total messages)
@@ -316,7 +316,7 @@ pf.validate = {
       'hasMaxLength'        : 'MaxLength',
       'shouldBeNumber'      : 'Number',
       'shouldBeInteger'     : 'Integer'
-    }
+    };
     // Do each of the standard validations
     $.each(validationHash, function(validationCheck, validationName) {
       var codeToEval = "\
@@ -336,7 +336,7 @@ pf.validate = {
       var resultHolder = pf.validate.validateThatValueMatches($element,$matchWithID);
       // TECHDEBT - Not happy that this breaks convention by having !resultHolder
       if (!resultHolder) {
-        var matchErrorMessage = pf.validate.errorMessages.Matches + pf.common.interpolateString(pf.validate.processErrorMessage(pf.validate.snippets.matchElementIDHolder,$element),$matchWithID) // Add hidden element to hold ID
+        var matchErrorMessage = pf.validate.errorMessages.Matches + pf.common.interpolateString(pf.validate.processErrorMessage(pf.validate.snippets.matchElementIDHolder,$element),$matchWithID); // Add hidden element to hold ID
         errorMessage.push (matchErrorMessage); // Set match error message
       }
     }
@@ -364,7 +364,7 @@ pf.validate = {
     $fields.each(function() {
       var $this = $(this);
       errorMessage = pf.validate.validate($this);
-      if (errorMessage != false) {
+      if (errorMessage !== false) {
         pf.validate.addError($this,errorMessage);
         toSubmit = false;
       }
@@ -377,7 +377,7 @@ pf.validate = {
       return toSubmit; // Returns true if no error messages, else false
     });
   }
-}
+};
 
 define(function () {
   pf.validate.setupValidation();

@@ -54,8 +54,7 @@ pf.common = {
     return (/^[a-zA-Z][a-zA-Z0-9_-]+$/.test(testID)); // Return binary (true/false)
   },
   isEmpty: function(string) {
-    var string = pf.common.stripTrailingSpaces(string);
-    return (string.length <= 0); // Return binary (true/false)
+    return (pf.common.stripTrailingSpaces(string).length <= 0); // Return binary (true/false)
   },
   isFieldEmpty: function($element) {
     return (pf.common.isEmpty($element.val())); // Return binary (true/false)
