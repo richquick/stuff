@@ -1,0 +1,53 @@
+// Grid
+
+// TECHDEBT
+body {
+  margin: $fr_mobile_body_margin_top 0 0 0;
+}
+
+.stripe {
+  .wrapper {
+    padding: $fr_stripe_wrapper_padding;
+  }
+}
+
+.grid {
+  .content {
+    padding-bottom: $fr_content_padding_bottom;
+  }
+  .section {
+    padding-bottom: $fr_grid_section_padding_bottom;
+    &.distinct {
+      padding-top: $fr_grid_section_distinct_padding_top;
+    }
+    &.balanced {
+      text-align: center;
+    }
+    &.major {
+      padding-top: 30px;
+    }
+  }
+  .part {
+    position: relative;
+    padding-bottom: 20px;
+  }
+}
+
+.supplementary {
+  font-size: 90%;
+  p {
+    color: #999!important;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: -10px;
+    font-size: 100%;
+    color: #999!important;
+  }
+}
+
+

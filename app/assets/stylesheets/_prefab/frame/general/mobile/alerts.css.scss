@@ -1,0 +1,10 @@
+// Alerts
+
+.flash {
+  background: $fr_flash_background;
+  padding: $fr_flash_padding;
+  margin: $fr_flash_margin;
+  &.error {
+    border: $fr_flash_error_border;
+  }
+}

@@ -1,0 +1,50 @@
+// Links
+
+a {
+  &.resource {
+    display: inline-block;
+    text-decoration: none;
+    color: $fr_resource_link_color;
+    background-color: $fr_resource_link_background_color;
+    padding: $fr_resource_link_padding;
+    margin: $fr_resource_link_padding;
+    background-image: asset_url($fr_resource_icon_url);
+    @include icon($fr_icon_size,$fr_icon_padding_left);
+    &:hover {
+      text-decoration: underline;
+      background-color: $fr_resource_link_background_color;
+    }
+    &.internal {
+      background-image: asset_url($fr_file_icon_url);
+    }
+    @include resources(50px, 24px);
+  }
+}
+
+.stripe {
+  a {
+    &:not(.button):not(.lozenge):not(.resource):not(.chosen-single) {
+      color: $fr_link_color;
+      &:hover {
+        color: $fr_link_hover_color;
+      }
+    }
+  }
+}
+
+.facebook a {
+  background-image: asset_url($fr_facebook_icon_url);
+  @include icon($fr_icon_size,$fr_icon_padding_left);
+}
+.twitter a {
+  background-image: asset_url($fr_twitter_icon_url);
+  @include icon($fr_icon_size,$fr_icon_padding_left);
+}
+.linked.in a {
+  background-image: asset_url($fr_linkedin_icon_url);
+  @include icon($fr_icon_size,$fr_icon_padding_left);
+}
+.github a {
+  background-image: asset_url($fr_github_icon_url);
+  @include icon($fr_icon_size,$fr_icon_padding_left);
+}

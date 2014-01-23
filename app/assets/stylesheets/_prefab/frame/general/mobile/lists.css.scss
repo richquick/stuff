@@ -1,0 +1,107 @@
+// Lists
+
+ul {
+  &.list.of.items {
+    @include clean_list($fr_li_padding 0);
+     &.condensed {
+      @include inline_list($fr_li_padding);
+    }
+    &.check {
+      li {
+        // TECHDEBT
+        background-image: asset_url($fr_check_icon);
+        @include icon($fr_icon_size,$fr_icon_padding_left);
+        background-position: 0 10px;
+      }
+    }
+  }
+  &.list.of.links {
+    @include clean_list($fr_li_padding 0);
+    > li {}
+    &.condensed {
+      @include inline_list($fr_li_padding);
+      &.separated {
+        border: none;
+        li {
+          border: none;
+        }
+        li:not(:last-child) {
+          @include content_after("|");
+          &:after {
+            margin: 0 0 0 $fr_li_padding*3;
+          }
+        }
+      }
+    }
+    &.detatched {
+      position: absolute;
+      top: $fr_detatched_list_of_links_top;
+      right: $fr_detatched_list_of_links_right;
+    }
+    &.separated {
+      border-top: $fr_separated_list_border;
+      padding-top: $fr_separated_list_padding_top;
+      li {
+        border-bottom: $fr_separated_list_border;
+      }
+    }
+    &.clean {
+      a {
+        text-decoration: none;
+        color: $fr_clean_list_link_color;
+        &:hover {
+          color: $fr_clean_list_link_hover_color;
+          text-decoration: underline;
+        }
+      }
+    }
+    &.tags {
+      margin: 0;
+    }
+    &.tag {
+      @include inline_list($fr_li_padding);
+      padding:  0;
+      a:not(:last-child) {
+        @include content_after(", ");
+      }
+
+      a:not(.x) {
+        font-size: $fr_tag_font_size;
+        display: inline-block;
+        position: relative;
+        height: ($fr_tag_height)-($fr_tag_top_padding);
+        padding: 0;
+        padding-top: $fr_tag_top_padding;
+        padding-left: ($fr_tag_height*0.707)/1.5;
+        padding-right: ($fr_tag_height*0.707)/1.5;
+        background: $fr_tag_background;
+        color: $fr_tag_text_color;
+        text-decoration: none;
+        margin-left: 0;
+        &:hover {
+          background: $fr_tag_background_hover;
+          color: $fr_tag_text_color;
+          &:before {
+            background: $fr_tag_background_hover;
+          }
+        }
+      }
+    }
+    &.banded {
+      margin: $fr_li_padding*2 0;
+      @include top_divider($fr_divider_width, $fr_divider_line_height, $fr_divider_line_type, $fr_divider_line_color);
+      > li {
+        @include zebra_striping($fr_zebra_striping_color_1,$fr_zebra_striping_color_2);
+        @include divider($fr_divider_width, $fr_divider_line_height, $fr_divider_line_type, $fr_divider_line_color);
+      }
+    }
+  }
+  &.comma.separated {
+    @include clean_list($fr_li_padding 0);
+    @include inline_list(0);
+    padding: $fr_li_padding 0;
+    li:not(:last-child) {
+      @include content_after(", ");
+    }
+  }
+}

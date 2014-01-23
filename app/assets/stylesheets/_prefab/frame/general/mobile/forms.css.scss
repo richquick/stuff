@@ -1,0 +1,103 @@
+// Form elements
+
+input {
+  &:not([type='checkbox']):not([type='radio']):not([type='file']) {
+    font-family: $fr_default_font_family;
+    color: $fr_default_font_color;
+    font-size: 100%;
+    padding: $fr_form_field_padding 0;
+    text-indent: $fr_form_field_padding;
+    background-color: $fr_form_field_background;
+    border: $fr_form_field_border;
+    margin-left: 0;
+    line-height:1em;
+    &:focus {
+      background-color: $fr_form_field_focus_background;
+    }
+  }
+  &[type='radio'],
+  &[type='checkbox'] {
+    float: left;
+  }
+}
+
+textarea {
+  border: $fr_form_field_border;
+  padding: $fr_form_field_padding 0;
+  text-indent: $fr_form_field_padding;
+  background-color: $fr_form_field_background;
+  min-height: $fr_form_textarea_height;
+  font-size: 100%;
+  &:focus {
+    background-color: $fr_form_field_focus_background;
+  }
+}
+$fr_label_em_font_weight: 400;
+$fr_label_em_font_style: normal;
+label {
+  font-weight: bold;
+  width: 100%;
+  display: block;
+  padding: $fr_label_padding;
+  em {
+    font-weight: $fr_label_em_font_weight;
+    font-style: $fr_label_em_font_style;
+  }
+}
+
+form {
+  &.fields {
+    &.maximized {
+      input {
+        &:not([type='checkbox']):not([type='radio']):not([type='file']) {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .segment {
+    padding-bottom: $fr_content_padding_bottom;
+    @include clearfix();
+    &.grid {
+      padding-bottom: 0;
+    }
+  }
+  .holder {
+    clear: both;
+    label {
+      float: left;
+      width: $fr_holder_label_width;
+      padding: 0;
+      margin-left: $fr_holder_label_margin_left;
+    }
+    + .holder {
+      padding-top: 10px;
+    }
+  }
+  .tight {
+    &.very {
+      label {
+        @include hide();
+      }
+    }
+  }
+  // TECHDEBT
+  .error {
+    &.message {
+      display: none;
+    }
+    .error {
+      &.message {
+        display: inline-block;
+        background-color: #fff1ed;
+        padding: 0 10px;
+      }
+    }
+    textarea,
+    input {
+      &:not([type='checkbox']):not([type='radio']):not([type='file']) {
+        border-color: #cda5a6;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+// Wells
+
+.well {
+  padding: $fr_well_padding;
+  margin: $fr_well_margin;
+  background: $fr_well_color;
+  @include rounded_corners($fr_well_radius);
+  @include inner_shadow($fr_well_inset_left_offset,$fr_well_inset_right_offset,$fr_well_inset_blur,$fr_well_inset_color);
+  &:not(.clear) {
+    border: $fr_well_border_width solid $fr_well_border_color;
+  }
+}

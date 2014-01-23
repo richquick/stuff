@@ -1,0 +1,33 @@
+// Lists
+
+ul {
+  &.list.of.items {
+    &.check {
+      li {
+        background-image: asset_url($sk_check_icon);
+        @include icon($sk_icon_size,$sk_icon_padding_left);
+        background-position: 0 10px;
+      }
+    }
+  }
+  &.list.of.links {
+    &.tag {
+      a:not(.x) {
+        @include rounded_corners($sk_tag_radius);
+        &:before {
+          @include rounded_corners($sk_tag_triangle_radius);
+        }
+        &:hover {
+          &:before {
+
+          }
+        }
+      }
+    }
+    &.banded {
+      > li {
+        @include zebra_striping($sk_zebra_striping_color_1,$sk_zebra_striping_color_2);
+      }
+    }
+  }
+}

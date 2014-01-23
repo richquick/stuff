@@ -1,0 +1,42 @@
+// Grid
+
+body {
+  margin-top: $fr_desktop_body_margin_top;
+}
+
+.stripe {
+  .wrapper {
+    &.fixed {
+      max-width: $fr_fixed_wrapper_width_desktop;
+    }
+  }
+}
+
+.grid {
+  &.two_column {
+    .content {
+      &.main {
+        @include column($fr_two_col_main_column_width_desktop);
+      }
+      &.second {
+        @include column($fr_two_col_second_column_width_desktop);
+      }
+    }
+    &.alternative.layout {
+      .content {
+        &.main {
+          @include column($fr_two_col_alt_main_column_width_desktop);
+        }
+        &.second {
+          @include column($fr_two_col_alt_second_column_width_desktop);
+        }
+      }
+    }
+  }
+}
+
+.supplementary {
+  &.hanging {
+    width: 48%;
+  }
+}

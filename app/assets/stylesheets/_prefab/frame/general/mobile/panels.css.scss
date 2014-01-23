@@ -1,0 +1,31 @@
+// Panels
+
+.panel {
+  background: $fr_panel_background;
+  padding: $fr_panel_padding;
+  margin: $fr_panel_margin;
+  &.clear {
+    background: none!important;
+    @include reset_box_shadow();
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+// TECHDEBT
+
+.promo {
+  font-size: 95%;
+  background: #fffecc;
+  padding: 15px;
+  &.clear {
+    background: none!important;
+    @include reset_box_shadow();
+    margin-top: 0;
+    padding-top: 0;
+  }
+  h3 {
+    font-size: 100%;
+    color: #333!important;
+  }
+}

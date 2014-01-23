@@ -1,0 +1,66 @@
+// Type
+
+@import url($sk_default_font_import);
+
+body,
+button,
+p {
+  font-family: $sk_default_font_family;
+}
+
+.standfirst {
+  color: $sk_standfirst_color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $sk_heading_color;
+}
+
+h1 + p.standfirst {
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+}
+
+label {
+  color: $sk_label_color;
+}
+
+th {
+  color: $sk_th_color;
+}
+
+small {
+  color: $sk_small_color;
+}
+
+.stripe {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 0;
+    a:not(.button):not(.lozenge):not(.resource):not(.x):not(.x):not(.x) {
+      text-decoration: none;
+      color: $sk_heading_link_color;
+      &:hover {
+        color: $sk_heading_link_hover_color;
+      }
+    }
+  }
+}
+
+.panel {
+  h2 {
+    color: #a5a5a5;
+  }
+  h3 {
+    color: #ac0000;
+  }
+}

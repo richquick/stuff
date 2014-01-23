@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Jasmine Spec Runner</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=500" />
+<link rel="stylesheet" type="text/css" href="stylesheets/jasmine.css" />
+</head>
+
+<body>
+</body>
+
+
+<!--[if lt IE 9]><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> <![endif]-->
+<!--[if (gt IE 8)|!(IE)]><!--> <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> <!--<![endif]-->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="/assets/application.js"></script>
+<script type="text/javascript" src="javascripts/jasmine.js"></script charset="utf-8">
+<script type="text/javascript" src="javascripts/jasmine-html.js" charset="utf-8"></script>
+<script type="text/javascript" src="javascripts/jasmine-jquery.js" charset="utf-8"></script>
+<script type="text/javascript" src="javascripts/test_suite_spec.js" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    $(function() {
+
+        var jasmineEnv = jasmine.getEnv();
+        jasmineEnv.updateInterval = 1000;
+
+        var htmlReporter = new jasmine.HtmlReporter();
+
+        jasmineEnv.addReporter(htmlReporter);
+
+        jasmineEnv.specFilter = function(spec) {
+            return htmlReporter.specFilter(spec);
+        };
+
+        var currentWindowOnload = window.onload;
+
+        window.onload = function() {
+            if (currentWindowOnload) {
+                currentWindowOnload();
+            }
+            execJasmine();
+        };
+
+        function execJasmine() {
+            jasmineEnv.execute();
+        }
+
+    });
+</script>
+</html>

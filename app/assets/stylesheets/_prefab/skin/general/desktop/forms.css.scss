@@ -1,0 +1,9 @@
+// Form elements
+
+form {
+  .section {
+    border: $sk_form_section_border;
+    background: $sk_form_section_background_color;
+    @include rounded_corners($sk_form_section_radius);
+  }
+}

@@ -1,0 +1,271 @@
+/*
+These variables control the look and feel of the UNDERLYING STRUCTURE of the page.
+We advise you not to touch these, unless you're working on the core development of the Prefab Framework.
+Instead, you should got to the 'skin' folder and make any changes there to the look of your site or systemπ
+*/
+
+// Breakpoints
+$fr_tablet_min: 700px;
+$fr_desktop_min: 900px;
+
+// Colors
+$fr_text_color: #333;
+
+// Typography
+  // Fonts
+$fr_default_font_family: Arial, Helvetica, "Sans-serif";
+$fr_default_font_color: #333;
+$fr_default_line_height: 1.4;
+  // Links
+$fr_link_color: #0088cc;
+$fr_link_hover_color: #005382;
+  // Headings
+$fr_h1_font_size: 220%;
+$fr_heading_link_color: #333;
+$fr_heading_link_hover_color: #777;
+$fr_heading_margin_bottom:5px;
+  // Small in heading
+$fr_heading_small_size: 75%;
+$fr_heading_small_weight: 400;
+$fr_heading_small_color: #777;
+  // Other
+$fr_standfirst_font_size: 120%;
+  // Additional Info
+$fr_additional_info_display: inline-block;
+$fr_additional_info_padding: 3px 10px;
+$fr_additional_info_background: #fffcea;
+$fr_additional_info_margin: 0 0 0 10px;
+
+// Nav
+$fr_nav_height: 40px;
+$fr_nav_width: 100%;
+$fr_nav_background_color: #333;
+$fr_nav_text_color: #fff;
+$fr_nav_link_color: #fff;
+$fr_nav_link_hover_background: #666;
+$fr_nav_dropdown_width: 150px;
+$fr_nav_dropdown_top: 22px;
+$fr_nav_dropdown_shunt: 8px;
+$fr_nav_group_padding: 10px;
+$fr_nav_search_margin: -7px 0 -10px 0;
+$fr_nav_link_padding: 5px 10px;
+
+// Grids
+  // Mobile
+$fr_mobile_body_margin_top: 20px;
+$fr_stripe_wrapper_padding_sides: 20px;
+$fr_stripe_wrapper_padding: 0 $fr_stripe_wrapper_padding_sides;
+$fr_grid_section_padding_bottom: 10px;
+$fr_grid_section_distinct_padding_top: 15px;
+$fr_grid_content_with_distinct_section: 20px;
+$fr_asymetric_grid_two_col_width: 48.5%;
+
+  // Tablet
+$fr_tablet_body_margin_top: 40px;
+
+  // Desktop
+$fr_desktop_body_margin_top: 70px;
+
+  // Multi Column (General)
+$fr_main_column_float_reversed: right;
+$fr_second_column_float_reversed: left;
+
+  // 2 Column
+$fr_two_col_main_column_float: left;
+$fr_two_col_second_column_float: right;
+$fr_content_padding_bottom: 10px;
+$fr_two_col_content_padding_bottom: $fr_content_padding_bottom;
+
+$fr_two_col_alt_content_padding_top: 10px;
+
+    // Tablet - 2 Column
+$fr_two_col_main_column_width_tablet: 49%;
+$fr_two_col_second_column_width_tablet: 49%;
+
+$fr_two_col_alt_main_column_width_tablet: 75%;
+$fr_two_col_alt_second_column_width_tablet: 23%;
+
+    // Desktop - 2 Column
+$fr_two_col_alt_main_column_width_desktop: 78%;
+$fr_two_col_alt_second_column_width_desktop: 20%;
+
+$fr_two_col_main_column_width_desktop: 49%;
+$fr_two_col_second_column_width_desktop: 49%;
+
+    // Fixed Width
+$fr_fixed_wrapper_width_tablet: $fr_tablet_min - (2 * $fr_stripe_wrapper_padding_sides) - 10px;
+$fr_fixed_wrapper_width_desktop: $fr_desktop_min - (2 * $fr_stripe_wrapper_padding_sides) - 10px;
+
+// Wells
+$fr_well_color: #eee;
+$fr_well_radius: 3px;
+$fr_well_border_width: 1px;
+$fr_well_border_color: #ddd;
+$fr_well_inset_left_offset: 1px;
+$fr_well_inset_right_offset: 1px;
+$fr_well_inset_blur: 0;
+$fr_well_inset_color: #ccc;
+$fr_well_padding: 15px;
+$fr_well_margin: 20px 0;
+
+// Panels
+$fr_panel_background: #ddd;
+$fr_panel_padding: 15px;
+$fr_panel_margin: 10px 0;
+
+  // Tight Panel
+$fr_tight_panel_tablet_min_width: 320px;
+$fr_tight_panel_tablet_max_width: 35%;
+
+// Media Object
+$fr_media_object_margin: 10px 0;
+
+// Forms
+$fr_form_field_padding: 5px;
+$fr_form_field_background: #fff;
+$fr_form_field_border: 1px solid #ccc;
+$fr_form_field_focus_background: #fffdc3;
+$fr_form_textarea_height: 150px;
+$fr_label_padding: 10px 0 5px 0;
+  // Holder (eg. for checkbox / radio)
+$fr_holder_label_width: 95%;
+$fr_holder_label_margin_left: 1%;
+
+  // Section - in Form
+$fr_form_section_padding: 15px;
+$fr_form_section_border: 1px solid #ccc;
+$fr_form_section_margin: 15px 0;
+
+// Lists
+$fr_li_padding: 5px;
+$fr_separated_list_border: 1px solid #ccc;
+$fr_separated_list_padding_top: 0;
+
+  // Divider
+$fr_divider_height: 4px;
+$fr_divider_width: 100%;
+$fr_divider_line_height: 1px;
+$fr_divider_line_type: dotted;
+$fr_divider_line_color: #bbb;
+
+  // dt
+$fr_dt_width: 100px;
+$fr_dt_separator: ":";
+
+  // Banded lists
+$fr_zebra_striping_color_1: #fafafa;
+$fr_zebra_striping_color_2: transparent;
+
+// Tags
+$fr_tag_font_size: 90%;
+$fr_tag_height: 24px;
+$fr_tag_padding: 5px;
+$fr_tag_background: #F8B710;
+$fr_tag_background_hover: #E18D00;
+$fr_tag_text_color: #fff;
+$fr_tag_text_shadow_left_offset: 1px;
+$fr_tag_text_shadow_top_offset: 2px;
+$fr_tag_text_shadow_blur: 0;
+$fr_tag_text_shadow_color: #A26400;
+$fr_tag_top_padding: 3px;
+$fr_clean_list_link_color: #333;
+$fr_clean_list_link_hover_color: #777;
+$fr_detatched_list_of_links_top: -10px;
+$fr_detatched_list_of_links_right: 0;
+$fr_tag_triangle_top_shunt: -1px;
+$fr_tag_circle_size: 5px;
+$fr_tag_triange_top_shunt: +1;
+$fr_tag_circle_top_shunt: +1;
+$fr_tag_circle_left_shunt: -3px;
+$fr_tag_circle_background_color: #fff;
+
+// Alerts
+$fr_flash_background: #eee;
+$fr_flash_padding: 15px;
+$fr_flash_margin: 15px;
+$fr_flash_error_border: 1px solid #c00;
+
+// Buttons
+$fr_button_holder_padding: 15px 0;
+$fr_button_background_color: #999;
+$fr_button_text_color: #fff;
+$fr_button_padding: 5px 10px;
+$fr_button_hover_background: #777;
+$fr_button_font_size: 100%;
+
+  // Weak
+$fr_weak_icon_size: 25px;
+$fr_weak_icon_padding_left: 12px;
+$fr_weak_button_font_size: 90%;
+$fr_weak_button_padding: 3px 7px;
+
+  // Strong
+$fr_strong_icon_size: 35px;
+$fr_strong_icon_padding_left: 20px;
+$fr_strong_button_font_size: 15%;
+$fr_strong_button_padding: 8px 12px;
+
+  // Condensed
+$fr_condensed_button_color: #333;
+$fr_condensed_button_background_color: transparent;
+$fr_condensed_button_font_size: 80%;
+$fr_condensed_button_padding_left: 20px;
+$fr_condensed_button_top_margin: 5px;
+
+  // Resource
+$fr_resource_link_color: #333;
+$fr_resource_link_background_color: #eee;
+$fr_resource_link_margin: 0px 0 10px 0;
+$fr_resource_link_padding: 10px;
+$fr_resource_link_hover_background: #ddd;
+
+  // Icons
+$fr_icon_size: 30px;
+$fr_icon_padding_left: 16px;
+
+$fr_check_icon: '_prefab/frame/icons/black/glyphicons_206_ok_2.png';
+$fr_single_file_icon: '_prefab/frame/icons/black/glyphicons_318_more_items.png';
+$fr_add_icon_url: '_prefab/frame/icons/black/glyphicons_190_circle_plus.png';
+$fr_search_icon_url: '_prefab/frame/icons/black/glyphicons_027_search.png';
+$fr_edit_icon_url: '_prefab/frame/icons/black/glyphicons_136_cogwheel.png';
+$fr_delete_icon_url: '_prefab/frame/icons/black/glyphicons_192_circle_remove.png';
+$fr_show_icon_url: '_prefab/frame/icons/black/glyphicons_051_eye_open.png';
+$fr_minus_icon_url: '_prefab/frame/icons/black/glyphicons_191_circle_minus.png';
+$fr_facebook_icon_url: '_prefab/frame/icons/black/glyphicons_social_30_facebook.png';
+$fr_twitter_icon_url: '_prefab/frame/icons/black/glyphicons_social_31_twitter.png';
+$fr_linkedin_icon_url: '_prefab/frame/icons/black/glyphicons_social_17_linked_in.png';
+$fr_github_icon_url: '_prefab/frame/icons/black/glyphicons_social_21_github.png';
+$fr_resource_icon_url: '_prefab/frame/icons/black/glyphicons_050_link.png';
+$fr_file_icon_url: '_prefab/frame/icons/black/glyphicons_036_file.png';
+
+
+$fr_resource_icon_video_url: '_prefab/frame/icons/black/glyphicons_180_facetime_video.png';
+$fr_resource_icon_audio_url: '_prefab/frame/icons/black/glyphicons_184_volume_up.png';
+$fr_resource_icon_image_url: '_prefab/frame/icons/black/glyphicons_011_camera.png';
+
+$fr_resource_icon_doc_url: '_prefab/frame/icons/black/glyphicons_036a_doc_file.png';
+$fr_resource_icon_pdf_url: '_prefab/frame/icons/black/glyphicons_036b_pdf_file.png';
+$fr_resource_icon_xls_url: '_prefab/frame/icons/black/glyphicons_036c_xls_file.png';
+$fr_resource_icon_ppt_url: '_prefab/frame/icons/black/glyphicons_036d_ppt_file.png';
+$fr_resource_icon_swf_url: '_prefab/frame/icons/black/glyphicons_036e_swf_file.png';
+
+
+$fr_light_add_icon_url: '_prefab/frame/icons/white/glyphicons_190_circle_plus.png';
+$fr_light_search_icon_url: '_prefab/frame/icons/white/glyphicons_027_search.png';
+$fr_light_edit_icon_url: '_prefab/frame/icons/white/glyphicons_136_cogwheel.png';
+$fr_light_delete_icon_url: '_prefab/frame/icons/white/glyphicons_192_circle_remove.png';
+$fr_light_show_icon_url: '_prefab/frame/icons/white/glyphicons_051_eye_open.png';
+$fr_light_minus_icon_url: '_prefab/frame/icons/white/glyphicons_191_circle_minus.png';
+
+// Tables
+$fr_data_table_margin: 10px 0;
+
+  // Condensed
+$fr_condensed_data_table_td_padding: 1px 0;
+
+  // td
+$fr_data_table_td_padding: 4px 0;
+$fr_data_table_td_border_bottom: 1px solid #ccc;
+
+  // th
+$fr_data_table_th_border_bottom: 2px solid #999;

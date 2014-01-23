@@ -1,0 +1,26 @@
+// Utilities
+
+.inconspicuous,
+.system_check {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  @include negative_text_indent();
+}
+
+.clippable {
+  .full {
+    display: none;
+  }
+  &.unclipped {
+    .full {
+      display: block;
+    }
+  color: blue;
+    .truncated {
+      display: none;
+    }
+  }
+}

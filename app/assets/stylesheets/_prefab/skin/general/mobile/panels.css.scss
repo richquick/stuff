@@ -1,0 +1,21 @@
+// Panels
+.panel {
+  background: $sk_panel_color;
+  @include rounded_corners($sk_panel_radius);
+  @include box_shadow($sk_panel_shadow_left_offset,$sk_panel_shadow_right_offset,$sk_panel_shadow_blur,$sk_panel_shadow_color);
+  &:not(.clear) {
+    border: $sk_panel_border;
+  }
+}
+
+// TECHDEBT
+.promo {
+  &.hanging {
+    display: none;
+  }
+  @include rounded_corners($sk_panel_radius);
+  @include box_shadow($sk_panel_shadow_left_offset,$sk_panel_shadow_right_offset,$sk_panel_shadow_blur,$sk_panel_shadow_color);
+  &:not(.clear) {
+    border: $sk_panel_border;
+  }
+}

@@ -1,0 +1,96 @@
+// Buttons
+
+// Specific styles for a.button
+a.button {
+	display: inline-block;
+  text-decoration: none;
+}
+
+// Specific styles for button tag
+button {
+	border: none;
+  cursor: pointer;
+  margin-left: 0;
+}
+
+a.button,
+button,
+.button {
+  background-color: $fr_button_background_color;
+  color: $fr_button_text_color;
+  padding: $fr_button_padding;
+  font-size: $fr_button_font_size;
+  &:hover {
+    background: $fr_button_hover_background;
+  }
+  &.weak {
+    font-size: $fr_weak_button_font_size;
+    padding: $fr_weak_button_padding;
+  }
+  &.condensed:not(.x) {
+    background-color: $fr_condensed_button_background_color;
+    color: $fr_condensed_button_color;
+    font-size: $fr_condensed_button_font_size;
+    margin-top: $fr_condensed_button_top_margin;
+    padding-left: $fr_condensed_button_padding_left;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &.add,
+  &.new {
+    background-image: asset_url($fr_light_add_icon_url);
+    @include icon($fr_icon_size,$fr_icon_padding_left);
+  }
+
+  &.search {
+    background-image: asset_url($fr_light_search_icon_url);
+    @include icon($fr_icon_size,$fr_icon_padding_left);
+  }
+  &.show {
+    background-image: asset_url($fr_light_search_icon_url);
+    @include icon($fr_icon_size,$fr_icon_padding_left);
+  }
+  &.delete {
+    background-image: asset_url($fr_light_delete_icon_url);
+    @include icon($fr_icon_size,$fr_icon_padding_left);
+  }
+  &.minus {
+    background-image: asset_url($fr_light_minus_icon_url);
+    @include icon($fr_icon_size,$fr_icon_padding_left);
+  }
+  &.edit {
+    background-image: asset_url($fr_light_edit_icon_url);
+    @include icon($fr_icon_size,$fr_icon_padding_left);
+  }
+  &.weak,
+  &.condensed {
+    @include icon($fr_weak_icon_size,$fr_weak_icon_padding_left);
+  }
+  &.condensed {
+    &.add,
+    &.new {
+      background-image: asset_url($fr_add_icon_url);
+    }
+
+    &.search {
+      background-image: asset_url($fr_search_icon_url);
+    }
+    &.show {
+      background-image: asset_url($fr_search_icon_url);
+    }
+    &.delete {
+      background-image: asset_url($fr_delete_icon_url);
+    }
+    &.minus {
+      background-image: asset_url($fr_minus_icon_url);
+    }
+    &.edit {
+      background-image: asset_url($fr_edit_icon_url);
+    }
+  }
+  &.strong {
+    font-size: $fr_strong_button_font_size;
+    padding: $fr_strong_button_padding;
+  }
+}

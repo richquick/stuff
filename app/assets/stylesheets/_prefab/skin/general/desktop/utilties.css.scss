@@ -1,0 +1,10 @@
+// Utilities
+
+// TECHDEBT - Move to grid.css.scss
+.grid {
+  .section {
+    &.asymetric {
+      margin-left: $sk_desktop_asymetric_margin_left;
+    }
+  }
+}

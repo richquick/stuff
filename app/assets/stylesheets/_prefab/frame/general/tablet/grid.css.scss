@@ -1,0 +1,84 @@
+// Grid
+
+body {
+  margin: $fr_tablet_body_margin_top 0 0 0;
+}
+
+.stripe {
+  .wrapper {
+    &.fixed {
+      @include auto_margins();
+      &.stepped{
+        max-width: $fr_fixed_wrapper_width_tablet;
+      }
+    }
+  }
+}
+
+
+.grid {
+  @include clearfix();
+  &.two_column {
+    .content {
+      padding-bottom: $fr_two_col_content_padding_bottom;
+      &.main {
+        float: $fr_two_col_main_column_float;
+        @include column($fr_two_col_main_column_width_tablet);
+      }
+      &.second {
+        float: $fr_two_col_second_column_float;
+        @include column($fr_two_col_second_column_width_tablet);
+      }
+    }
+    &.alternative.layout {
+      .content {
+        padding-top: $fr_two_col_alt_content_padding_top;
+        &.main {
+          @include column($fr_two_col_alt_main_column_width_tablet);
+        }
+        &.second {
+          @include column($fr_two_col_alt_second_column_width_tablet);
+        }
+      }
+    }
+    &.reversed {
+      .content {
+        &.main {
+          float: $fr_main_column_float_reversed;
+        }
+        &.second {
+          float: $fr_second_column_float_reversed;
+        }
+      }
+    }
+  }
+}
+
+.asymetric {
+  .grid {
+    &.two_column {
+      .content {
+        &.main,
+        &.second {
+          width: $fr_asymetric_grid_two_col_width;
+        }
+      }
+    }
+  }
+}
+
+// TECHDEBT
+.supplementary {
+  &.hanging {
+    border-left: 1px solid #ccc;
+    position: absolute;
+    left: 105%;
+    top: 5px;
+    width: 55%;
+    padding: 1% 0 1% 3% ;
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+

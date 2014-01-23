@@ -1,0 +1,10 @@
+== README
+
+We're using:
+
+* SCSS
+* JQuery (1.x for IE < 9)
+* jQuery 2.x for modern browsers
+* Require JS
+* Jasmine testing
+

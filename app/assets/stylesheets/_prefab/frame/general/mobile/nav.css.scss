@@ -1,0 +1,25 @@
+// Navigation
+
+.nav {
+  @include horizontal_nav($fr_nav_height,$fr_nav_width,$fr_nav_background_color);
+  color: $fr_nav_text_color;
+  .group {
+    padding-top: $fr_nav_group_padding;
+    padding-left: $fr_nav_group_padding/2;
+    padding-bottom: $fr_nav_group_padding;
+    float: left;
+    &.second {
+      float: right;
+      padding-right: $fr_nav_group_padding;
+    }
+  }
+  a {
+    position: relative;
+    text-decoration: none;
+    color: $fr_nav_link_color;
+    padding: $fr_nav_link_padding;
+    &:hover {
+      background: $fr_nav_link_hover_background;
+    }
+  }
+}

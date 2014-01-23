@@ -1,0 +1,19 @@
+// Panels
+
+.panel {
+  &.tight {
+    min-width: $fr_tight_panel_tablet_min_width;
+    max-width: $fr_tight_panel_tablet_max_width;
+    @include auto_margins();
+  }
+}
+
+// TECHDEBT
+.promo {
+  &.hanging {
+    position: absolute;
+    left: 108%;
+    top: 0px;
+    width: 72%;
+  }
+}
