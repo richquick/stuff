@@ -5,7 +5,7 @@ if (typeof pf.common == 'undefined') {
   require(["/assets/_prefab/general/common.js"], function(common) {
     common.init();
   });
-};
+}
 
 pf.validate = {
   formFieldsList: [
@@ -89,7 +89,7 @@ pf.validate = {
  // //         alert(subRequired + ' :: ' + errorMessageArray.indexOf(subRequired));
  //        }
  //      });
-    };
+    }
     return errorMessageArray;
   },
   sanitizeErrorMessages: function(errorMessageArray) {
@@ -100,7 +100,7 @@ pf.validate = {
     $.each(errorMessageArray, function(index, errorMessage) {
       if (index == 0) {
         errorMessage = pf.common.firstLetterToUpperCase(errorMessage); // Capitalise first letter of first error message
-      };
+      }
       if (index == errorMessageArray.length - 1) {
         e.push(pf.common.removeTrailingPeriod(errorMessage) + ""); // Add period to last error message
       } else if (index == 0 && errorMessageArray.length == 2) {
@@ -111,7 +111,7 @@ pf.validate = {
         e.push(pf.common.removeTrailingPeriod(errorMessage) + ", and"); // Add ', and' to second to last message (3 or more total messages)
       } else if (index > 0) {
         e.push(pf.common.removeTrailingPeriod(errorMessage) + ","); // Else add comma to any message that's not the first one
-      };
+      }
     });
     return e.join(pf.validate.conventions.errorMessageSeparator);
   },
@@ -244,8 +244,8 @@ pf.validate = {
         $.each(substitutionHash, function(substitutionName, substitutionValue) {
           string = (pf.validate.errorMessages[substitutionName] == string) ? substitutionValue : string;
         });
-      };
-    };
+      }
+    }
     return string;
   },
   processErrorMessage: function(string,validationName,$element) {
@@ -255,14 +255,12 @@ pf.validate = {
       case 'MinLength':
         value = pf.validate.getMinLength($element);
         return pf.common.interpolateString(pf.validate.errorMessages.MinLength,value);
-      break;
       case 'MaxLength':
         value = pf.validate.getMaxLength($element);
         return pf.common.interpolateString(pf.validate.errorMessages.MaxLength,value);
-      break;
       default:
         return string;
-    };
+    }
   },
   validateRequired: function($element) {
     return !(pf.common.isFieldEmpty($element)); // Return binary (true/false)
@@ -298,12 +296,13 @@ pf.validate = {
     var customValidationErrorMessage = $element.attr(pf.validate.dataAttributes.customValidationMessage);
     var elementValue = $element.val();
     var pattern = new RegExp(customValidationRegex);
+    var errorMessage;
     // Is there a custom error message?
     if (typeof customValidationErrorMessage !== 'undefined' && customValidationErrorMessage !== false) {
-      var errorMessage = (customValidationErrorMessage.length > 0) ? customValidationErrorMessage : pf.validate.errorMessages.CustomValidationDefault;
+      errorMessage = (customValidationErrorMessage.length > 0) ? customValidationErrorMessage : pf.validate.errorMessages.CustomValidationDefault;
     } else {
-      var errorMessage = pf.validate.errorMessages.CustomValidationDefault;
-    };
+      errorMessage = pf.validate.errorMessages.CustomValidationDefault;
+    }
     return !(pattern.test(elementValue) || (pf.common.isEmpty(elementValue))) ? errorMessage : false; // Return binary (true/false)
   },
   validate: function($element) {
@@ -317,7 +316,7 @@ pf.validate = {
       'hasMaxLength'        : 'MaxLength',
       'shouldBeNumber'      : 'Number',
       'shouldBeInteger'     : 'Integer'
-    };
+    }
     // Do each of the standard validations
     $.each(validationHash, function(validationCheck, validationName) {
       var codeToEval = "\
@@ -325,8 +324,8 @@ pf.validate = {
           var resultHolder = pf.validate.validate" + validationName + "($element);\
           if (!resultHolder) {\
             errorMessage.push (pf.validate.processErrorMessage(pf.validate.errorMessages." + validationName + ",'" + validationName +"',$element));\
-          };\
-        };\
+          }\
+        }\
       ";
       eval(codeToEval);
     });
@@ -339,15 +338,15 @@ pf.validate = {
       if (!resultHolder) {
         var matchErrorMessage = pf.validate.errorMessages.Matches + pf.common.interpolateString(pf.validate.processErrorMessage(pf.validate.snippets.matchElementIDHolder,$element),$matchWithID) // Add hidden element to hold ID
         errorMessage.push (matchErrorMessage); // Set match error message
-      };
-    };
+      }
+    }
     // Does it have a custom validation?
     if (pf.validate.hasCustomValidation($element)) {
       var resultHolder = pf.validate.validateCustom($element);
       if (resultHolder) {
         errorMessage.push (resultHolder); // Set custom validation message
-      };
-    };
+      }
+    }
 
     // FINALLY - Are there any error messages?
     if (errorMessage.length > 0) {
@@ -355,7 +354,7 @@ pf.validate = {
     } else {
       pf.validate.removeErrorClasses($element);
       return false;
-    };
+    }
   },
   validateAll: function($form) {
     var $fields = $(pf.validate.formFieldsList.join(","),$form);
@@ -368,7 +367,7 @@ pf.validate = {
       if (errorMessage != false) {
         pf.validate.addError($this,errorMessage);
         toSubmit = false;
-      };
+      }
     });
     return toSubmit;
   },
@@ -378,7 +377,7 @@ pf.validate = {
       return toSubmit; // Returns true if no error messages, else false
     });
   }
-};
+}
 
 define(function () {
   pf.validate.setupValidation();
