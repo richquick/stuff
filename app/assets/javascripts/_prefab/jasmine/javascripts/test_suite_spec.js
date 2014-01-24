@@ -416,6 +416,11 @@ describe("pf:", function() {
         expect(pf.validate.isPhoneField($('<a type="email">'))).toEqual(false);
       });
     });
+    describe("pf.validate.isSubstitutedErrorField:", function() {
+      it("is a function", function() {
+        expect(typeof pf.validate.isSubstitutedErrorField).toEqual('function');
+      });
+    });
     describe("pf.validate.isPasswordField:", function() {
       it("is a function", function() {
         expect(typeof pf.validate.isPasswordField).toEqual('function');
@@ -546,6 +551,11 @@ describe("pf:", function() {
     describe("pf.validate.getFieldType:", function() {
       it("is a function", function() {
         expect(typeof pf.validate.getFieldType).toEqual('function');
+      });
+    });
+    describe("pf.validate.getFieldTypeForSubsitutedError:", function() {
+      it("is a function", function() {
+        expect(typeof pf.validate.getFieldTypeForSubsitutedError).toEqual('function');
       });
     });
     describe("pf.validate.getMinLength:", function() {

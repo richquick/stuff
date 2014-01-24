@@ -1,12 +1,5 @@
 // To do - bespoke messages for name etc. get specs working with require.js, get specs hooked up to Rake / Rspec / PhantomJS
 // To do later - scrollTo, dates, telephone, live validation,
-
-if (typeof pf.common == 'undefined') {
-  require(["/assets/_prefab/general/common.js"], function(common) {
-    common.init();
-  });
-}
-
 pf.validate = {
   formFieldsList: [
     "input",
@@ -20,8 +13,13 @@ pf.validate = {
     MaxLength:                "use fewer than #{} characters",
     CustomValidationDefault:  "check this field, there's a problem with it",
     RequiredCheckbox:         "check this checkbox before continuing",
-    Integer:                  "use a whole number in this field",
     Number:                   "use a number in this field",
+    Integer:                  "use a whole number in this field",
+    fieldTypesForSubsitions:   {
+      'isPasswordField':      "password",
+      'shouldBeNumber':       "number",
+      'shouldBeInteger':      "integer"
+    },
     substitutions: {
       'name': {
         Require:             "tell us your name"
@@ -37,6 +35,12 @@ pf.validate = {
         MinLength:            "use a password with at least #{} characters",
         MaxLength:            "use a password with no more than #{} characters",
         Matches:              "make sure passwords match"
+      },
+      'number': {
+        Matches:              "make sure numbers match (with other field)"
+      },
+      'integer': {
+        Matches:              "make sure numbers match"
       }
     },
   },
@@ -185,6 +189,13 @@ pf.validate = {
   isValidPhoneField: function($element) {
     return (pf.common.isValidPhoneNumber(pf.common.stripTrailingSpaces($element.val()))); // Return binary (true/false)
   },
+  isSubstitutionField: function($element) {
+    // TECHDEBT - WORRIED ABOUT NAMING - eg 'subsition' isn't specific enough as there are others
+
+    // TECHDEBT - Want to make more flexible so we can handle more than passwords
+    // pf.validate.errorMessages.fieldTypesForSubsitions
+    return pf.validate.isPasswordField($element);
+  },
   hasMinLength: function($element) {
     var attr = $element.attr(pf.validate.dataAttributes.minLength);
     return (typeof attr !== 'undefined' && attr !== false); // Return binary (true/false)
@@ -231,10 +242,21 @@ pf.validate = {
   getMaxLength: function($element) {
     return $element.attr(pf.validate.dataAttributes.maxLength);
   },
+  getFieldTypeForSubsitution: function($element) {
+    // TECHDEBT - WORRIED ABOUT NAMING - eg 'subsition' isn't specific enough as there are others
+
+    // TECHDEBT - Want to make more flexible so we can handle more than passwords
+    // pf.validate.errorMessages.fieldTypesForSubsitions
+    substitutionFieldType = 'password';
+
+    return substitutionFieldType;
+  },
   processErrorMessageSubstitutions: function(string,$element) {
+    // TECHDEBT - WORRIED ABOUT NAMING - eg 'subsition' isn't specific enough as there are others
+    // TECHDEBT - Method seems too complicated - can we split out?
     if (typeof $element !== 'undefined' && $element !== false) {
-      if (pf.validate.hasFieldType($element) || pf.validate.isPasswordField($element)) {
-        var fieldType = (pf.validate.isPasswordField($element)) ? 'password' : pf.common.snakeCaseToCamelCase(pf.validate.getFieldType($element));
+      if (pf.validate.hasFieldType($element) || pf.validate.isSubstitutionField($element)) {
+        var fieldType = (pf.validate.isSubstitutionField($element)) ? pf.validate.getFieldTypeForSubsitution($element) : pf.common.snakeCaseToCamelCase(pf.validate.getFieldType($element));
         var substitutionHash = pf.validate.errorMessages.substitutions[fieldType];
         $.each(substitutionHash, function(substitutionName, substitutionValue) {
           string = (pf.validate.errorMessages[substitutionName] == string) ? substitutionValue : string;
@@ -346,8 +368,8 @@ pf.validate = {
     // FINALLY - Are there any error messages?
     if (errorMessage.length > 0) {
       var fieldType;
-      if (pf.validate.hasFieldType($element) || pf.validate.isPasswordField($element)) {
-        fieldType = (pf.validate.isPasswordField($element)) ? 'password' : pf.common.snakeCaseToCamelCase(pf.validate.getFieldType($element));
+      if (pf.validate.hasFieldType($element) || pf.validate.isSubstitutionField($element)) {
+        fieldType = (pf.validate.isSubstitutionField($element)) ? pf.validate.getFieldTypeForSubsitution($element) : pf.common.snakeCaseToCamelCase(pf.validate.getFieldType($element));
       } else {
         fieldType = false;
       }
@@ -380,6 +402,6 @@ pf.validate = {
   }
 };
 
-define(function () {
+define(['jquery','common'], function() {
   pf.validate.setupValidation();
 });

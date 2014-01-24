@@ -1,12 +1,78 @@
 // Manifest file
 
-// var pf = {
-//   requiredElements: {
-//     common: 'html',
-//     validate: 'form'
-//   }
-// };
+// Set up the pf (prefab) object
+// And create a list of when each module is required, based on jQuery/CSS selectors
+// As well as a requireAll override for Jasmine tests etc.
 
-require(["/assets/_prefab/general/validate.js"], function(validate) {
-  validate.init();
+var pf = {
+  requiredElements: {
+    validate:         'form'
+  },
+  requireAll:         'body#require_all',
+  requireSpecs:       'body#require_all.spec_runner'
+};
+
+// Set jQuery version based on older IE or not
+var jQueryVersion = (!document.getElementById('ie')) ? "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min" : "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min";
+
+// Require config
+require.config({
+  baseUrl:            '/assets/_prefab/',
+  paths: {
+    "jquery":         jQueryVersion,
+    "common":         "general/common",
+    "validate":       "general/validate",
+    jasmine:          "jasmine/javascripts/jasmine",
+    "jasmine-html":   "jasmine/javascripts/jasmine-html",
+    spec:             "specs/"
+  },
+  shim: {
+    jasmine: {
+      exports:        "jasmine"
+    },
+    "jasmine-html": {
+      deps:           ["jasmine"],
+      exports:        "jasmine"
+    }
+  }
+});
+
+// Only require modules on pages they're needed
+require(['jquery'], function() {
+  var requireAll = ($(pf.requireAll).length >0);
+  $.each(pf.requiredElements, function(moduleName, requiredElement) {
+    if($(requiredElement).length > 0 || requireAll) {
+      require([moduleName], function(f) {
+        f.init();
+      });
+    }
+  });
+
+  // Require Speces, for Spec Runner Page
+  if ($(pf.requireSpecs).length > 0) {
+    require(['jquery', 'jasmine-html'], function($, jasmine){
+      var jasmineEnv = jasmine.getEnv();
+      jasmineEnv.updateInterval = 1000;
+
+      var htmlReporter = new jasmine.HtmlReporter();
+
+      jasmineEnv.addReporter(htmlReporter);
+
+      jasmineEnv.specFilter = function(spec) {
+        return htmlReporter.specFilter(spec);
+      };
+
+      var specs = [];
+
+      specs.push('spec/_dependencies_spec');
+      specs.push('spec/common_spec');
+      specs.push('spec/validate_spec');
+
+      $(function(){
+        require(specs, function(){
+          jasmineEnv.execute();
+        });
+      });
+    });
+  }
 });
