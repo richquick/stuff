@@ -1,5 +1,4 @@
-// To do - bespoke messages for name etc. get specs working with require.js, get specs hooked up to Rake / Rspec / PhantomJS
-// To do later - scrollTo, dates, telephone, live validation,
+// To do later - scrollTo, dates, telephone, live validation, get specs hooked up to Rake / Rspec / PhantomJS
 pf.validate = {
   formFieldsList: [
     "input",
