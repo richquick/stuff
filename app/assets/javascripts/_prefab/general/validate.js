@@ -24,7 +24,7 @@ pf.validate = {
     Number:                   "use a number in this field",
     substitutions: {
       'name': {
-        Required:             "tell us your name"
+        Require:             "tell us your name"
       },
       'firstName': {
         Required:             "tell us your first name"
@@ -67,33 +67,30 @@ pf.validate = {
       }
     }
   },
-  removeRequiredIfOtherErrors: function(errorMessageArray) {
+  removeRequiredIfOtherErrors: function(errorMessageArray,fieldType) {
     // Remove "Required" error message if there are any other messages
     if (errorMessageArray.length > 1) {
-      // Default Required Message
-      // alert(errorMessageArray.indexOf(pf.validate.errorMessages.Required) + " :: " + pf.validate.errorMessages.Required);
-      // // errorMessageArray.splice(errorMessageArray.indexOf(pf.validate.errorMessages.Required),1);
-      // // Substitutions
- //      var substitutionHash = pf.validate.errorMessages.substitutions;
- //      $.each(substitutionHash, function(substitutionName, substitutionValue) {
- //        var subRequired = pf.validate.errorMessages.substitutions[substitutionName].Required;
- //        if (subRequired !== 'undefined' && subRequired !== undefined && subRequired !== false) {
- //          if (substitutionValue.Required == subRequired) {
- //            // alert(substitutionValue);
- //          } else {
- //            alert "hi";
- //          }
- //          // if (subRequired) {
- //          //   errorMessageArray.splice(errorMessageArray.indexOf(subRequired),1);
- //          // }
- // //         alert(subRequired + ' :: ' + errorMessageArray.indexOf(subRequired));
- //        }
- //      });
+      if (!fieldType) {
+        // If there's no fieldtype there's no substitutions so use default
+        if(errorMessageArray.indexOf(pf.validate.errorMessages.Required) === 0) {
+          errorMessageArray.splice(errorMessageArray.indexOf(pf.validate.errorMessages.Required),1);
+        }
+      } else {
+        // Removed the required field for this fieldType
+        var substitutionHash = pf.validate.errorMessages.substitutions[fieldType];
+        $.each(substitutionHash, function(substitutionName, substitutionValue) {
+          if (substitutionValue.Required !== 'undefined' && substitutionValue.Required !== false) {
+            if(errorMessageArray.indexOf(substitutionValue) === 0) {
+              errorMessageArray.splice(errorMessageArray.indexOf(substitutionValue),1);
+            }
+          }
+        });
+      }
     }
     return errorMessageArray;
   },
-  sanitizeErrorMessages: function(errorMessageArray) {
-    return pf.validate.removeRequiredIfOtherErrors(errorMessageArray);
+  sanitizeErrorMessages: function(errorMessageArray,fieldType) {
+    return pf.validate.removeRequiredIfOtherErrors(errorMessageArray,fieldType);
   },
   joinErrorMessages: function(errorMessageArray) {
     var e = [];
@@ -115,9 +112,9 @@ pf.validate = {
     });
     return e.join(pf.validate.conventions.errorMessageSeparator);
   },
-  processErrorMessages: function(errorMessageArray) {
+  processErrorMessages: function(errorMessageArray,fieldType) {
     if ($.isArray(errorMessageArray)) {
-      return (pf.validate.joinErrorMessages(pf.validate.sanitizeErrorMessages(errorMessageArray)));
+      return (pf.validate.joinErrorMessages(pf.validate.sanitizeErrorMessages(errorMessageArray,fieldType)));
     } else if (typeof(errorMessageArray) == 'string') {
       return errorMessageArray;
     } else {
@@ -238,8 +235,6 @@ pf.validate = {
     if (typeof $element !== 'undefined' && $element !== false) {
       if (pf.validate.hasFieldType($element) || pf.validate.isPasswordField($element)) {
         var fieldType = (pf.validate.isPasswordField($element)) ? 'password' : pf.common.snakeCaseToCamelCase(pf.validate.getFieldType($element));
-
-        alert(typeof(pf.validate.errorMessages.substitutions[fieldType]) == 'object');
         var substitutionHash = pf.validate.errorMessages.substitutions[fieldType];
         $.each(substitutionHash, function(substitutionName, substitutionValue) {
           string = (pf.validate.errorMessages[substitutionName] == string) ? substitutionValue : string;
@@ -254,10 +249,10 @@ pf.validate = {
     switch (validationName) {
       case 'MinLength':
         value = pf.validate.getMinLength($element);
-        return pf.common.interpolateString(pf.validate.errorMessages.MinLength,value);
+        return pf.common.interpolateString(pf.validate.processErrorMessageSubstitutions(pf.validate.errorMessages.MinLength,$element),value);
       case 'MaxLength':
         value = pf.validate.getMaxLength($element);
-        return pf.common.interpolateString(pf.validate.errorMessages.MaxLength,value);
+        return pf.common.interpolateString(pf.validate.processErrorMessageSubstitutions(pf.validate.errorMessages.MaxLength,$element),value);
       default:
         return string;
     }
@@ -269,26 +264,26 @@ pf.validate = {
     return ($element.is(":checked")); // Return binary (true/false)
   },
   validateEmail: function($element) {
-    return ((pf.common.isFieldEmpty($element) && !pf.validate.isRequired($element)) || pf.validate.isValidEmailField($element));
+    return (pf.common.isEmptyOrNotRequired($element) || pf.validate.isValidEmailField($element));
   },
   validatePhone: function($element) {
-    return ((pf.common.isFieldEmpty($element) && !pf.validate.isRequired($element)) || pf.validate.isValidPhoneField($element));
+    return (pf.common.isEmptyOrNotRequired($element) || pf.validate.isValidPhoneField($element));
   },
   validateMinLength: function($element) {
-    return ($element.val().length >= pf.validate.getMinLength($element));
+    return (pf.common.isEmptyOrNotRequired($element) || $element.val().length >= pf.validate.getMinLength($element));
   },
   validateMaxLength: function($element) {
-    return ($element.val().length <= pf.validate.getMaxLength($element));
+    return (pf.common.isEmptyOrNotRequired($element) || $element.val().length <= pf.validate.getMaxLength($element));
   },
-  validateThatValueMatches: function($thisElement,matchElementID) {
+  validateThatValueMatches: function($element,matchElementID) {
     var $matchElement = $(pf.common.stringToID(matchElementID));
-    return (pf.common.isValidID(matchElementID) && !pf.common.isFieldEmpty($thisElement) && ($matchElement.length == 1) && ($thisElement.val() == $matchElement.val())); // Return binary (true/false)
+    return (pf.common.isEmptyOrNotRequired($element) || (pf.common.isValidID(matchElementID) && !pf.common.isFieldEmpty($element) && ($matchElement.length == 1) && ($element.val() == $matchElement.val()))); // Return binary (true/false)
   },
   validateNumber: function($element) {
-    return (pf.common.isNumber($element.val()));
+    return (pf.common.isEmptyOrNotRequired($element) || pf.common.isNumber($element.val()));
   },
   validateInteger: function($element) {
-    return (pf.common.isInteger($element.val()));
+    return (pf.common.isEmptyOrNotRequired($element) || pf.common.isInteger($element.val()));
   },
   validateCustom: function($element) {
     // TECHDEBT - There must be a way to simplify this
@@ -336,7 +331,7 @@ pf.validate = {
       var resultHolder = pf.validate.validateThatValueMatches($element,$matchWithID);
       // TECHDEBT - Not happy that this breaks convention by having !resultHolder
       if (!resultHolder) {
-        var matchErrorMessage = pf.validate.errorMessages.Matches + pf.common.interpolateString(pf.validate.processErrorMessage(pf.validate.snippets.matchElementIDHolder,$element),$matchWithID); // Add hidden element to hold ID
+        var matchErrorMessage = pf.validate.processErrorMessage(pf.validate.errorMessages.Matches,'Matches',$element) + pf.common.interpolateString(pf.validate.snippets.matchElementIDHolder,$matchWithID); // Add hidden element to hold ID
         errorMessage.push (matchErrorMessage); // Set match error message
       }
     }
@@ -350,7 +345,13 @@ pf.validate = {
 
     // FINALLY - Are there any error messages?
     if (errorMessage.length > 0) {
-      return (pf.validate.processErrorMessages(errorMessage));
+      var fieldType;
+      if (pf.validate.hasFieldType($element) || pf.validate.isPasswordField($element)) {
+        fieldType = (pf.validate.isPasswordField($element)) ? 'password' : pf.common.snakeCaseToCamelCase(pf.validate.getFieldType($element));
+      } else {
+        fieldType = false;
+      }
+      return (pf.validate.processErrorMessages(errorMessage,fieldType));
     } else {
       pf.validate.removeErrorClasses($element);
       return false;

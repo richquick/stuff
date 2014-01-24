@@ -54,7 +54,11 @@ pf.common = {
     return (/^[a-zA-Z][a-zA-Z0-9_-]+$/.test(testID)); // Return binary (true/false)
   },
   isEmpty: function(string) {
-    return (pf.common.stripTrailingSpaces(string).length <= 0); // Return binary (true/false)
+    var string = pf.common.stripTrailingSpaces(string);
+    return (string.length <= 0); // Return binary (true/false)
+  },
+  isEmptyOrNotRequired: function($element) {
+    return (pf.common.isFieldEmpty($element) && !pf.validate.isRequired($element));
   },
   isFieldEmpty: function($element) {
     return (pf.common.isEmpty($element.val())); // Return binary (true/false)

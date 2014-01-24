@@ -256,6 +256,11 @@ describe("pf:", function() {
         expect(pf.common.isEmpty(' aaa ')).toEqual(false);
       });
     });
+    describe("pf.common.isEmptyOrNotRequired:", function() {
+      it("is a function", function() {
+        expect(typeof pf.common.isEmptyOrNotRequired).toEqual('function');
+      });
+    });
     describe("pf.common.isFieldEmpty:", function() {
       it("is a function", function() {
         expect(typeof pf.common.isFieldEmpty).toEqual('function');
