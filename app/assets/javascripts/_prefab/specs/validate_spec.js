@@ -2,26 +2,6 @@ describe("pf.validate:", function() {
   it("is an object", function() {
     expect(typeof pf.validate).toEqual('object');
   });
-  describe("pf.validate.removeRequiredIfOtherErrors:", function() {
-    it("is a function", function() {
-      expect(typeof pf.validate.removeRequiredIfOtherErrors).toEqual('function');
-    });
-  });
-  describe("pf.validate.sanitizeErrorMessages:", function() {
-    it("is a function", function() {
-      expect(typeof pf.validate.sanitizeErrorMessages).toEqual('function');
-    });
-  });
-  describe("pf.validate.joinErrorMessages:", function() {
-    it("is a function", function() {
-      expect(typeof pf.validate.joinErrorMessages).toEqual('function');
-    });
-  });
-  describe("pf.validate.processErrorMessageSubstitutions:", function() {
-    it("is a function", function() {
-      expect(typeof pf.validate.processErrorMessageSubstitutions).toEqual('function');
-    });
-  });
   describe("pf.validate.processErrorMessages:", function() {
     it("is a function", function() {
       expect(typeof pf.validate.processErrorMessages).toEqual('function');
@@ -49,46 +29,6 @@ describe("pf.validate:", function() {
     });
     it("should fail if input is not an array or a string", function() {
       expect(pf.validate.processErrorMessages({key:"value"})).toEqual(false);
-    });
-  });
-  describe("pf.validate.addError:", function() {
-    it("is a function", function() {
-      expect(typeof pf.validate.addError).toEqual('function');
-    });
-  });
-  describe("pf.validate.findParentHolder:", function() {
-    it("is a function", function() {
-      expect(typeof pf.validate.findParentHolder).toEqual('function');
-    });
-  });
-  describe("pf.validate.findLabelAfter:", function() {
-    it("is a function", function() {
-      expect(typeof pf.validate.findLabelAfter).toEqual('function');
-    });
-  });
-  describe("pf.validate.addErrorClasses:", function() {
-    it("is a function", function() {
-      expect(typeof pf.validate.addErrorClasses).toEqual('function');
-    });
-  });
-  describe("pf.validate.removeErrorClasses:", function() {
-    it("is a function", function() {
-      expect(typeof pf.validate.removeErrorClasses).toEqual('function');
-    });
-  });
-  describe("pf.validate.createErrorMessageHolder:", function() {
-    it("is a function", function() {
-      expect(typeof pf.validate.createErrorMessageHolder).toEqual('function');
-    });
-  });
-  describe("pf.validate.checkForErrorMessageHolder:", function() {
-    it("is a function", function() {
-      expect(typeof pf.validate.checkForErrorMessageHolder).toEqual('function');
-    });
-  });
-  describe("pf.validate.writeErrorMessage:", function() {
-    it("is a function", function() {
-      expect(typeof pf.validate.writeErrorMessage).toEqual('function');
     });
   });
   describe("pf.validate.isRequired:", function() {
@@ -145,11 +85,27 @@ describe("pf.validate:", function() {
       expect(pf.validate.isPhoneField($('<a type="email">'))).toEqual(false);
     });
   });
-  describe("pf.validate.isSubstitionField:", function() {
+  describe("pf.validate.removeRequiredIfOtherErrors:", function() {
     it("is a function", function() {
-      expect(typeof pf.validate.isSubstitutionField).toEqual('function');
+      expect(typeof pf.validate.removeRequiredIfOtherErrors).toEqual('function');
     });
   });
+  describe("pf.validate.sanitizeErrorMessages:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.sanitizeErrorMessages).toEqual('function');
+    });
+  });
+  describe("pf.validate.joinErrorMessages:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.joinErrorMessages).toEqual('function');
+    });
+  });
+  describe("pf.validate.processErrorMessageSubstitutions:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.processErrorMessageSubstitutions).toEqual('function');
+    });
+  });
+
   describe("pf.validate.isPasswordField:", function() {
     it("is a function", function() {
       expect(typeof pf.validate.isPasswordField).toEqual('function');
@@ -190,6 +146,52 @@ describe("pf.validate:", function() {
     });
     it("should fail for phone input tag with invalid phone number", function() {
       expect(pf.validate.isValidPhoneField($('<input type="phone" value="hello@this.com">'))).toEqual(false);
+    });
+  });
+  describe("pf.validate.addError:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.addError).toEqual('function');
+    });
+  });
+  describe("pf.validate.findParentHolder:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.findParentHolder).toEqual('function');
+    });
+  });
+  describe("pf.validate.findLabelAfter:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.findLabelAfter).toEqual('function');
+    });
+  });
+  describe("pf.validate.addErrorClasses:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.addErrorClasses).toEqual('function');
+    });
+  });
+  describe("pf.validate.removeErrorClasses:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.removeErrorClasses).toEqual('function');
+    });
+  });
+  describe("pf.validate.createErrorMessageHolder:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.createErrorMessageHolder).toEqual('function');
+    });
+  });
+  describe("pf.validate.checkForErrorMessageHolder:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.checkForErrorMessageHolder).toEqual('function');
+    });
+  });
+  describe("pf.validate.writeErrorMessage:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.writeErrorMessage).toEqual('function');
+    });
+  });
+
+  describe("pf.validate.isSubstitionField:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.isSubstitutionField).toEqual('function');
     });
   });
   describe("pf.validate.hasFieldType:", function() {

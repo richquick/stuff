@@ -21,7 +21,7 @@ pf.validate = {
     },
     substitutions: {
       'name': {
-        Require:             "tell us your name"
+        Required:             "tell us your name"
       },
       'firstName': {
         Required:             "tell us your first name"
@@ -44,14 +44,14 @@ pf.validate = {
     },
   },
   dataAttributes: {
-    customValidation:         'data-pf-custom-validation',
-    customValidationMessage:  'data-pf-custom-validation-message',
-    fieldType:                'data-pf-field-type',
-    minLength:                'data-pf-min-length',
-    maxLength:                'data-pf-max-length',
-    shouldMatch:              'data-pf-should-match',
-    shouldBeInteger:          'data-pf-should-be-integer',
-    shouldBeNumber:           'data-pf-should-be-number'
+    customValidation:         "data-pf-custom-validation",
+    customValidationMessage:  "data-pf-custom-validation-message",
+    fieldType:                "data-pf-field-type",
+    minLength:                "data-pf-min-length",
+    maxLength:                "data-pf-max-length",
+    shouldMatch:              "data-pf-should-match",
+    shouldBeInteger:          "data-pf-should-be-integer",
+    shouldBeNumber:           "data-pf-should-be-number"
   },
   snippets: {
     errorMessageHolder:       '<div class="error message"></div>',
@@ -102,7 +102,7 @@ pf.validate = {
         errorMessage = pf.common.firstLetterToUpperCase(errorMessage); // Capitalise first letter of first error message
       }
       if (index == errorMessageArray.length - 1) {
-        e.push(pf.common.removeTrailingPeriod(errorMessage) + ""); // Add period to last error message
+        e.push(pf.common.removeTrailingPeriod(errorMessage)); // Remove period from last error message
       } else if (index === 0 && errorMessageArray.length == 2) {
         e.push(pf.common.removeTrailingPeriod(errorMessage) + " and"); // Add 'and' to last error message of 2
       } else if (index === 0) {
