@@ -6,5 +6,11 @@ We're using:
 * JQuery (1.x for IE < 9)
 * jQuery 2.x for modern browsers
 * Require JS
-* Jasmine testing
+* Jasmine (for testing)
+* NPM
+  - Grunt (For minimization & deployment)
+
+Note:
+
+* The framework uses Rails / Ruby for routing & convenience when developing, but it's not a dependency
 
