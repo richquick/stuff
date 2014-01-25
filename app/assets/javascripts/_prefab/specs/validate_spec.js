@@ -21,7 +21,7 @@ describe("pf.validate:", function() {
     it("should join 3-long arrays with comma + and", function() {
       expect(pf.validate.processErrorMessages(["error message 1","error message 2","error message 3"])).toEqual('Error message 1, error message 2, and error message 3');
     });
-    it("should join 3-long arrays with commas + and", function() {
+    it("should join 4-long arrays with commas + and", function() {
       expect(pf.validate.processErrorMessages(["error message 1","error message 2","error message 3","error message 4"])).toEqual('Error message 1, error message 2, error message 3, and error message 4');
     });
     it("should return the string if input is a string", function() {
