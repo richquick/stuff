@@ -9,6 +9,7 @@ We're using:
 * Jasmine (for testing)
 * NPM
   - Grunt (For minimization & deployment)
+  - grunt-contrib-jasmine v0.5.2
 
 Note:
 

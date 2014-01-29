@@ -5,6 +5,7 @@ pf.common = {
     interpolateString:        '#{}'
   },
   interpolateString: function(string,value) {
+    // TECHDEBT - COULD BE MORE FLEXIBLE
     var stringSections = string.split(pf.common.conventions.interpolateString);
     return (stringSections.join(value));
   },

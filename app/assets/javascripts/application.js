@@ -22,6 +22,7 @@ require.config({
     "jquery":         jQueryVersion,
     "common":         "general/common",
     "validate":       "general/validate",
+    "spec_runner":    "general/spec_runner",
     jasmine:          "jasmine/javascripts/jasmine",
     "jasmine-html":   "jasmine/javascripts/jasmine-html",
     spec:             "specs/"
@@ -50,29 +51,8 @@ require(['jquery'], function() {
 
   // Require Speces, for Spec Runner Page
   if ($(pf.requireSpecs).length > 0) {
-    require(['jquery', 'jasmine-html'], function($, jasmine){
-      var jasmineEnv = jasmine.getEnv();
-      jasmineEnv.updateInterval = 1000;
-
-      var htmlReporter = new jasmine.HtmlReporter();
-
-      jasmineEnv.addReporter(htmlReporter);
-
-      jasmineEnv.specFilter = function(spec) {
-        return htmlReporter.specFilter(spec);
-      };
-
-      var specs = [];
-
-      specs.push('spec/_dependencies_spec');
-      specs.push('spec/common_spec');
-      specs.push('spec/validate_spec');
-
-      $(function(){
-        require(specs, function(){
-          jasmineEnv.execute();
-        });
-      });
+    require(['spec_runner'], function(f) {
+      f.init();
     });
   }
 });
