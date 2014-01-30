@@ -1,3 +1,5 @@
+// WIP - Passwords with spaces
+
 // To do later - scrollTo, dates, telephone, live validation, get specs hooked up to Rake / Rspec / PhantomJS
 pf.validate = {
   formFieldsList: [
@@ -9,6 +11,7 @@ pf.validate = {
     Email:                    "give us a valid email address",
     Matches:                  "make sure fields match",
     MinLength:                "use at least #{} characters",
+    NoSpaces:                 "don't use spaces",
     MaxLength:                "use fewer than #{} characters",
     CustomValidationDefault:  "check this field, there's a problem with it",
     RequiredCheckbox:         "check this checkbox before continuing",
@@ -31,6 +34,7 @@ pf.validate = {
       },
       'password': {
         Required:             "enter your password",
+        NoSpaces:             "don't use spaces in your password",
         MinLength:            "use a password with at least #{} characters",
         MaxLength:            "use a password with no more than #{} characters",
         Matches:              "make sure passwords match"
@@ -51,7 +55,8 @@ pf.validate = {
     maxLength:                "data-pf-max-length",
     shouldMatch:              "data-pf-should-match",
     shouldBeInteger:          "data-pf-should-be-integer",
-    shouldBeNumber:           "data-pf-should-be-number"
+    shouldBeNumber:           "data-pf-should-be-number",
+    shouldNotHaveSpaces:      "data-pf-should-not-have-spaces"
   },
   snippets: {
     errorMessageHolder:       '<div class="error message"></div>',
@@ -203,6 +208,9 @@ pf.validate = {
     var attr = $element.attr(pf.validate.dataAttributes.maxLength);
     return (typeof attr !== 'undefined' && attr !== false); // Return binary (true/false)
   },
+  hasNoSpaces: function($element) {
+    return (pf.common.hasNoSpaces($element.val())); // Return binary (true/false)
+  },
   hasCustomValidation: function($element) {
     var attr = $element.attr(pf.validate.dataAttributes.customValidation);
     return (typeof attr !== 'undefined' && attr !== false); // Return binary (true/false)
@@ -218,6 +226,10 @@ pf.validate = {
   shouldBeInteger: function($element) {
     var attr = $element.attr(pf.validate.dataAttributes.shouldBeInteger);
     return (typeof attr !== 'undefined' && attr !== false); // Return binary (true/false)
+  },
+  shouldNotHaveSpaces: function($element) {
+    var attr = $element.attr(pf.validate.dataAttributes.shouldNotHaveSpaces);
+    return ((typeof attr !== 'undefined' && attr !== false) || pf.validate.isPasswordField($element)); // Return binary (true/false)
   },
   shouldMatch: function($element) {
     var dataAttr = pf.validate.dataAttributes.shouldMatch;
@@ -296,6 +308,9 @@ pf.validate = {
   validateMaxLength: function($element) {
     return (pf.common.isEmptyOrNotRequired($element) || $element.val().length <= pf.validate.getMaxLength($element));
   },
+  validateNoSpaces: function($element) {
+    return (pf.common.isEmptyOrNotRequired($element) || pf.common.hasNoSpaces($element.val()));
+  },
   validateThatValueMatches: function($element,matchElementID) {
     var $matchElement = $(pf.common.stringToID(matchElementID));
     return (pf.common.isEmptyOrNotRequired($element) || (pf.common.isValidID(matchElementID) && !pf.common.isFieldEmpty($element) && ($matchElement.length == 1) && ($element.val() == $matchElement.val()))); // Return binary (true/false)
@@ -331,7 +346,8 @@ pf.validate = {
       'hasMinLength'        : 'MinLength',
       'hasMaxLength'        : 'MaxLength',
       'shouldBeNumber'      : 'Number',
-      'shouldBeInteger'     : 'Integer'
+      'shouldBeInteger'     : 'Integer',
+      'shouldNotHaveSpaces' : 'NoSpaces'
     };
     // Do each of the standard validations
     $.each(validationHash, function(validationCheck, validationName) {
@@ -396,7 +412,8 @@ pf.validate = {
   setupValidation: function() {
     $(pf.requiredElements.validate).on('submit',function(){
       var toSubmit = pf.validate.validateAll($(this));
-      return toSubmit; // Returns true if no error messages, else false
+      return false;
+      // return toSubmit; // Returns true if no error messages, else false
     });
   }
 };

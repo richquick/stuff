@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+
+  <testsuite name="pf.common: pf.common.stripTrailingSpaces:" errors="0" tests="5" failures="5" time="0.004" timestamp="2014-01-27T12:51:31.615Z">
+    
+      <testcase assertions="1" classname="pf.common: pf.common.stripTrailingSpaces:" name="is a function" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 33)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.stripTrailingSpaces:" name="should strip spaces from before string" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 36)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.stripTrailingSpaces:" name="should strip spaces from after string" time="0.001">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 39)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.stripTrailingSpaces:" name="should strip spaces from before and after string" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 42)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.stripTrailingSpaces:" name="should leave strings without spaces untouched" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 45)</failure>
+        
+      </testcase>
+    
+  </testsuite>
+
+</testsuites>

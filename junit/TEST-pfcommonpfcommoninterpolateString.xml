@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+
+  <testsuite name="pf.common: pf.common.interpolateString:" errors="0" tests="6" failures="6" time="0.005" timestamp="2014-01-27T12:51:31.611Z">
+    
+      <testcase assertions="1" classname="pf.common: pf.common.interpolateString:" name="is a function" time="0.001">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 13)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.interpolateString:" name="should add a string into another string" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 16)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.interpolateString:" name="should add a number into another string" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 19)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.interpolateString:" name="should add a string into another string with trailing spaces on the inner string" time="0.001">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 22)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.interpolateString:" name="should add a string into another string with trailing spaces on the outer string" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 25)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.interpolateString:" name="should leave outer string untouched if the outer string doesn&#x27;t have a valid interpolation string" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 28)</failure>
+        
+      </testcase>
+    
+  </testsuite>
+
+</testsuites>

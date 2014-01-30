@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+
+  <testsuite name="pf.validate: pf.validate.validateRequired:" errors="0" tests="4" failures="4" time="0.003" timestamp="2014-01-27T12:51:31.750Z">
+    
+      <testcase assertions="1" classname="pf.validate: pf.validate.validateRequired:" name="is a function" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/validate_spec.js (line 314)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.validate: pf.validate.validateRequired:" name="should pass for required field that&#x27;s populated" time="0.001">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/validate_spec.js (line 317)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.validate: pf.validate.validateRequired:" name="should fail for a required field that&#x27;s empty" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/validate_spec.js (line 320)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.validate: pf.validate.validateRequired:" name="should fail for a required field that&#x27;s just got spaces" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/validate_spec.js (line 323)</failure>
+        
+      </testcase>
+    
+  </testsuite>
+
+</testsuites>

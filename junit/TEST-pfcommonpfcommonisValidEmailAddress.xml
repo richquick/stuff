@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+
+  <testsuite name="pf.common: pf.common.isValidEmailAddress:" errors="0" tests="9" failures="9" time="0.004" timestamp="2014-01-27T12:51:31.648Z">
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isValidEmailAddress:" name="is a function" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 150)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isValidEmailAddress:" name="should pass for valid .com email" time="0.001">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 153)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isValidEmailAddress:" name="should pass for valid .co.uk email" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 156)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isValidEmailAddress:" name="should pass for valid .edu email with .co.uk as subdomain" time="0.001">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 159)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isValidEmailAddress:" name="should pass for valid .com email with dot before @" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 162)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isValidEmailAddress:" name="should pass for valid .com email with &#x27; before @" time="0.001">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 165)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isValidEmailAddress:" name="should fail for letters" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 168)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isValidEmailAddress:" name="should fail for empty string" time="0.001">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 171)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isValidEmailAddress:" name="should fail for string with just spaces" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 174)</failure>
+        
+      </testcase>
+    
+  </testsuite>
+
+</testsuites>

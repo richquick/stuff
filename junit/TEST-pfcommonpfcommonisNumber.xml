@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+
+  <testsuite name="pf.common: pf.common.isNumber:" errors="0" tests="6" failures="6" time="0.008" timestamp="2014-01-27T12:51:31.639Z">
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isNumber:" name="is a function" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 110)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isNumber:" name="should fail for letters" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 113)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isNumber:" name="should pass for integers" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 116)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isNumber:" name="should pass for decimals" time="0.001">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 119)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isNumber:" name="should fail for empty string" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 122)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isNumber:" name="should fail for string with just spaces" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 125)</failure>
+        
+      </testcase>
+    
+  </testsuite>
+
+</testsuites>

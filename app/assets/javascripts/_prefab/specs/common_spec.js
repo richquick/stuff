@@ -85,7 +85,22 @@ describe("pf.common:", function() {
       expect(typeof pf.common.firstLetterToLowerCase).toEqual('function');
     });
   });
-  describe("pf.common.hasTrailingPeriod:", function() {
+  describe("pf.common.hasNoSpaces:", function() {
+    describe("pf.common.hasNoSpaces:", function() {
+    it("is a function", function() {
+      expect(typeof pf.common.hasNoSpaces).toEqual('function');
+    });
+    it("should pass for letters", function() {
+      expect(pf.common.hasNoSpaces('hello')).toEqual(true);
+    });
+    it("should pass for integers", function() {
+      expect(pf.common.hasNoSpaces('12')).toEqual(true);
+    });
+
+    it("should pass for strings with spaces in", function() {
+      expect(pf.common.hasNoSpaces('abc abc')).toEqual(false);
+    });
+  });
     it("is a function", function() {
       expect(typeof pf.common.hasTrailingPeriod).toEqual('function');
     });
@@ -272,6 +287,21 @@ describe("pf.common:", function() {
     });
     it("should fail if element has a populated value", function() {
       expect(pf.common.isFieldEmpty($('<input type="text" value="test">'))).toEqual(false);
+    });
+  });
+  describe("pf.common.addJavascriptIndicatorClassToBodyTag:", function() {
+    it("is a function", function() {
+      expect(typeof pf.common.addJavascriptIndicatorClassToBodyTag).toEqual('function');
+    });
+  });
+  describe("pf.common.removeNoJavascriptIndicatorClassToBodyTag:", function() {
+    it("is a function", function() {
+      expect(typeof pf.common.removeNoJavascriptIndicatorClassToBodyTag).toEqual('function');
+    });
+  });
+  describe("pf.common.setupCommon:", function() {
+    it("is a function", function() {
+      expect(typeof pf.common.setupCommon).toEqual('function');
     });
   });
 });

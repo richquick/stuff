@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+
+  <testsuite name="pf.validate: pf.validate.isRequiredCheckbox:" errors="0" tests="4" failures="4" time="0.003" timestamp="2014-01-27T12:51:31.699Z">
+    
+      <testcase assertions="1" classname="pf.validate: pf.validate.isRequiredCheckbox:" name="is a function" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/validate_spec.js (line 47)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.validate: pf.validate.isRequiredCheckbox:" name="should pass for required checkbox field" time="0.001">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/validate_spec.js (line 50)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.validate: pf.validate.isRequiredCheckbox:" name="should fail for a required field that&#x27;s not a checkbox" time="0.001">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/validate_spec.js (line 53)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.validate: pf.validate.isRequiredCheckbox:" name="should fail for a non-required field" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/validate_spec.js (line 56)</failure>
+        
+      </testcase>
+    
+  </testsuite>
+
+</testsuites>

@@ -1,8 +1,13 @@
+// Global JQuery Selectors - only for VERY Common uses
+var $body = $('body');
+
 pf.common = {
   conventions: {
-    emailRegex:               /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i,
-    phoneRegex:               /[0-9]+/, // NOTE: Basic Validation for now - we don't need to go overboard
-    interpolateString:        '#{}'
+    emailRegex:                 /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i,
+    phoneRegex:                 /[0-9]+/, // NOTE: Basic Validation for now - we don't need to go overboard
+    interpolateString:          '#{}',
+    javascriptIndicatorClass:   'js',
+    noJavascriptIndicatorClass: 'js_free'
   },
   interpolateString: function(string,value) {
     // TECHDEBT - COULD BE MORE FLEXIBLE
@@ -57,6 +62,9 @@ pf.common = {
   isEmpty: function(string) {
     return (pf.common.stripTrailingSpaces(string).length <= 0); // Return binary (true/false)
   },
+  hasNoSpaces: function(string) {
+    return (string.split(" ").length == 1); // Return binary (true/false)
+  },
   isEmptyOrNotRequired: function($element) {
     return (pf.common.isFieldEmpty($element) && !pf.validate.isRequired($element));
   },
@@ -65,8 +73,19 @@ pf.common = {
   },
   hasTrailingPeriod: function(string) {
     return (string.slice(-1) == '.');
+  },
+  addJavascriptIndicatorClassToBodyTag: function() {
+    $body.addClass(pf.common.conventions.javascriptIndicatorClass);
+  },
+  removeNoJavascriptIndicatorClassToBodyTag: function() {
+    $body.removeClass(pf.common.conventions.noJavascriptIndicatorClass);
+  },
+  setupCommon: function() {
+    pf.common.removeNoJavascriptIndicatorClassToBodyTag();
+    pf.common.addJavascriptIndicatorClassToBodyTag();
   }
 };
 
 define(['jquery'], function() {
+  pf.common.setupCommon();
 });

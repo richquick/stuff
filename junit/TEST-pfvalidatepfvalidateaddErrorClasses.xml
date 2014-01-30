@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+
+  <testsuite name="pf.validate: pf.validate.addErrorClasses:" errors="0" tests="1" failures="1" time="0.001" timestamp="2014-01-27T12:51:31.727Z">
+    
+      <testcase assertions="1" classname="pf.validate: pf.validate.addErrorClasses:" name="is a function" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/validate_spec.js (line 168)</failure>
+        
+      </testcase>
+    
+  </testsuite>
+
+</testsuites>

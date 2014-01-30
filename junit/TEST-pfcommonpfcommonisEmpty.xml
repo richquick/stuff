@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+
+  <testsuite name="pf.common: pf.common.isEmpty:" errors="0" tests="5" failures="5" time="0.004" timestamp="2014-01-27T12:51:31.665Z">
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isEmpty:" name="is a function" time="0.001">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 240)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isEmpty:" name="should pass for empty string" time="0.001">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 243)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isEmpty:" name="should pass for string with just spaces" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 246)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isEmpty:" name="should fail for string with letters" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 249)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.common: pf.common.isEmpty:" name="should fail for string with spaces around" time="0.001">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 252)</failure>
+        
+      </testcase>
+    
+  </testsuite>
+
+</testsuites>

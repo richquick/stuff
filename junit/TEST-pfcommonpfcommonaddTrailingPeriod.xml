@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+
+  <testsuite name="pf.common: pf.common.addTrailingPeriod:" errors="0" tests="1" failures="1" time="0.001" timestamp="2014-01-27T12:51:31.628Z">
+    
+      <testcase assertions="1" classname="pf.common: pf.common.addTrailingPeriod:" name="is a function" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/common_spec.js (line 95)</failure>
+        
+      </testcase>
+    
+  </testsuite>
+
+</testsuites>

@@ -19,7 +19,7 @@
         <div class="fixed wrapper">
             <div class="grid">
                 <div class="clear panel">
-                    <div class="section">
+                    <div class="balanced section">
                         <h1>Improve Your Content Development Process Today</h1>
                         <p class="muted standfirst">In 25 seconds you&apos;ll be able to say goodbye to manging content with Word and Spreadsheets</p>
                     </div>
@@ -150,8 +150,13 @@ inbox</li>
                             <div class="part">
                                 <h3>About where you work</h3>
                                 <div class="very tight segment">
-                                    <label for="fm_00004c">Company or organisation</label>
+                                    <label for="fm_00004c">REQUIRED Company or organisation</label>
                                     <input type="text" required placeholder="Company or organisation" name="fm_00004c" id="fm_00004c">
+                                </div>
+
+                                <div class="very tight segment">
+                                    <label for="fm_00004c">NO SPACES Company or organisation</label>
+                                    <input type="text" placeholder="Company or organisation" name="fm_00004c" id="fm_00004c" data-pf-should-not-have-spaces="true">
                                 </div>
 
                                 <small>You can whitelabel and brand your account later.</small>
@@ -227,5 +232,5 @@ inbox</li>
     </div>
 </body>
 </html>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="/assets/_prefab/dependencies/require.2.1.10.min.js"></script>
 <script src="/assets/application.js"></script>

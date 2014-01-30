@@ -56,7 +56,6 @@ describe("pf.validate:", function() {
       expect(pf.validate.isRequiredCheckbox($('<input type="checkbox" value="test">'))).toEqual(false);
     });
   });
-
   describe("pf.validate.isEmailField:", function() {
     it("is a function", function() {
       expect(typeof pf.validate.isEmailField).toEqual('function');
@@ -69,6 +68,11 @@ describe("pf.validate:", function() {
     });
     it("should fail for non input tag with type=email", function() {
       expect(pf.validate.isEmailField($('<a type="text">'))).toEqual(false);
+    });
+  });
+  describe("pf.validate.isPasswordField:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.isPasswordField).toEqual('function');
     });
   });
   describe("pf.validate.isPhoneField:", function() {
@@ -132,6 +136,45 @@ describe("pf.validate:", function() {
     });
     it("should fail for email input tag with invalid email", function() {
       expect(pf.validate.isValidEmailField($('<input type="email" value="hello@this,com">'))).toEqual(false);
+    });
+  });
+  describe("pf.validate.hasNoSpaces:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.hasNoSpaces).toEqual('function');
+    });
+    it("should pass for an input tag with just letters in it", function() {
+      expect(pf.validate.hasNoSpaces($('<input type="text" value="asdasdas">'))).toEqual(true);
+    });
+    it("should pass for an empty input tag", function() {
+      expect(pf.validate.hasNoSpaces($('<input type="text" value="">'))).toEqual(true);
+    });
+    it("should fail for an input tag with letters and spaces in it", function() {
+      expect(pf.validate.hasNoSpaces($('<input type="text" value="this should fail">'))).toEqual(false);
+    });
+  });
+  describe("pf.validate.shouldNotHaveSpaces:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.shouldNotHaveSpaces).toEqual('function');
+    });
+    it("should pass for an input tag with the shouldNotHaveSpaces attribute set", function() {
+      expect(pf.validate.shouldNotHaveSpaces($('<input type="text" value="hi" data-pf-should-not-have-spaces="true">'))).toEqual(true);
+    });
+    it("should pass for an inout tag without the shouldNotHaveSpaces attribute set", function() {
+      expect(pf.validate.shouldNotHaveSpaces($('<input type="text" value="hi">'))).toEqual(false);
+    });
+  });
+  describe("pf.validate.validateNoSpaces:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.validateNoSpaces).toEqual('function');
+    });
+    it("should pass for an input tag with just letters in it", function() {
+      expect(pf.validate.validateNoSpaces($('<input type="text" value="asdasdas">'))).toEqual(true);
+    });
+    it("should pass for an empty input tag", function() {
+      expect(pf.validate.validateNoSpaces($('<input type="text" value="">'))).toEqual(true);
+    });
+    it("should fail for an input tag with letters and spaces in it", function() {
+      expect(pf.validate.validateNoSpaces($('<input type="text" value="this should fail">'))).toEqual(false);
     });
   });
   describe("pf.validate.isValidPhoneField:", function() {

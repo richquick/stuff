@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+
+  <testsuite name="pf.validate: pf.validate.isPhoneField:" errors="0" tests="4" failures="4" time="0.003" timestamp="2014-01-27T12:51:31.706Z">
+    
+      <testcase assertions="1" classname="pf.validate: pf.validate.isPhoneField:" name="is a function" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/validate_spec.js (line 76)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.validate: pf.validate.isPhoneField:" name="should pass for phone input tag" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/validate_spec.js (line 79)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.validate: pf.validate.isPhoneField:" name="should fail for text input tag" time="0">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/validate_spec.js (line 82)</failure>
+        
+      </testcase>
+    
+      <testcase assertions="1" classname="pf.validate: pf.validate.isPhoneField:" name="should fail for non input tag with type=email" time="0.001">
+        
+          <failure>ReferenceError: Can't find variable: pf in file:///Users/richquick/code/prefab/app/assets/javascripts/_prefab/specs/validate_spec.js (line 85)</failure>
+        
+      </testcase>
+    
+  </testsuite>
+
+</testsuites>
