@@ -5,4 +5,10 @@ form {
     border: $fr_form_section_border;
     margin: $fr_form_section_margin;
   }
+  .holder {
+    label {
+      width: $fr_holder_label_width_tablet;
+    }
+  }
 }
+

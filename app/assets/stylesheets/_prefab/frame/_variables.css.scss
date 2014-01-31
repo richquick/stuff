@@ -127,8 +127,13 @@ $fr_form_field_border: 1px solid #ccc;
 $fr_form_field_focus_background: #fffdc3;
 $fr_form_textarea_height: 150px;
 $fr_label_padding: 10px 0 5px 0;
+
+// Suffixes
+$fr_form_field_gather_content_suffix: ".gathercontent.com";
+
   // Holder (eg. for checkbox / radio)
-$fr_holder_label_width: 94%;
+$fr_holder_label_width_mobile: 92%;
+$fr_holder_label_width_tablet: 94%;
 $fr_holder_label_margin_left: 1%;
 
   // Section - in Form

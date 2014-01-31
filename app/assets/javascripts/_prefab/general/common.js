@@ -59,6 +59,9 @@ pf.common = {
   isValidID: function (testID) {
     return (/^[a-zA-Z][a-zA-Z0-9_-]+$/.test(testID)); // Return binary (true/false)
   },
+  isValidSubdomain: function (string) {
+    return (/^[a-z|A-Z][a-z|A-Z|0-9]+$/.test(string)); // Return binary (true/false)
+  },
   isEmpty: function(string) {
     return (pf.common.stripTrailingSpaces(string).length <= 0); // Return binary (true/false)
   },
@@ -66,6 +69,7 @@ pf.common = {
     return (string.split(" ").length == 1); // Return binary (true/false)
   },
   isEmptyOrNotRequired: function($element) {
+    // TECHDEBT - Look at this - not convinced there's not a major issue here!!
     return (pf.common.isFieldEmpty($element) && !pf.validate.isRequired($element));
   },
   isFieldEmpty: function($element) {

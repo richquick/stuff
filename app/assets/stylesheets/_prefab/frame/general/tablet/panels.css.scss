@@ -6,6 +6,14 @@
     max-width: $fr_tight_panel_tablet_max_width;
     @include auto_margins();
   }
+  .section {
+    &.asymetric {
+      h2 {
+        // TECHDEBT
+        width: 110%;
+      }
+    }
+  }
 }
 
 // TECHDEBT

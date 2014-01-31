@@ -1,3 +1,5 @@
+// fieldTypeExists
+
 describe("pf.validate:", function() {
   it("is an object", function() {
     expect(typeof pf.validate).toEqual('object');
@@ -87,6 +89,31 @@ describe("pf.validate:", function() {
     });
     it("should fail for non input tag with type=email", function() {
       expect(pf.validate.isPhoneField($('<a type="email">'))).toEqual(false);
+    });
+  });
+  describe("pf.validate.isValidSubdomainField:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.isValidSubdomainField).toEqual('function');
+    });
+    it("should pass for input tag with subdomain dataAttribute & valid value", function() {
+      expect(pf.validate.isValidSubdomainField($('<input type="text" value="a123" ' + pf.validate.dataAttributes.fieldType + '="subdomain">'))).toEqual(true);
+    });
+    it("should fail for input tag with subdomain dataAttribute but no value", function() {
+      expect(pf.validate.isValidSubdomainField($('<input type="text" ' + pf.validate.dataAttributes.fieldType + '="subdomain">'))).toEqual(false);
+    });
+    it("should fail for text input tag without subdomain dataAttribute", function() {
+      expect(pf.validate.isValidSubdomainField($('<input type="text">'))).toEqual(false);
+    });
+  });
+  describe("pf.validate.isSubdomainField:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.isSubdomainField).toEqual('function');
+    });
+    it("should pass for tag with subdomain field type", function() {
+      expect(pf.validate.isSubdomainField($('<input ' + pf.validate.dataAttributes.fieldType + '="subdomain">'))).toEqual(true);
+    });
+    it("should fail for without subdomain field type", function() {
+      expect(pf.validate.isSubdomainField($('<input type="email">'))).toEqual(false);
     });
   });
   describe("pf.validate.removeRequiredIfOtherErrors:", function() {
@@ -409,6 +436,32 @@ describe("pf.validate:", function() {
     });
     it("should fail for invalid phone numbers", function() {
       expect(pf.validate.validatePhone($('<input type="phone" value="test">'))).toEqual(false);
+    });
+  });
+  describe("pf.validate.validateSubdomain:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.validateSubdomain).toEqual('function');
+    });
+    it("should pass for valid subdomain", function() {
+      expect(pf.validate.validateSubdomain($('<input type="text"  ' + pf.validate.dataAttributes.fieldType + '="subdomain" value="aaaaa">'))).toEqual(true);
+      expect(pf.validate.validateSubdomain($('<input type="text"  ' + pf.validate.dataAttributes.fieldType + '="subdomain" value="aaaaa123">'))).toEqual(true);
+    });
+    it("should fail if has any character other than letters numbers and -", function() {
+      expect(pf.validate.validateSubdomain($('<input type="text"  ' + pf.validate.dataAttributes.fieldType + '="subdomain" value="aaaaa_">'))).toEqual(false);
+      expect(pf.validate.validateSubdomain($('<input type="text"  ' + pf.validate.dataAttributes.fieldType + '="subdomain" value="aaaaa1%">'))).toEqual(false);
+    });
+    it("should fail if subdomain starts or ends with -", function() {
+      expect(pf.validate.validateSubdomain($('<input type="text"  ' + pf.validate.dataAttributes.fieldType + '="subdomain" value="-aaaaa">'))).toEqual(false);
+      expect(pf.validate.validateSubdomain($('<input type="text"  ' + pf.validate.dataAttributes.fieldType + '="subdomain" value="aaaaa-">'))).toEqual(false);
+    });
+    it("should fail if subdomain starts with numbers", function() {
+      expect(pf.validate.validateSubdomain($('<input type="text"  ' + pf.validate.dataAttributes.fieldType + '="subdomain" value="1aaaaa">'))).toEqual(false);
+    });
+    it("should pass for empty value", function() {
+      expect(pf.validate.validateSubdomain($('<input type="text"  ' + pf.validate.dataAttributes.fieldType + '="subdomain" value="">'))).toEqual(true);
+    });
+    it("should pass for value with just spaces", function() {
+      expect(pf.validate.validateSubdomain($('<input type="text"  ' + pf.validate.dataAttributes.fieldType + '="subdomain" value="   ">'))).toEqual(true);
     });
   });
   describe("pf.validate.validateMinLength:", function() {

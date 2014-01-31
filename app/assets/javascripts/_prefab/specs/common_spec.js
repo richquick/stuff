@@ -250,6 +250,38 @@ describe("pf.common:", function() {
       expect(pf.common.isValidID('acbd%')).toEqual(false);
     });
   });
+  describe("pf.common.isValidSubdomain:", function() {
+    it("is a function", function() {
+      expect(typeof pf.common.isValidSubdomain).toEqual('function');
+    });
+    it("should pass for strings containing letters", function() {
+      expect(pf.common.isValidSubdomain('abcde')).toEqual(true);
+    });
+    it("should pass for strings containing numbers", function() {
+      expect(pf.common.isValidSubdomain('abcde123')).toEqual(true);
+    });
+    it("should fail for strings containing _", function() {
+      expect(pf.common.isValidSubdomain('abcde_aaa')).toEqual(false);
+    });
+    it("should fail for strings containing -", function() {
+      expect(pf.common.isValidSubdomain('abcde-aaa')).toEqual(false);
+    });
+    it("should fail for empty string", function() {
+      expect(pf.common.isValidSubdomain('')).toEqual(false);
+    });
+    it("should fail for strings starting with a number", function() {
+      expect(pf.common.isValidSubdomain('1acbd')).toEqual(false);
+    });
+    it("should fail for strings starting with a -", function() {
+      expect(pf.common.isValidSubdomain('-abcd')).toEqual(false);
+    });
+    it("should fail for strings starting with a #", function() {
+      expect(pf.common.isValidSubdomain('#acbd')).toEqual(false);
+    });
+    it("should fail for strings containing characters other than letters, numbers, and -", function() {
+      expect(pf.common.isValidSubdomain('acbd%')).toEqual(false);
+    });
+  });
   describe("pf.common.isEmpty:", function() {
     it("is a function", function() {
       expect(typeof pf.common.isEmpty).toEqual('function');

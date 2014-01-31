@@ -12,6 +12,7 @@ pf.validate = {
     Matches:                  "make sure fields match",
     MinLength:                "use at least #{} characters",
     NoSpaces:                 "don't use spaces",
+    Subdomain:                "choose a valid subdomain",
     MaxLength:                "use fewer than #{} characters",
     CustomValidationDefault:  "check this field, there's a problem with it",
     RequiredCheckbox:         "check this checkbox before continuing",
@@ -38,6 +39,9 @@ pf.validate = {
         MinLength:            "use a password with at least #{} characters",
         MaxLength:            "use a password with no more than #{} characters",
         Matches:              "make sure passwords match"
+      },
+      'subdomain': {
+        Required:             "choose a valid subdomain"
       },
       'number': {
         Matches:              "make sure numbers match (with other field)"
@@ -184,6 +188,9 @@ pf.validate = {
   isPhoneField: function($element) {
     return ($element.attr("type") == "phone"); // Return binary (true/false)
   },
+  isSubdomainField: function($element) {
+    return ($element.attr(pf.validate.dataAttributes.fieldType) == "subdomain"); // Return binary (true/false)
+  },
   isPasswordField: function($element) {
     return ($element.attr("type") == "password"); // Return binary (true/false)
   },
@@ -192,6 +199,9 @@ pf.validate = {
   },
   isValidPhoneField: function($element) {
     return (pf.common.isValidPhoneNumber(pf.common.stripTrailingSpaces($element.val()))); // Return binary (true/false)
+  },
+  isValidSubdomainField: function($element) {
+    return (pf.common.isValidSubdomain(pf.common.stripTrailingSpaces($element.val()))); // Return binary (true/false)
   },
   isSubstitutionField: function($element) {
     // TECHDEBT - WORRIED ABOUT NAMING - eg 'subsition' isn't specific enough as there are others
@@ -302,6 +312,9 @@ pf.validate = {
   validatePhone: function($element) {
     return (pf.common.isEmptyOrNotRequired($element) || pf.validate.isValidPhoneField($element));
   },
+  validateSubdomain: function($element) {
+    return (pf.common.isEmptyOrNotRequired($element) || pf.validate.isValidSubdomainField($element));
+  },
   validateMinLength: function($element) {
     return (pf.common.isEmptyOrNotRequired($element) || $element.val().length >= pf.validate.getMinLength($element));
   },
@@ -343,6 +356,7 @@ pf.validate = {
       'isRequiredCheckbox'  : 'RequiredCheckbox',
       'isEmailField'        : 'Email',
       'isPhoneField'        : 'Phone',
+      'isSubdomainField'    : 'Subdomain',
       'hasMinLength'        : 'MinLength',
       'hasMaxLength'        : 'MaxLength',
       'shouldBeNumber'      : 'Number',
@@ -354,7 +368,7 @@ pf.validate = {
       var codeToEval = "\
         if (pf.validate." + validationCheck + "($element)) {\
           var resultHolder = pf.validate.validate" + validationName + "($element);\
-          if (!resultHolder) {\
+          if (!resultHolder && pf.validate.errorMessages." + validationName + " != 'undefined') {\
             errorMessage.push (pf.validate.processErrorMessage(pf.validate.errorMessages." + validationName + ",'" + validationName +"',$element));\
           }\
         }\
@@ -412,8 +426,7 @@ pf.validate = {
   setupValidation: function() {
     $(pf.requiredElements.validate).on('submit',function(){
       var toSubmit = pf.validate.validateAll($(this));
-      return false;
-      // return toSubmit; // Returns true if no error messages, else false
+      return toSubmit; // Returns true if no error messages, else false
     });
   }
 };

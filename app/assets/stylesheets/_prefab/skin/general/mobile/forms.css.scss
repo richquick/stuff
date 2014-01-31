@@ -8,7 +8,6 @@ textarea {
     padding: $sk_form_field_padding 0;
     text-indent: $sk_form_field_padding;
     @include rounded_corners($sk_field_corner_radius);
-    // @include inner_shadow($sk_field_inner_shadow_left_offset,$sk_field_inner_shadow_right_offset,$sk_field_inner_shadow_blur,$sk_field_inner_shadow_color);
     &:focus {
       outline: $sk_input_outline_width solid $sk_input_outline_color;
     }

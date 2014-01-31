@@ -61,12 +61,25 @@ form {
     &.grid {
       padding-bottom: 0;
     }
+    &.suffix {
+      &.gathercontent {
+        &:after {
+          // TECHDEBT
+          content: ".gathercontent.com";
+          position: absolute;
+          right: 7px;
+          top: 12px;
+          font-size: 90%;
+          color: #999;
+        }
+      }
+    }
   }
   .holder {
     clear: both;
     label {
       float: left;
-      width: $fr_holder_label_width;
+      width: $fr_holder_label_width_mobile;
       padding: 0;
       margin-left: $fr_holder_label_margin_left;
     }
