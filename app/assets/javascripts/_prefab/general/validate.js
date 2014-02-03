@@ -239,7 +239,7 @@ pf.validate = {
   },
   shouldNotHaveSpaces: function($element) {
     var attr = $element.attr(pf.validate.dataAttributes.shouldNotHaveSpaces);
-    return ((typeof attr !== 'undefined' && attr !== false) || pf.validate.isPasswordField($element)); // Return binary (true/false)
+    return (typeof attr !== 'undefined' && attr !== false); // Return binary (true/false)
   },
   shouldMatch: function($element) {
     var dataAttr = pf.validate.dataAttributes.shouldMatch;
