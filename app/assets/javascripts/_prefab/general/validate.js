@@ -412,11 +412,18 @@ pf.validate = {
     var $fields = $(pf.validate.formFieldsList.join(","),$form);
     var errorMessage;
     var toSubmit = true;
+    var hasErrors = false;
     // Go through each field on the form
     $fields.each(function() {
       var $this = $(this);
       errorMessage = pf.validate.validate($this);
       if (errorMessage !== false) {
+        // First error message we hit, scroll to that field
+        if (hasErrors == false) {
+          hasErrors = true;
+          console.log($this.attr('id'));
+          pf.common.scrollToId($this.attr('id'));
+        }
         pf.validate.addError($this,errorMessage);
         toSubmit = false;
       }

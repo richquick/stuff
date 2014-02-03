@@ -1,7 +1,12 @@
 // Form elements
 
 input {
-  &:not([type='checkbox']):not([type='radio']):not([type='file']) {
+  &[type='text'],
+  &[type='password'],
+  &[type='email'],
+  &[type='phone'],
+  &[type='number']
+   {
     font-family: $fr_default_font_family;
     color: $fr_default_font_color;
     font-size: 100%;

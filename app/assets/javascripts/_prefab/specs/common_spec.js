@@ -8,6 +8,16 @@ describe("pf.common:", function() {
   it("is an object", function() {
     expect(typeof pf.common).toEqual('object');
   });
+  describe("pf.common.idExists:", function() {
+    it("is a function", function() {
+      expect(typeof pf.common.idExists).toEqual('function');
+    });
+  });
+  describe("pf.common.scrollToId:", function() {
+    it("is a function", function() {
+      expect(typeof pf.common.scrollToId).toEqual('function');
+    });
+  });
   describe("pf.common.interpolateString:", function() {
     it("is a function", function() {
       expect(typeof pf.common.interpolateString).toEqual('function');

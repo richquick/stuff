@@ -1,16 +1,18 @@
 // Form elements
 
-input,
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='phone'],
+input[type='number'],
 textarea {
-  &:not([type='checkbox']):not([type='radio']):not([type='file']) {
-    font-family: $sk_default_font_family;
-    margin-right: $sk_input_right_margin;
-    padding: $sk_form_field_padding 0;
-    text-indent: $sk_form_field_padding;
-    @include rounded_corners($sk_field_corner_radius);
-    &:focus {
-      outline: $sk_input_outline_width solid $sk_input_outline_color;
-    }
+  font-family: $sk_default_font_family;
+  margin-right: $sk_input_right_margin;
+  padding: $sk_form_field_padding 0;
+  text-indent: $sk_form_field_padding;
+  @include rounded_corners($sk_field_corner_radius);
+  &:focus {
+    outline: $sk_input_outline_width solid $sk_input_outline_color;
   }
 }
 

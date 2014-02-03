@@ -5,12 +5,22 @@
 // As well as a requireAll override for Jasmine tests etc.
 
 var pf = {
+  unsupported:            'data-pf-unsupported',
   requiredElements: {
     validate:         'form'
   },
   requireAll:         'body#require_all',
-  requireSpecs:       'body#require_all.spec_runner'
+  requireSpecs:       'body#require_all.spec_runner',
+  breakExecution: function() {
+    throw new Error("This is not an error. We've chosen to disable javascript in this browser." );
+  }
 };
+
+// Don't run any javascript for unsupported browsers
+if (document.getElementsByTagName("html")[0].getAttribute(pf.unsupported) == 'true') {
+  pf.breakExecution();
+}
+
 
 // Set jQuery version based on older IE or not
 var jQueryVersion = (!document.getElementById('ie')) ? "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min" : "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min";
@@ -43,16 +53,12 @@ require(['jquery'], function() {
   var requireAll = ($(pf.requireAll).length >0);
   $.each(pf.requiredElements, function(moduleName, requiredElement) {
     if($(requiredElement).length > 0 || requireAll) {
-      require([moduleName], function(f) {
-        f.init();
-      });
+      require([moduleName], function() {});
     }
   });
 
-  // Require Speces, for Spec Runner Page
+  // Require Specs, for Spec Runner Page
   if ($(pf.requireSpecs).length > 0) {
-    require(['spec_runner'], function(f) {
-      f.init();
-    });
+    require(['spec_runner'], function() {});
   }
 });

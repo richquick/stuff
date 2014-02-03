@@ -1,5 +1,6 @@
 // Global JQuery Selectors - only for VERY Common uses
 var $body = $('body');
+var $html_body = $('html,body');
 
 pf.common = {
   conventions: {
@@ -8,6 +9,21 @@ pf.common = {
     interpolateString:          '#{}',
     javascriptIndicatorClass:   'js',
     noJavascriptIndicatorClass: 'js_free'
+  },
+  ui: {
+    scrollToIdDelay:            150,
+    scrollToIdTime:             500,
+    scrollToIdOffset:           10
+  },
+  idExists: function(id) {
+    return ($(pf.common.stringToID(id)).length > 0) // Boolean
+  },
+  scrollToId: function(id){
+    if (pf.common.idExists(id)) {
+      $html_body.delay(pf.common.ui.scrollToIdDelay).animate({
+        scrollTop: $(pf.common.stringToID(id)).offset().top - pf.common.ui.scrollToIdOffset
+      }, pf.common.ui.scrollToIdTime);
+    }
   },
   interpolateString: function(string,value) {
     // TECHDEBT - COULD BE MORE FLEXIBLE
