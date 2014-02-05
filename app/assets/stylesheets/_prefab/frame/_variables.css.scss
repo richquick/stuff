@@ -52,7 +52,7 @@ $fr_nav_link_padding: 5px 10px;
 
 // Grids
   // Mobile
-$fr_mobile_body_margin_top: 20px;
+$fr_mobile_body_margin_top: 0;
 $fr_stripe_wrapper_padding_sides: 20px;
 $fr_stripe_wrapper_padding: 0 $fr_stripe_wrapper_padding_sides;
 $fr_grid_section_padding_bottom: 10px;
@@ -61,10 +61,10 @@ $fr_grid_content_with_distinct_section: 20px;
 $fr_asymetric_grid_two_col_width: 48.5%;
 
   // Tablet
-$fr_tablet_body_margin_top: 40px;
+$fr_tablet_body_margin_top: 0;
 
   // Desktop
-$fr_desktop_body_margin_top: 70px;
+$fr_desktop_body_margin_top: 0;
 
   // Multi Column (General)
 $fr_main_column_float_reversed: right;

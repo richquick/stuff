@@ -2,6 +2,9 @@
 
 body {
   background-color: $sk_body_background;
+  &.marketing {
+    background-color: $sk_marketing_body_background;
+  }
 }
 
 #codeigniter_profiler {

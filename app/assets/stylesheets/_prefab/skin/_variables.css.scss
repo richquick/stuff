@@ -3,17 +3,18 @@ These variables control the look and feel of the LOOK-AND-FEEL of the skin.
 You are fine to edit these.
 */
 
-//  Standards
+// Standards
 // TECHDEBT
 $sk_standard_radius: 3px;
 
 // Page
 $sk_page_top_padding_desktop: 20px;
 $sk_body_background: #e5e5e3;
+$sk_marketing_body_background: #fff;
 
 // Type
 $sk_default_font_import: none;
-$sk_default_font_family: "Proxima Nova", helvetica, arial, sans-serif;
+$sk_default_font_family: "Proxima Nova", "proxima-nova", helvetica, arial, sans-serif;
 
 // Colors
 $sk_heading_color: #323a45;
@@ -25,8 +26,14 @@ $sk_small_color: $sk_lowlite_color;
 $sk_standfirst_color: $sk_midlite_color;
 
 // Nav
-$sk_navbar_background_color: #323a45;
-$sk_nav_link_hover_background_color: #5e6d81;
+$sk_branding_image: '_prefab/skin/logo.png';
+$sk_branding_width: 193px;
+$sk_branding_height: 29px;
+$sk_navbar_background: url('_prefab/skin/nav-waves.png') left bottom;
+$sk_nav_color: #959493;
+$sk_nav_link_hover_background_color: rgba(0,0,0,0);
+$sk_nav_link_color: #959493;
+$sk_nav_link_hover_color: #000;
 $sk_nav_input_margin_right: 3px;
 $sk_nav_input_outline: 0;
 $sk_nav_desktop_input_width: 90px;
@@ -38,6 +45,9 @@ $sk_nav_search_top_margin: -8px;
 $sk_tablet_asymetric_margin_left: 4%;
 $sk_tablet_asymetric_max_width: 53%;
 $sk_desktop_asymetric_margin_left: 16%;
+
+  // Desktop
+$sk_desktop_body_margin_top: 140px;
 
 // Button
 $sk_button_radius: $sk_standard_radius;

@@ -5,9 +5,9 @@
 // As well as a requireAll override for Jasmine tests etc.
 
 var pf = {
-  unsupported:            'data-pf-unsupported',
+  unsupported:        'data-pf-unsupported',
   requiredElements: {
-    validate:         'form'
+    validate:         'form.validatable'
   },
   requireAll:         'body#require_all',
   requireSpecs:       'body#require_all.spec_runner',

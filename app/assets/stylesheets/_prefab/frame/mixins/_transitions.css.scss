@@ -6,3 +6,8 @@
   -m-transition: $transition;
   transition: $transition;
 }
+
+@mixin animate_on_opacity($time) {
+  $transition: opacity $time ease-in-out;
+  @include transition ($transition);
+}

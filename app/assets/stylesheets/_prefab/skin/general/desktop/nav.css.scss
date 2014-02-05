@@ -1,1 +1,9 @@
 // Navigation
+
+.nav {
+  &.main {
+    position: fixed;
+    // TECHDEBT
+    top: 0;
+  }
+}
