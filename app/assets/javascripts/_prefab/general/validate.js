@@ -76,7 +76,6 @@ pf.validate = {
     matchElementIDHolder:     '<span style="display:none;" class="matchElementID" rel="#{}">&nbsp;</span>'
   },
   conventions: {
-    uniquenessQueryString:    'q',
     parentHolder:             '.segment, .segment .content',
     parentHolderErrorClass:   'error',
     errorMessageHolderClass:  '.error.message',
@@ -244,9 +243,12 @@ pf.validate = {
   isValidSubdomainField: function($element) {
     return (pf.common.isValidSubdomain(pf.common.stripTrailingSpaces($element.val()))); // Return binary (true/false)
   },
-  isUnique: function(value,url) {
-    var query = '?' + pf.validate.conventions.uniquenessQueryString + '=' + pf.common.queryStringize(value);
-    return (pf.ajax.getJsonSync(query,url).success == true) ? true : false;
+  isUnique: function(query,url,fieldType) {
+    if (pf.common.isEmpty(query)) {
+      return true;
+    } else {
+      return (pf.ajax.getJsonSync(query,url,fieldType).success == true) ? true : false;
+    }
   },
   isSubstitutionField: function($element) {
     // TECHDEBT - WORRIED ABOUT NAMING - eg 'subsition' isn't specific enough as there are others
@@ -392,9 +394,8 @@ pf.validate = {
     return (pf.common.isEmptyOrNotRequired($element) || pf.common.isInteger($element.val()));
   },
   validateUnique: function($element) {
-    var tmp = (pf.common.isEmptyOrNotRequired($element) || pf.validate.isUnique($element.val(),pf.validate.getUniquenessUrl($element)));
-    // console.log('>>' + tmp);
-    return (pf.common.isEmptyOrNotRequired($element) || pf.validate.isUnique($element.val(),pf.validate.getUniquenessUrl($element)));
+    var fieldType = pf.validate.getFieldTypeForSubsitution($element);
+    return (pf.common.isEmptyOrNotRequired($element) || pf.validate.isUnique($element.val(),pf.validate.getUniquenessUrl($element),fieldType));
   },
   validateCustom: function($element) {
     // TECHDEBT - There must be a way to simplify this

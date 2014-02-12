@@ -104,12 +104,19 @@ form {
     &.message {
       display: none;
     }
+    &.panel {
+      background-color: #fff1ed;
+      margin-bottom: 20px;
+    }
     .error {
       &.message {
         display: inline-block;
         background-color: #fff1ed;
         padding: 0 10px;
       }
+    }
+    .list.of.errors {
+      padding-left: 20px;
     }
     textarea,
     input {

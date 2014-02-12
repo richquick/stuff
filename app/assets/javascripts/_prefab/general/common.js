@@ -64,10 +64,6 @@ pf.common = {
   firstLetterToLowerCase: function(string) {
     return string.charAt(0).toLowerCase() + string.slice(1);
   },
-  queryStringize: function(string) {
-    // TECHDEBT Sanitize query string here
-    return string;
-  },
   isNumber: function(number) {
     return (!isNaN(number) && !pf.common.isEmpty(number)); // Return binary (true/false)
   },

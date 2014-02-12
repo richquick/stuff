@@ -12,29 +12,30 @@ pf.ajax = {
       }
     });
   },
-  getJsonSync: function(query,url) {
-    var path = url;
-    // TECHDEBT Build Quiery String
-    return pf.ajax.loadJSON(path);
+  getJsonSync: function(data,url,fieldType) {
+    var query = fieldType + '=' + data;
+    // TECHDEBT Add a timeout
+    return pf.ajax.loadJSON(query,url);
   },
-  loadJSON: function(url) {
+  loadJSON: function(query,url) {
     // Load json file;
-    var json = JSON.parse(pf.ajax.loadTextFileAjaxSync(url, "application/json"));
+    var json = JSON.parse(pf.ajax.loadTextFileAjaxSync(query, url, "application/json"));
     // Parse json
     return (json) ? json : false;
   },
-  loadTextFileAjaxSync: function (filePath, mimeType) {
-    var xmlhttp=new XMLHttpRequest();
-    xmlhttp.open("GET",filePath,false);
+  loadTextFileAjaxSync: function (query, url, mimeType) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST",url,false);
     if (mimeType != null) {
-      if (xmlhttp.overrideMimeType) {
-        xmlhttp.overrideMimeType(mimeType);
+      if (xhr.overrideMimeType) {
+        xhr.overrideMimeType(mimeType);
       }
     }
-    xmlhttp.send();
-    if (xmlhttp.status==200)
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.send(query);
+    if (xhr.status==200)
     {
-      return xmlhttp.responseText;
+      return xhr.responseText;
     }
     else {
       // TECHDEBT Throw exception
