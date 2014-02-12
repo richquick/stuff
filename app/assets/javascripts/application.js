@@ -5,9 +5,10 @@
 // As well as a requireAll override for Jasmine tests etc.
 
 var pf = {
-  unsupported:            'data-pf-unsupported',
+  unsupported:        'data-pf-unsupported',
   requiredElements: {
-    validate:         'form'
+    validate:         'form',
+    ajax:             'form'
   },
   requireAll:         'body#require_all',
   requireSpecs:       'body#require_all.spec_runner',
@@ -32,6 +33,7 @@ require.config({
     "jquery":         jQueryVersion,
     "common":         "general/common",
     "validate":       "general/validate",
+    "ajax":           "general/ajax",
     "spec_runner":    "general/spec_runner",
     jasmine:          "jasmine/javascripts/jasmine",
     "jasmine-html":   "jasmine/javascripts/jasmine-html",

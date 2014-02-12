@@ -187,12 +187,12 @@ inbox</li>
                                 <p>Anyone you invite will be added as an account admin. You can customise their roles and permissions later.</p>
                                 <div class="very tight segment">
                                     <label for="fm_00008">Additional Users</label>
-                                    <input type="text" placeholder="Custom Validation" name="fm_00008" data-pf-custom-validation="," data-pf-custom-validation-message="Please use valid emails and separate with commas." id="fm_00008">
+                                    <input type="text" placeholder="Custom Validation" name="fm_00008" data-pf-custom-validation="^([a-z|A-Z|0-9|.|'|-|_]+@[a-z|A-Z|0-9|-|_|.]+?\.[a-z|A-Z]{2,3}(((\s)*,(\s)*)|(\s)*$))+$s" data-pf-custom-validation-message="Please use valid emails and separate with commas." id="fm_00008">
                                 </div>
 
                                 <div class="very tight segment">
                                     <label for="fm_00008R">Additional Users</label>
-                                    <input type="text" placeholder="REQUIRED Custom Validation" name="fm_00008R" data-pf-custom-validation="," data-pf-custom-validation-message="Please use valid emails and separate with commas." id="fm_00008R" required>
+                                    <input type="text" placeholder="REQUIRED Custom Validation" name="fm_00008R" data-pf-custom-validation="^([a-z|A-Z|0-9|.|'|-|_]+@[a-z|A-Z|0-9|-|_|.]+?\.[a-z|A-Z]{2,3}(((\s)*,(\s)*)|(\s)*$))+$s" data-pf-custom-validation-message="Please use valid emails and separate with commas." id="fm_00008R" required>
                                 </div>
                             </div>
                             <div class="part">

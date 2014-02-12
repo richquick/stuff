@@ -1,6 +1,9 @@
-// WIP - Passwords with spaces
+// WIP Uniqueness of
 
-// To do later - scrollTo, dates, telephone, live validation, get specs hooked up to Rake / Rspec / PhantomJS
+// BUGS - Something to do with undefined data
+// Is screwing up some validation on the data-type included fields
+
+// To do later - dates, telephone, live validation, get specs hooked up to Rake / Rspec / PhantomJS
 pf.validate = {
   formFieldsList: [
     "input",
@@ -12,6 +15,7 @@ pf.validate = {
     Matches:                  "make sure fields match",
     MinLength:                "use at least #{} characters",
     NoSpaces:                 "don't use spaces",
+    Unique:                   "this option is being used",
     Subdomain:                "choose a valid subdomain",
     MaxLength:                "use fewer than #{} characters",
     CustomValidationDefault:  "check this field, there's a problem with it",
@@ -33,6 +37,9 @@ pf.validate = {
       'lastName': {
         Required:             "tell us your last name"
       },
+      'email': {
+        Unique:               "this email is already being used"
+      },
       'password': {
         Required:             "enter your password",
         NoSpaces:             "don't use spaces in your password",
@@ -41,7 +48,8 @@ pf.validate = {
         Matches:              "make sure passwords match"
       },
       'subdomain': {
-        Required:             "choose a valid subdomain"
+        Required:             "pick a subdomain",
+        Unique:               "this subdomain is taken"
       },
       'number': {
         Matches:              "make sure numbers match (with other field)"
@@ -60,6 +68,7 @@ pf.validate = {
     shouldMatch:              "data-pf-should-match",
     shouldBeInteger:          "data-pf-should-be-integer",
     shouldBeNumber:           "data-pf-should-be-number",
+    shouldBeUnique:           "data-pf-should-be-unique",
     shouldNotHaveSpaces:      "data-pf-should-not-have-spaces"
   },
   snippets: {
@@ -67,6 +76,7 @@ pf.validate = {
     matchElementIDHolder:     '<span style="display:none;" class="matchElementID" rel="#{}">&nbsp;</span>'
   },
   conventions: {
+    uniquenessQueryString:    'q',
     parentHolder:             '.segment, .segment .content',
     parentHolderErrorClass:   'error',
     errorMessageHolderClass:  '.error.message',
@@ -81,18 +91,20 @@ pf.validate = {
   },
   removeRequiredIfOtherErrors: function(errorMessageArray,fieldType) {
     // Remove "Required" error message if there are any other messages
-    if (errorMessageArray.length > 1) {
-      if (!fieldType) {
-        // If there's no fieldtype there's no substitutions so use default
-        if(errorMessageArray.indexOf(pf.validate.errorMessages.Required) === 0) {
-          errorMessageArray.splice(errorMessageArray.indexOf(pf.validate.errorMessages.Required),1);
-        }
-      } else {
-        // Removed the required field for this fieldType
+    errorMessageArray = errorMessageArray.uniq();
+    if (errorMessageArray.length > 2) {
+      // First, remove the default Required message
+      if(errorMessageArray.indexOf(pf.validate.errorMessages.Required) !== -1) {
+        errorMessageArray.splice(errorMessageArray.indexOf(pf.validate.errorMessages.Required),1);
+      }
+      // If the there's still more than 1 error (>2 due to initial blank error work around)
+      if (fieldType && errorMessageArray.length > 2) {
+        // Removed the required error message for this fieldType
+
         var substitutionHash = pf.validate.errorMessages.substitutions[fieldType];
         $.each(substitutionHash, function(substitutionName, substitutionValue) {
-          if (substitutionValue.Required !== 'undefined' && substitutionValue.Required !== false) {
-            if(errorMessageArray.indexOf(substitutionValue) === 0) {
+          if (substitutionName === 'Required') {
+            if(errorMessageArray.indexOf(substitutionValue) !== -1) {
               errorMessageArray.splice(errorMessageArray.indexOf(substitutionValue),1);
             }
           }
@@ -101,11 +113,40 @@ pf.validate = {
     }
     return errorMessageArray;
   },
+  removeUniqueUnlessOtherErrors: function(errorMessageArray,fieldType) {
+    // Remove "Unique" error message unless there are any other messages
+    errorMessageArrayTest = errorMessageArray.uniq();
+    // TECHDEBT - THIS SHOULD BE EXTRACTED TO A VARIABLE AS COULD CHANGE
+    // Remove blank first element FROM TEST ARRAY (if any)
+    if (errorMessageArrayTest[0] == "") {
+      errorMessageArrayTest.shift();
+    }
+    // If there's more than 1 message in the array
+    if (errorMessageArrayTest.length > 1) {
+      var substitutionValue;
+      // Remove uniqueness message from REAL message array
+      if (fieldType) {
+        // Use the uniquness value for this fieldType
+        substitutionValue = pf.validate.errorMessages.substitutions[fieldType].Unique;
+      } else {
+        // Use the default
+        substitutionValue = pf.validate.errorMessages.Unique;
+      }
+      if (substitutionValue != undefined && substitutionValue != 'undefined' && substitutionValue != false) {
+        if(errorMessageArray.indexOf(substitutionValue) !== -1) {
+          errorMessageArray.splice(errorMessageArray.indexOf(substitutionValue),1);
+        }
+      }
+    }
+    return errorMessageArray;
+  },
   sanitizeErrorMessages: function(errorMessageArray,fieldType) {
-    return pf.validate.removeRequiredIfOtherErrors(errorMessageArray,fieldType);
+    return pf.validate.removeUniqueUnlessOtherErrors(pf.validate.removeRequiredIfOtherErrors(errorMessageArray,fieldType),fieldType);
   },
   joinErrorMessages: function(errorMessageArray) {
     var e = [];
+    errorMessageArray = errorMessageArray.uniq();
+    errorMessageArray.shift();
     $.each(errorMessageArray, function(index, errorMessage) {
       if (index === 0) {
         errorMessage = pf.common.firstLetterToUpperCase(errorMessage); // Capitalise first letter of first error message
@@ -203,12 +244,16 @@ pf.validate = {
   isValidSubdomainField: function($element) {
     return (pf.common.isValidSubdomain(pf.common.stripTrailingSpaces($element.val()))); // Return binary (true/false)
   },
+  isUnique: function(value,url) {
+    var query = '?' + pf.validate.conventions.uniquenessQueryString + '=' + pf.common.queryStringize(value);
+    return (pf.ajax.getJsonSync(query,url).success == true) ? true : false;
+  },
   isSubstitutionField: function($element) {
     // TECHDEBT - WORRIED ABOUT NAMING - eg 'subsition' isn't specific enough as there are others
 
-    // TECHDEBT - Want to make more flexible so we can handle more than passwords
+    // TECHDEBT - Want to make more flexible so we can handle more than passwords / emails
     // pf.validate.errorMessages.fieldTypesForSubsitions
-    return pf.validate.isPasswordField($element);
+    return (pf.validate.isPasswordField($element) || pf.validate.isEmailField($element));
   },
   hasMinLength: function($element) {
     var attr = $element.attr(pf.validate.dataAttributes.minLength);
@@ -235,6 +280,10 @@ pf.validate = {
   },
   shouldBeInteger: function($element) {
     var attr = $element.attr(pf.validate.dataAttributes.shouldBeInteger);
+    return (typeof attr !== 'undefined' && attr !== false); // Return binary (true/false)
+  },
+  shouldBeUnique: function($element) {
+    var attr = $element.attr(pf.validate.dataAttributes.shouldBeUnique);
     return (typeof attr !== 'undefined' && attr !== false); // Return binary (true/false)
   },
   shouldNotHaveSpaces: function($element) {
@@ -266,11 +315,19 @@ pf.validate = {
   getFieldTypeForSubsitution: function($element) {
     // TECHDEBT - WORRIED ABOUT NAMING - eg 'subsition' isn't specific enough as there are others
 
-    // TECHDEBT - Want to make more flexible so we can handle more than passwords
+    // TECHDEBT - Want to make more flexible so we can handle more than passwords / emails
     // pf.validate.errorMessages.fieldTypesForSubsitions
     substitutionFieldType = 'password';
 
+    if (pf.validate.isEmailField($element)) {
+      substitutionFieldType = 'email';
+    }
+
     return substitutionFieldType;
+  },
+  getUniquenessUrl: function($element) {
+    var attr = $element.attr(pf.validate.dataAttributes.shouldBeUnique);
+    return (typeof attr !== 'undefined' && attr !== false) ? attr : false;
   },
   processErrorMessageSubstitutions: function(string,$element) {
     // TECHDEBT - WORRIED ABOUT NAMING - eg 'subsition' isn't specific enough as there are others
@@ -334,6 +391,11 @@ pf.validate = {
   validateInteger: function($element) {
     return (pf.common.isEmptyOrNotRequired($element) || pf.common.isInteger($element.val()));
   },
+  validateUnique: function($element) {
+    var tmp = (pf.common.isEmptyOrNotRequired($element) || pf.validate.isUnique($element.val(),pf.validate.getUniquenessUrl($element)));
+    // console.log('>>' + tmp);
+    return (pf.common.isEmptyOrNotRequired($element) || pf.validate.isUnique($element.val(),pf.validate.getUniquenessUrl($element)));
+  },
   validateCustom: function($element) {
     // TECHDEBT - There must be a way to simplify this
     var customValidationRegex = $element.attr(pf.validate.dataAttributes.customValidation);
@@ -350,7 +412,10 @@ pf.validate = {
     return !(pattern.test(elementValue) || (pf.common.isEmpty(elementValue))) ? errorMessage : false; // Return binary (true/false)
   },
   validate: function($element) {
-    var errorMessage = [];
+    // TECHDEBT - MAJOR
+    // For some reason I needed to put an empty first element in the array for some edge cases. Not sure why.
+    // Need to understand as lots of code needed to be changed to accomodate.
+    var errorMessage = [""];
     var validationHash = {
       'isRequired'          : 'Required',
       'isRequiredCheckbox'  : 'RequiredCheckbox',
@@ -361,6 +426,7 @@ pf.validate = {
       'hasMaxLength'        : 'MaxLength',
       'shouldBeNumber'      : 'Number',
       'shouldBeInteger'     : 'Integer',
+      'shouldBeUnique'      : 'Unique',
       'shouldNotHaveSpaces' : 'NoSpaces'
     };
     // Do each of the standard validations
@@ -375,6 +441,7 @@ pf.validate = {
       ";
       eval(codeToEval);
     });
+    // console.log(errorMessage);
     // Do non-standard validations
     // Should it match another element?
     if (pf.validate.shouldMatch($element)) {
@@ -395,13 +462,14 @@ pf.validate = {
     }
 
     // FINALLY - Are there any error messages?
-    if (errorMessage.length > 0) {
+    if (errorMessage.length > 1) {
       var fieldType;
       if (pf.validate.hasFieldType($element) || pf.validate.isSubstitutionField($element)) {
         fieldType = (pf.validate.isSubstitutionField($element)) ? pf.validate.getFieldTypeForSubsitution($element) : pf.common.snakeCaseToCamelCase(pf.validate.getFieldType($element));
       } else {
         fieldType = false;
       }
+      // console.log(errorMessage," :: ",fieldType);
       return (pf.validate.processErrorMessages(errorMessage,fieldType));
     } else {
       pf.validate.removeErrorClasses($element);
@@ -421,7 +489,6 @@ pf.validate = {
         // First error message we hit, scroll to that field
         if (hasErrors == false) {
           hasErrors = true;
-          console.log($this.attr('id'));
           pf.common.scrollToId($this.attr('id'));
         }
         pf.validate.addError($this,errorMessage);
@@ -438,6 +505,6 @@ pf.validate = {
   }
 };
 
-define(['jquery','common'], function() {
+define(['jquery','common','ajax'], function() {
   pf.validate.setupValidation();
 });

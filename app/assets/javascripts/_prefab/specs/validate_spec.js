@@ -9,22 +9,22 @@ describe("pf.validate:", function() {
       expect(typeof pf.validate.processErrorMessages).toEqual('function');
     });
     it("should return 1-long as though they were strings", function() {
-      expect(pf.validate.processErrorMessages(["error message 1"])).toEqual('Error message 1');
+      expect(pf.validate.processErrorMessages(["","error message 1"])).toEqual('Error message 1');
     });
     it("should capitalize first letter", function() {
-      expect(pf.validate.processErrorMessages(["error message 1"])).toEqual('Error message 1');
+      expect(pf.validate.processErrorMessages(["","error message 1"])).toEqual('Error message 1');
     });
     it("should remove full-stops from error messages", function() {
-      expect(pf.validate.processErrorMessages(["error message 1.","error message 2.","error message 3."])).toEqual('Error message 1, error message 2, and error message 3');
+      expect(pf.validate.processErrorMessages(["","error message 1.","error message 2.","error message 3."])).toEqual('Error message 1, error message 2, and error message 3');
     });
     it("should join 2-long arrays with and", function() {
-      expect(pf.validate.processErrorMessages(["error message 1","error message 2"])).toEqual('Error message 1 and error message 2');
+      expect(pf.validate.processErrorMessages(["","error message 1","error message 2"])).toEqual('Error message 1 and error message 2');
     });
     it("should join 3-long arrays with comma + and", function() {
-      expect(pf.validate.processErrorMessages(["error message 1","error message 2","error message 3"])).toEqual('Error message 1, error message 2, and error message 3');
+      expect(pf.validate.processErrorMessages(["","error message 1","error message 2","error message 3"])).toEqual('Error message 1, error message 2, and error message 3');
     });
     it("should join 4-long arrays with commas + and", function() {
-      expect(pf.validate.processErrorMessages(["error message 1","error message 2","error message 3","error message 4"])).toEqual('Error message 1, error message 2, error message 3, and error message 4');
+      expect(pf.validate.processErrorMessages(["","error message 1","error message 2","error message 3","error message 4"])).toEqual('Error message 1, error message 2, error message 3, and error message 4');
     });
     it("should return the string if input is a string", function() {
       expect(pf.validate.processErrorMessages("notAnArray")).toEqual("notAnArray");
@@ -77,6 +77,26 @@ describe("pf.validate:", function() {
       expect(typeof pf.validate.isPasswordField).toEqual('function');
     });
   });
+  describe("pf.validate.getUniquenessUrl:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.getUniquenessUrl).toEqual('function');
+    });
+  });
+  describe("pf.validate.validateUnique:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.validateUnique).toEqual('function');
+    });
+  });
+  describe("pf.validate.isUnique:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.isUnique).toEqual('function');
+    });
+  });
+  describe("pf.validate.shouldBeUnique:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.shouldBeUnique).toEqual('function');
+    });
+  });
   describe("pf.validate.isPhoneField:", function() {
     it("is a function", function() {
       expect(typeof pf.validate.isPhoneField).toEqual('function');
@@ -119,6 +139,11 @@ describe("pf.validate:", function() {
   describe("pf.validate.removeRequiredIfOtherErrors:", function() {
     it("is a function", function() {
       expect(typeof pf.validate.removeRequiredIfOtherErrors).toEqual('function');
+    });
+  });
+  describe("pf.validate.removeUniqueUnlessOtherErrors:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.removeUniqueUnlessOtherErrors).toEqual('function');
     });
   });
   describe("pf.validate.sanitizeErrorMessages:", function() {

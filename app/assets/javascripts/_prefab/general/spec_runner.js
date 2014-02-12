@@ -6,7 +6,8 @@ define(['jquery', 'jasmine-html'], function($, jasmine){
     specs:    [
       "_dependencies",
       "common",
-      "validate"
+      "validate",
+      "ajax"
     ]
   }
 

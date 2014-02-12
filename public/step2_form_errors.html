@@ -43,16 +43,17 @@
                                 <div class="two_column grid and segment">
                                     <div class="very tight main content">
                                         <label for="fm_00001">First name</label>
-                                        <input type="text" data-pf-field-type="first_name" placeholder="First name" name="fm_00001" id="fm_00001" required>
+                                        <input type="text" data-pf-field-type="first_name" placeholder="First name" value="Rich" name="fm_00001" id="fm_00001" required>
                                     </div>
                                     <div class="very tight second content">
                                         <label for="fm_00002">Last name</label>
-                                        <input type="text" data-pf-field-type="last_name" placeholder="Last name" name="fm_00002" id="fm_00002" required>
+                                        <input type="text" data-pf-field-type="last_name" value="Last name" value="Quick" name="fm_00002" id="fm_00002" required>
                                     </div>
                                 </div>
-                                <div class="very tight segment">
+                                <div class="very tight segment error">
                                     <label for="fm_00003">Email</label>
-                                    <input type="email" placeholder="Email" name="fm_00003" id="fm_00003" required data-pf-should-be-unique="/endpoint/false">
+                                    <input type="email" placeholder="Email" value="rich@speaktorich" name="fm_00003" id="fm_00003" required>
+                                    <div class="error message">Give us a valid email address</div>
                                 </div>
                                 <div class="very tight segment">
                                     <label for="fm_00004">Password</label>
@@ -91,7 +92,7 @@ inbox</li>
                             <div class="part">
                                 <div class="very tight segment with gathercontent suffix">
                                     <label for="fm_00004f">Subdomain</label>
-                                    <input type="text" data-pf-field-type="subdomain" placeholder="" name="fm_00004f" id="fm_00004f" required data-pf-should-be-unique="/endpoint/false">
+                                    <input type="text" data-pf-field-type="subdomain" placeholder="" name="fm_00004f" id="fm_00004f" required>
                                 </div>
 
                                 <small>Pick a preferred subdomain (you'll use this to access GatherContent)</small>

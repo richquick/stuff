@@ -13,6 +13,11 @@ describe("pf.common:", function() {
       expect(typeof pf.common.idExists).toEqual('function');
     });
   });
+  describe("pf.common.queryStringize:", function() {
+    it("is a function", function() {
+      expect(typeof pf.common.queryStringize).toEqual('function');
+    });
+  });
   describe("pf.common.scrollToId:", function() {
     it("is a function", function() {
       expect(typeof pf.common.scrollToId).toEqual('function');
