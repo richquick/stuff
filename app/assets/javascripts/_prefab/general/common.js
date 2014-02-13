@@ -70,9 +70,12 @@ pf.common = {
   isInteger: function(number) {
     return (!isNaN(number) && number % 1 === 0 && !pf.common.isEmpty(number)); // Return binary (true/false)
   },
+  endsWithPeriod: function(string) {
+    return (string.slice(-1) == ".");
+  },
   isValidEmailAddress: function(string) {
     var pattern = new RegExp(pf.common.conventions.emailRegex);
-    return pattern.test(string); // Return binary (true/false)
+    return (pattern.test(string) && !pf.common.endsWithPeriod(string)); // Return binary (true/false)
   },
   isValidPhoneNumber: function(string) {
     // NOTE: Basic Validation for now - we don't need to go overboard, so Regex is basic

@@ -170,6 +170,11 @@ describe("pf.common:", function() {
       expect(pf.common.isInteger('   ')).toEqual(false);
     });
   });
+  describe("pf.common.endsWithPeriod:", function() {
+    it("is a function", function() {
+      expect(typeof pf.common.endsWithPeriod).toEqual('function');
+    });
+  });
   describe("pf.common.isValidEmailAddress:", function() {
     it("is a function", function() {
       expect(typeof pf.common.isValidEmailAddress).toEqual('function');
@@ -188,6 +193,13 @@ describe("pf.common:", function() {
     });
     it("should pass for valid .com email with ' before @", function() {
       expect(pf.common.isValidEmailAddress("this'that@that.com")).toEqual(true);
+    });
+    it("should fail for valid .com email with a . afterwards", function() {
+      expect(pf.common.isValidEmailAddress('this@that.com.')).toEqual(false);
+    });
+
+    it("should fail for valid .com email with a , afterwards", function() {
+      expect(pf.common.isValidEmailAddress('this@that.com,')).toEqual(false);
     });
     it("should fail for letters", function() {
       expect(pf.common.isValidEmailAddress('aaa')).toEqual(false);

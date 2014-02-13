@@ -247,7 +247,7 @@ pf.validate = {
     if (pf.common.isEmpty(query)) {
       return true;
     } else {
-      return (pf.ajax.getJsonSync(query,url,fieldType).success == true) ? true : false;
+      return (pf.ajax.getJsonSync(query,url,fieldType).allowed == true) ? true : false;
     }
   },
   isSubstitutionField: function($element) {
@@ -394,7 +394,14 @@ pf.validate = {
     return (pf.common.isEmptyOrNotRequired($element) || pf.common.isInteger($element.val()));
   },
   validateUnique: function($element) {
-    var fieldType = pf.validate.getFieldTypeForSubsitution($element);
+    // TECHDEBT - This would need to be WAY more flexible.
+    // But this may get left out when we refactor anyway - so leave for now
+    var fieldType;
+    if (pf.validate.isEmailField($element)) {
+      fieldType = 'email';
+    } else {
+      fieldType = 'subdomain';
+    }
     return (pf.common.isEmptyOrNotRequired($element) || pf.validate.isUnique($element.val(),pf.validate.getUniquenessUrl($element),fieldType));
   },
   validateCustom: function($element) {
