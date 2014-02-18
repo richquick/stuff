@@ -15,7 +15,6 @@ body {
   }
 }
 
-
 .grid {
   @include clearfix();
   &.two_column {
@@ -50,6 +49,13 @@ body {
           float: $fr_second_column_float_reversed;
         }
       }
+    }
+  }
+  .section {
+    &.tight {
+      width: 75%;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }

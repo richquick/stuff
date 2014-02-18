@@ -17,7 +17,7 @@ $sk_default_font_import: none;
 $sk_default_font_family: "Proxima Nova", "proxima-nova", helvetica, arial, sans-serif;
 
 // Colors
-$sk_heading_color: #323a45;
+$sk_heading_color: #111;
 $sk_label_color: $sk_heading_color;
 $sk_th_color: $sk_heading_color;
 $sk_lowlite_color: #999;
@@ -45,6 +45,10 @@ $sk_nav_search_top_margin: -8px;
 $sk_tablet_asymetric_margin_left: 4%;
 $sk_tablet_asymetric_max_width: 53%;
 $sk_desktop_asymetric_margin_left: 16%;
+
+
+  // Mobile
+$sk_mobile_body_margin_top: 200px;
 
   // Desktop
 $sk_desktop_body_margin_top: 140px;

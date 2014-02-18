@@ -8,12 +8,18 @@
   margin-bottom: 10px;
   ul {
     @include inline_list(0);
+    li:not(:first-child) {
+      margin-left: 10px;
+    }
+  }
+  &.main {
+    margin-bottom: 25px;
   }
   .branding {
     position: relative;
     a {
       position: absolute;
-      top: -21px;
+      top: -15px;
       opacity: 1;
       @include link_with_image($sk_branding_image,$sk_branding_width,$sk_branding_height);
       @include animate_on_opacity(0.25s);
@@ -25,7 +31,20 @@
   }
   a {
     @include rounded_corners($sk_button_radius);
+    @include animate_on_color_and_background_color(0.25s);
     color: $sk_nav_link_color;
+    display: inline-block;
+    &.standout {
+      // TECHDEBT
+      background-color: #c3b6ac;
+      font-weight: bold;
+      color: #fff;
+      padding: 5px 15px;
+      &:hover {
+      background-color: darken(#c3b6ac,10%);
+      color: #fff;
+      }
+    }
     &:hover {
       background-color: $sk_nav_link_hover_background_color;
       color: $sk_nav_link_hover_color;

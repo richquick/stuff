@@ -21,9 +21,26 @@ h6 {
   color: $sk_heading_color;
 }
 
-h1 + p.standfirst {
-  margin-top: 0.5em;
-  margin-bottom: 0.3em;
+h1 {
+  margin-bottom: 0.7em;
+  &.stronger {
+    // TECHDEBT
+    font-size: 200%;
+  }
+  + p.standfirst {
+    // TECHDEBT
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+  }
+}
+
+h2 {
+  font-size: 110%;
+  margin-bottom: 0;
+  + p {
+    // TECHDEBT
+    margin-top: 0;
+  }
 }
 
 label {
@@ -56,6 +73,7 @@ small {
   }
 }
 
+// TECHDEBT
 .panel {
   h2 {
     color: #a5a5a5;
