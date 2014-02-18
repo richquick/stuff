@@ -4,13 +4,16 @@
   background: $sk_navbar_background;
   color: $sk_nav_color;
   // TECHDEBT
-  padding: 20px 0;
+  padding: 10px 0 15px 0;
   margin-bottom: 10px;
   ul {
     @include inline_list(0);
   }
   .branding {
+    position: relative;
     a {
+      position: absolute;
+      top: -21px;
       opacity: 1;
       @include link_with_image($sk_branding_image,$sk_branding_width,$sk_branding_height);
       @include animate_on_opacity(0.25s);
