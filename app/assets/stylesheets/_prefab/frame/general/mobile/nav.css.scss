@@ -3,6 +3,7 @@
 .nav {
   &.main {
     @include horizontal_nav($fr_nav_height,$fr_nav_width,$fr_nav_background_color);
+    z-index: 99999;
   }
   color: $fr_nav_text_color;
   .group {

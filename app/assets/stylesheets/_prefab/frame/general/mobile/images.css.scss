@@ -3,3 +3,36 @@
 img {
   max-width: 100%;
 }
+
+.creepy.image {
+  margin: auto;
+  display: block;
+  width: 96px;
+  height: 96px;
+  overflow: hidden;
+  &.small {
+    width: 48px;
+    height: 48px;
+  }
+  &.large {
+    width: 192px;
+    height: 192px;
+  }
+  &.circular {
+    @include rounded_corners(500px);
+  }
+  img {
+    @include creepy_image_animation (0.5s);
+    width: 100%;
+    height: 100%;
+    max-width: inherit;
+  }
+  &:hover {
+    img {
+
+      width: 120%;
+      height: 120%;
+      margin: -10%;
+    }
+  }
+}

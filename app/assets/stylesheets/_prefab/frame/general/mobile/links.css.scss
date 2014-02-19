@@ -31,12 +31,18 @@ a {
   }
 }
 
+// TECHDEBT - is the order of the icon stuff the wrong way round?!
+
 .facebook a {
   background-image: asset_url($fr_facebook_icon_url);
   @include icon($fr_icon_size,$fr_icon_padding_left);
 }
 .twitter a {
   background-image: asset_url($fr_twitter_icon_url);
+  @include icon($fr_icon_size,$fr_icon_padding_left);
+}
+.email a {
+  background-image: asset_url($fr_email_icon_url);
   @include icon($fr_icon_size,$fr_icon_padding_left);
 }
 .linked.in a {

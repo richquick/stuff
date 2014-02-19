@@ -1,6 +1,7 @@
 // Links
 
 a {
+  @include animate_on_color_and_background_color(0.25s);
   &.resource {
     @include rounded_corners($sk_resource_link_radius);
     padding-left: $sk_resource_link_padding_left;
@@ -11,4 +12,19 @@ a {
       background-color: $sk_resource_link_background_color_hover;
     }
   }
+}
+
+// TECHDEBT - size vs padding wrong way round?
+
+.twitter a {
+  background-image: asset_url($sk_twitter_icon_url);
+  @include icon($sk_icon_size*0.9,$sk_icon_padding_left);
+}
+.email a {
+  background-image: asset_url($sk_email_icon_url);
+  @include icon($sk_icon_size*0.9,$sk_icon_padding_left*0.8);
+}
+.github a {
+  background-image: asset_url($sk_github_icon_url);
+  @include icon($sk_icon_size*0.9,$sk_icon_padding_left);
 }

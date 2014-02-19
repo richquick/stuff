@@ -1,16 +1,26 @@
 // Lists
 
 ul {
-  &.list.of.links {
-    &.proportion {
-      &.half {
-        width: 50%;
+  &.list.of {
+    &.links {
+      &.proportion {
+        &.half {
+          width: 50%;
+        }
+        &.third {
+          width: 33%;
+        }
+        &.quarter {
+          width: 25%;
+        }
       }
-      &.third {
-        width: 33%;
-      }
-      &.quarter {
-        width: 25%;
+    }
+    &.team.bios {
+      max-width: 800px;
+      margin: auto;
+      > li {
+        width: 158px;
+        font-size: 100%;
       }
     }
   }

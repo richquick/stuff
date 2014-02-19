@@ -2,13 +2,33 @@
 
 @mixin transition ($transition) {
   -webkit-transition: $transition;
-  -moz-transition: $transition;
-  -m-transition: $transition;
-  transition: $transition;
+  -moz-transition:    $transition;
+  -m-transition:      $transition;
+  transition:         $transition;
+}
+
+@mixin stacked_transition ($transitions, $times, $delays) {
+  -webkit-transition-property:  $transitions;
+  -webkit-transition-duration:  $times;
+  -webkit-transition-delay:     $delays;
+  -moz-transition-property:     $transitions;
+  -moz-transition-duration:     $times;
+  -moz-transition-delay:        $delays;
+  -m-transition-property:       $transitions;
+  -m-transition-duration:       $times;
+  -m-transition-delay:          $delays;
+  transition-property:          $transitions;
+  transition-duration:          $times;
+  transition-delay:             $delays;
 }
 
 @mixin animate_on_opacity($time) {
   $transition: opacity $time ease-in-out;
+  @include transition ($transition);
+}
+
+@mixin animate_on_opacity_and_margin_top($time) {
+  $transition: opacity $time ease-in-out,margin-top $time ease-in-out;
   @include transition ($transition);
 }
 
@@ -17,10 +37,16 @@
   @include transition ($transition);
 }
 
+@mixin creepy_image_animation($time) {
+    $transition: width $time ease-in-out, height $time ease-in-out, margin $time ease-in-out;
+    @include transition ($transition);
+}
+
 @mixin animate_on_min_height($time) {
-  transition-property: min-height, height;
-  transition-duration: $time, 0.5s;
-  transition-delay: 0, $time;
+  $transitions: min-height, height;
+  $times: $time, 0.5s;
+  $delays: 0, $time;
+  @include stacked_transition ($transitions, $times, $delays);
 }
 
 @mixin animate_on_color_and_background_color($time) {

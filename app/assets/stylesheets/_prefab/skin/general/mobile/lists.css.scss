@@ -10,24 +10,87 @@ ul {
       }
     }
   }
-  &.list.of.links {
-    &.tag {
-      a:not(.x) {
-        @include rounded_corners($sk_tag_radius);
-        &:before {
-          @include rounded_corners($sk_tag_triangle_radius);
-        }
-        &:hover {
+  &.list.of {
+    &.links {
+      &.tag {
+        a:not(.x) {
+          @include rounded_corners($sk_tag_radius);
           &:before {
+            @include rounded_corners($sk_tag_triangle_radius);
+          }
+          &:hover {
+            &:before {
 
+            }
           }
         }
       }
+      &.banded {
+        > li {
+          @include zebra_striping($sk_zebra_striping_color_1,$sk_zebra_striping_color_2);
+        }
+      }
     }
-    &.banded {
+    &.team.bios {
+      @include inline_list(10px 0);
       > li {
-        @include zebra_striping($sk_zebra_striping_color_1,$sk_zebra_striping_color_2);
+        position: relative;
+        width: 116px;
+        font-size: 90%;
+        overflow: hidden;
+        .business.card {
+          @include rounded_corners(5px);
+          padding: 12px 0;
+          z-index: 0;
+          margin-top: 0;
+          position: absolute;
+          top: 116px;
+          width: 180%;
+          left: -40%;
+          opacity: 0;
+          background-color: #efefed;
+          box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+          font-size: 90%;
+          li {
+            display: block;
+            padding: 3px 0;
+          }
+          &:before {
+            @include rotate(45deg);
+            @include rounded_corners(3px);
+            content: " ";
+            display: block;
+            position: absolute;
+            background-color: #efefed;
+            top: -6px;
+            margin: 0 48%;
+            width: 15px;
+            height: 15px;
+          }
+        }
+        &:hover {
+          overflow: inherit;
+          .business.card {
+            @include animate_on_opacity_and_margin_top(0.5s);
+            margin-top: 30px;
+            z-index: 1;
+            opacity: 1;
+            a {
+              text-decoration: none;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+      h3 {
+        font-size: 100%;
+        font-weight: inherit;
+        padding-top: 10px;
       }
     }
   }
 }
+
+

@@ -1,7 +1,14 @@
 // Type
 
 h1 {
-  &.stronger {
+  &.strong {
     font-size: 280%;
+  }
+}
+
+h2 {
+  &.strong {
+    // TECHDEBT
+    font-size: 180%;
   }
 }
