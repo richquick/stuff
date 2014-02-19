@@ -7,10 +7,24 @@
   }
 }
 
+@mixin icon_right($padding_right,$size) {
+  @include icon_sub_right($padding_right,$size);
+  &.strong {
+    @include icon_sub_right($fr_strong_icon_size,$fr_strong_icon_padding_left);
+  }
+}
+
 // TECHDEBT
 @mixin icon_sub($padding_left,$size) {
   padding-left: $padding_left;
   background-repeat: no-repeat;
   background-position: 5px;
+  background-size: $size;
+}
+
+@mixin icon_sub_right($padding_right,$size) {
+  padding-right: $padding_right;
+  background-repeat: no-repeat;
+  background-position: right;
   background-size: $size;
 }

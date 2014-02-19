@@ -12,6 +12,17 @@
   @include transition ($transition);
 }
 
+@mixin animate_on_height($time) {
+  $transition: height $time ease-in-out;
+  @include transition ($transition);
+}
+
+@mixin animate_on_min_height($time) {
+  transition-property: min-height, height;
+  transition-duration: $time, 0.5s;
+  transition-delay: 0, $time;
+}
+
 @mixin animate_on_color_and_background_color($time) {
   $transition: background-color $time ease-in-out, color $time ease-in-out;
   @include transition ($transition);

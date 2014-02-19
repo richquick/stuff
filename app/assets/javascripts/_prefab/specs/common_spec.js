@@ -331,20 +331,5 @@ describe("pf.common:", function() {
       expect(pf.common.isFieldEmpty($('<input type="text" value="test">'))).toEqual(false);
     });
   });
-  describe("pf.common.addJavascriptIndicatorClassToBodyTag:", function() {
-    it("is a function", function() {
-      expect(typeof pf.common.addJavascriptIndicatorClassToBodyTag).toEqual('function');
-    });
-  });
-  describe("pf.common.removeNoJavascriptIndicatorClassToBodyTag:", function() {
-    it("is a function", function() {
-      expect(typeof pf.common.removeNoJavascriptIndicatorClassToBodyTag).toEqual('function');
-    });
-  });
-  describe("pf.common.setupCommon:", function() {
-    it("is a function", function() {
-      expect(typeof pf.common.setupCommon).toEqual('function');
-    });
-  });
 });
 

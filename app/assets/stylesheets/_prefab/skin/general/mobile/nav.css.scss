@@ -1,16 +1,79 @@
 // Navigation
 
+.js{
+  .nav {
+    ul {
+      &.accordian {
+        li {
+          height: 0;
+          overflow: hidden;
+          @include animate_on_height(0.25s);
+        }
+      }
+    }
+  }
+}
 .nav {
   background: $sk_navbar_background;
   color: $sk_nav_color;
   // TECHDEBT
-  padding: 10px 0 15px 0;
+  padding: 10px 0 10px 0;
   margin-bottom: 10px;
   ul {
-    @include inline_list(0);
-    li:not(:first-child) {
-      margin-left: 10px;
+    &.accordian {
+      @include clean_list(0);
+      &.expanded {
+        li {
+          height: 43px;
+          &:nth-child(2) {
+            height: 44px;
+          }
+        }
+      }
+      li {
+        &.expander.for.main_nav {
+          height: auto;
+          position: absolute;
+          top: 12px;
+          right: 20px;
+          width: auto;
+          a {
+            display: inline-block;
+            border: none;
+            @include rounded_corners($sk_button_radius);
+            @include animate_on_opacity(0.3s);
+            background-image: asset_url($fr_dark_menu_expander_icon_url);
+            @include icon_right($fr_icon_padding_left*2.7,$fr_icon_size);
+            color: #000;
+            opacity: 0.5;
+            &:hover {
+              background-color: transparent;
+              opacity: 1;
+            }
+          }
+        }
+        width: 100%;
+        a {
+          border-bottom: 1px dotted #ccc;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          text-align: center;
+          &:hover,
+          &:active {
+            background: rgba(0,0,0,0.1);
+          }
+        }
+        &:nth-child(2) {
+          a {
+            border-top: 1px dotted #ccc;
+          }
+        }
+      }
     }
+    &:not(.accordian) {
+      @include inline_list(0);
+    }
+
   }
   &.main {
     margin-bottom: 25px;
@@ -30,20 +93,13 @@
     }
   }
   a {
-    @include rounded_corners($sk_button_radius);
     @include animate_on_color_and_background_color(0.25s);
     color: $sk_nav_link_color;
-    display: inline-block;
+    display: block;
+    padding: 5px 20px;
     &.standout {
       // TECHDEBT
-      background-color: #c3b6ac;
       font-weight: bold;
-      color: #fff;
-      padding: 5px 15px;
-      &:hover {
-      background-color: darken(#c3b6ac,10%);
-      color: #fff;
-      }
     }
     &:hover {
       background-color: $sk_nav_link_hover_background_color;
