@@ -13,6 +13,20 @@
     }
   }
 }
+.js_free {
+  .nav {
+    ul {
+      &.accordian {
+        li {
+          &.expander.for.main_nav {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
 .nav {
   background: $sk_navbar_background;
   color: $sk_nav_color;
