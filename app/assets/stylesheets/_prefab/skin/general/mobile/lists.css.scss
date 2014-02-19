@@ -37,7 +37,6 @@ ul {
         position: relative;
         width: 116px;
         font-size: 90%;
-        overflow: hidden;
         .business.card {
           @include rounded_corners(5px);
           padding: 12px 0;
@@ -46,7 +45,7 @@ ul {
           position: absolute;
           top: 116px;
           width: 180%;
-          left: -40%;
+          left: 9000px;
           opacity: 0;
           background-color: #efefed;
           box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
@@ -69,10 +68,10 @@ ul {
           }
         }
         &:hover {
-          overflow: inherit;
           .business.card {
             @include animate_on_opacity_and_margin_top(0.5s);
             margin-top: 30px;
+            left: -40%;
             z-index: 1;
             opacity: 1;
             a {
