@@ -39,12 +39,14 @@
           height: auto;
           width: auto;
           a {
+            font-size: 90%;
+            padding-top: 14px;
             display: inline-block;
             border: none;
             @include rounded_corners($sk_button_radius);
             @include animate_on_opacity(0.3s);
             background-image: asset_url($fr_dark_menu_expander_icon_url);
-            @include icon_right($fr_icon_padding_left*2.7,$fr_icon_size);
+            @include icon_right($fr_icon_padding_left*2.4,$fr_icon_size);
             color: #000;
             opacity: 0.5;
             &:hover {
