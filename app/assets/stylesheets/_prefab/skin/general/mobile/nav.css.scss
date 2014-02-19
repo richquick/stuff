@@ -36,6 +36,7 @@
           position: absolute;
           top: 12px;
           right: 20px;
+          height: auto;
           width: auto;
           a {
             display: inline-block;
@@ -57,6 +58,7 @@
           border-bottom: 1px dotted #ccc;
           padding-top: 10px;
           padding-bottom: 10px;
+          height: 22px;
           text-align: center;
           &:hover,
           &:active {
