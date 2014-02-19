@@ -1,15 +1,5 @@
 // Utilities
 
-// TECHDEBT - Move to grid.css.scss
-.grid {
-  .section {
-    &.asymetric {
-      max-width: $sk_tablet_asymetric_max_width;
-      margin-left: $sk_tablet_asymetric_margin_left;
-    }
-  }
-}
-
 // - move to panels.css.scss
 
 .promo {

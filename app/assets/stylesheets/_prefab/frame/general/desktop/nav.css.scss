@@ -4,9 +4,12 @@
   .group {
     float: left;
     padding-left: $fr_nav_group_padding/2;
-    &.second {
+    &.alternative.position {
       float: right;
       padding-right: $fr_nav_group_padding;
+    }
+    &.third {
+      clear: both;
     }
   }
 }

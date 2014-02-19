@@ -1,2 +1,10 @@
 // Grid
 
+.grid {
+  .section {
+    &.asymetric {
+      max-width: $sk_tablet_asymetric_max_width;
+      margin-left: $sk_tablet_asymetric_margin_left;
+    }
+  }
+}

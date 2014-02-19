@@ -1,7 +1,9 @@
 // Navigation
 
 .nav {
-  @include horizontal_nav($fr_nav_height,$fr_nav_width,$fr_nav_background_color);
+  &.main {
+    @include horizontal_nav($fr_nav_height,$fr_nav_width,$fr_nav_background_color);
+  }
   color: $fr_nav_text_color;
   .group {
     padding-top: $fr_nav_group_padding;

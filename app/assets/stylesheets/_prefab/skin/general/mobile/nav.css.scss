@@ -1,100 +1,106 @@
 // Navigation
 
-.js{
-  .nav {
-    ul {
-      &.accordian {
-        li {
-          height: 0;
-          overflow: hidden;
-          @include animate_on_height(0.25s);
-        }
-      }
-    }
-  }
-}
-.js_free {
-  .nav {
-    ul {
-      &.accordian {
-        li {
-          &.expander.for.main_nav {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-}
-
 .nav {
-  background: $sk_navbar_background;
   color: $sk_nav_color;
-  // TECHDEBT
-  padding: 10px 0 10px 0;
-  margin-bottom: 10px;
   ul {
-    &.accordian {
-      @include clean_list(0);
-      &.expanded {
-        li {
-          height: 43px;
-          &:nth-child(2) {
-            height: 44px;
-          }
-        }
-      }
-      li {
-        &.expander.for.main_nav {
-          height: auto;
-          position: absolute;
-          top: 12px;
-          right: 20px;
-          height: auto;
-          width: auto;
-          a {
-            font-size: 90%;
-            padding-top: 14px;
-            display: inline-block;
-            border: none;
-            @include rounded_corners($sk_button_radius);
-            @include animate_on_opacity(0.3s);
-            background-image: asset_url($fr_dark_menu_expander_icon_url);
-            @include icon_right($fr_icon_padding_left*2.4,$fr_icon_size);
-            color: #000;
-            opacity: 0.5;
-            &:hover {
-              background-color: transparent;
-              opacity: 1;
-            }
-          }
-        }
-        width: 100%;
-        a {
-          border-bottom: 1px dotted #ccc;
-          padding-top: 10px;
-          padding-bottom: 10px;
-          height: 22px;
-          text-align: center;
-          &:hover,
-          &:active {
-            background: rgba(0,0,0,0.1);
-          }
-        }
-        &:nth-child(2) {
-          a {
-            border-top: 1px dotted #ccc;
-          }
-        }
-      }
+    @include clean_list(0);
+  }
+  a {
+    @include animate_on_color_and_background_color(0.25s);
+    color: $sk_nav_link_color;
+    display: block;
+    padding: 0 0 5px 0;
+    &.standout {
+      // TECHDEBT
+      font-weight: bold;
     }
-    &:not(.accordian) {
-      @include inline_list(0);
+    &:hover {
+      background-color: $sk_nav_link_hover_background_color;
+      color: $sk_nav_link_hover_color;
     }
-
   }
   &.main {
     margin-bottom: 25px;
+    background: $sk_navbar_background;
+    // TECHDEBT
+    padding: 10px 0 10px 0;
+    margin-bottom: 10px;
+    ul {
+      &.accordian {
+        &.expanded {
+          li {
+            height: 43px;
+            &:nth-child(2) {
+              height: 44px;
+            }
+          }
+        }
+        li {
+          &.expander.for.main_nav {
+            height: auto;
+            position: absolute;
+            top: 12px;
+            right: 20px;
+            height: auto;
+            width: auto;
+            a {
+              font-size: 90%;
+              padding-top: 14px;
+              display: inline-block;
+              border: none;
+              @include rounded_corners($sk_button_radius);
+              @include animate_on_opacity(0.3s);
+              background-image: asset_url($fr_dark_menu_expander_icon_url);
+              @include icon_right($fr_icon_padding_left*2.4,$fr_icon_size);
+              color: #000;
+              opacity: 0.5;
+              &:hover {
+                background-color: transparent;
+                opacity: 1;
+              }
+            }
+          }
+          width: 100%;
+          a {
+            border-bottom: 1px dotted #ccc;
+            padding: 10px 20px;
+            height: 22px;
+            text-align: center;
+            &:hover,
+            &:active {
+              background: rgba(0,0,0,0.1);
+            }
+          }
+          &:nth-child(2) {
+            a {
+              border-top: 1px dotted #ccc;
+            }
+          }
+        }
+      }
+      &:not(.accordian) {
+        @include inline_list(0);
+      }
+    }
+  }
+  &.footer {
+    @include clearfix();
+    font-size: 85%;
+    border-top: 1px solid #c3b6ac;
+    margin: 10px;
+    .group {
+      padding-bottom: 0;
+      &.alternative.position {
+        margin-left: -2px;
+        margin-right: -10px;
+      }
+    }
+    ul {
+      @include inline_list(0);
+      a {
+        padding: 0 3px;
+      }
+    }
   }
   .branding {
     position: relative;
@@ -110,23 +116,37 @@
       }
     }
   }
-  a {
-    @include animate_on_color_and_background_color(0.25s);
-    color: $sk_nav_link_color;
-    display: block;
-    padding: 5px 20px;
-    &.standout {
-      // TECHDEBT
-      font-weight: bold;
-    }
-    &:hover {
-      background-color: $sk_nav_link_hover_background_color;
-      color: $sk_nav_link_hover_color;
-    }
-  }
   .group {
     &.search {
       margin-top: $sk_nav_search_top_margin;
+    }
+  }
+}
+
+.js_free {
+  .nav {
+    ul {
+      &.accordian {
+        li {
+          &.expander.for.main_nav {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.js{
+  .nav {
+    ul {
+      &.accordian {
+        li {
+          height: 0;
+          overflow: hidden;
+          @include animate_on_height(0.25s);
+        }
+      }
     }
   }
 }

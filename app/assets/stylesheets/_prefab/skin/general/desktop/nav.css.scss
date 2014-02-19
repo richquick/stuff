@@ -1,34 +1,43 @@
 // Navigation
 
 .nav {
-  // TECHDEBT
-  padding: 15px 0 28px 0;
+
   &.main {
-    position: fixed;
     // TECHDEBT
+    padding: 15px 0 28px 0;
+    position: fixed;
     top: 0;
-  }
-  ul {
-    &.accordian {
-      @include inline_list(0);
-      li:not(.x) {
-        height: auto;
-        display: inline-block;
-        width: auto;
-        a:not(.x) {
+    ul {
+      &.accordian {
+        @include inline_list(0);
+        li:not(.x) {
           height: auto;
-          border: none;
-          padding-top: 7px;
-          padding-bottom: 7px;
-          text-align: center;
-        }
-        &.expander.for.main_nav {
-          display: none;
+          display: inline-block;
+          width: auto;
+          a:not(.x) {
+            height: auto;
+            border: none;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            text-align: center;
+          }
+          &.expander.for.main_nav {
+            display: none;
+          }
         }
       }
+      li:not(:first-child):not(:first-child) {
+        margin-left: 10px;
+      }
     }
-    li:not(:first-child):not(:first-child) {
-      margin-left: 10px;
+  }
+  &.footer {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    .group {
+      margin-left: -2px;
     }
   }
   a:not(.x) {

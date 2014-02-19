@@ -96,12 +96,40 @@ ul {
       }
     }
   }
-  &.comma.separated {
+  &.comma.separated.list,
+  &.comma.separated.list.of.links {
     @include clean_list($fr_li_padding 0);
     @include inline_list(0);
-    padding: $fr_li_padding 0;
+    border: none;
+    padding: 0;
+    li {
+      border: none;
+      a {
+        display: inline-block;
+      }
+    }
     li:not(:last-child) {
       @include content_after(", ");
+    }
+  }
+  &.bullet.separated.list,
+  &.bullet.separated.list.of.links {
+    @include clean_list($fr_li_padding 0);
+    @include inline_list(0);
+    border: none;
+    padding: 0;
+    li {
+      border: none;
+      a {
+        display: inline-block;
+      }
+    }
+    li:not(:last-child) {
+      margin-right: 3px;
+      @include content_after(" • ");
+      &:after {
+        margin-left: 3px;
+      }
     }
   }
 }
