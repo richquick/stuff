@@ -7,6 +7,7 @@
 var pf = {
   unsupported:        'data-pf-unsupported',
   requiredElements: {
+    universal:        'body',
     validate:         'form.validatable',
     accordian:        'ul.accordian'
   },
@@ -37,6 +38,7 @@ require.config({
   paths: {
     "jquery":         jQueryVersion,
     "common":         "general/common",
+    "universal":      "general/universal",
     "validate":       "general/validate",
     "accordian":      "general/accordian",
     "spec_runner":    "general/spec_runner",
