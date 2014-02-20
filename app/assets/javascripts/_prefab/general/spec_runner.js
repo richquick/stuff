@@ -7,6 +7,7 @@ define(['jquery', 'jasmine-html'], function($, jasmine){
       "_dependencies",
       "common",
       "universal",
+      "google_map"
       "validate",
       "accordian"
     ]

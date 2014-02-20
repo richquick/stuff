@@ -23,6 +23,9 @@ body {
     &.balanced {
       text-align: center;
     }
+    &.unbalanced {
+      text-align: left;
+    }
     // TECHDEBT
     &.major {
       padding-top: 30px;

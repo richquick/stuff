@@ -1,5 +1,3 @@
-// fieldTypeExists
-
 describe("pf.universal:", function() {
   it("is an object", function() {
     expect(typeof pf.universal).toEqual('object');

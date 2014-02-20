@@ -9,7 +9,8 @@ var pf = {
   requiredElements: {
     universal:        'body',
     validate:         'form.validatable',
-    accordian:        'ul.accordian'
+    accordian:        'ul.accordian',
+    google_map:        'div#google_map'
   },
   requireAll:         'body#require_all',
   requireSpecs:       'body#require_all.spec_runner',
@@ -40,6 +41,7 @@ require.config({
     "common":         "general/common",
     "universal":      "general/universal",
     "validate":       "general/validate",
+    "google_map":     "general/google_map",
     "accordian":      "general/accordian",
     "spec_runner":    "general/spec_runner",
     jasmine:          "jasmine/javascripts/jasmine",

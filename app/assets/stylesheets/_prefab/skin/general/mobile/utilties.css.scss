@@ -1,1 +1,27 @@
 // Utilities
+
+.our.office.location {
+  width: 200px;
+  // background: asset_url('_prefab/skin/google_maps/brick_lane.png') no-repeat left top;
+  // padding-left: 240px;
+  margin: 3px 0;
+  h1,
+  h2,
+  h3{
+    margin-bottom: 5px;
+  }
+  p, small{
+    margin-bottom: 0;
+  }
+  small {
+    display: none;
+  }
+}
+
+.gm-style .gm-style-iw small a {
+  font-size: inherit;
+  color: #999!important;
+  &:hover {
+    color: #444!important;
+  }
+}
