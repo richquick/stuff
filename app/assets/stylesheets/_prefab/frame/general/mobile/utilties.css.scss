@@ -26,7 +26,11 @@
 }
 
 .google.map {
+  margin-top: 20px;
   height: 400px;
+  img {
+    max-width: inherit;
+  }
 }
 
 .vcard {

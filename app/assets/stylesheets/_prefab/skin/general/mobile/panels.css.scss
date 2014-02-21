@@ -19,3 +19,17 @@
     border: $sk_panel_border;
   }
 }
+
+.cta {
+  @include rounded_corners($sk_panel_radius);
+  background: #EFEFED;
+  font-size: 120%;
+  text-align: center;
+  padding: 10px;
+  .button,
+  .strong.button {
+    font-size: 100%;
+    font-weight: bold;
+    margin: 10px 20px;
+  }
+}

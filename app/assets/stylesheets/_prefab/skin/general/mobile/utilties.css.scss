@@ -1,9 +1,11 @@
 // Utilities
 
+#google_map {
+  display: none;
+}
+
 .our.office.location {
   width: 200px;
-  // background: asset_url('_prefab/skin/google_maps/brick_lane.png') no-repeat left top;
-  // padding-left: 240px;
   margin: 3px 0;
   h1,
   h2,
