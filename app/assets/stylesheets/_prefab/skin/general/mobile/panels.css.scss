@@ -21,21 +21,9 @@
 }
 
 .cta {
-  @include rounded_corners($sk_panel_radius);
-  background: #EFEFED;
-  font-size: 120%;
+  padding: 10px 0;
   text-align: center;
-  padding: 10px;
-  .button,
-  .strong.button {
-    font-size: 100%;
-    font-weight: bold;
-    margin: 10px 20px;
-  }
-  &.weak {
-    font-size: 100%;
-  }
-  &.strong {
-    font-size: 140%;
+  .button {
+    margin: 0 20px;
   }
 }

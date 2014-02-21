@@ -23,6 +23,13 @@ p {
     background: $fr_additional_info_background;
     margin: $fr_additional_info_margin;
   }
+  &.extra {
+    // TECHDEBT
+    color: #999;
+    &.bio {
+      font-size: 95%;
+    }
+  }
 }
 
 h1,
@@ -63,4 +70,10 @@ h1 {
 
 body {
   color: $fr_text_color;
+}
+
+.treat.as {
+  &.word {
+    display: inline-block;
+  }
 }

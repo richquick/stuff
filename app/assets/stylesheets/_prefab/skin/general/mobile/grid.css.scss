@@ -7,6 +7,53 @@ body {
   }
 }
 
+.grid {
+  &.pricing {
+    // TECHDEBT
+    margin: 20px 0;
+    @include rounded_corners($sk_panel_radius);
+    border: 1px solid #f0f0ee;
+    h2 {
+      padding-left: 30px;
+      padding-bottom: 5px;
+      font-style: italic;
+      font-size: 95%;
+      color: #999;
+      font-weight: normal;
+    }
+    ul + h2 {
+      padding-top: 15px;
+    }
+    .content {
+      padding: 0;
+      height: 100%;
+      .section {
+        padding: 20px 10px;
+        margin: 0;
+      }
+      &.main {
+        background-color: #f0f0ee;
+      }
+      &.second {
+        border-right: 1px solid #f0f0ee;
+        .section {
+          padding-left: 20px;
+        }
+      }
+      &.third {
+        .section {
+          padding-left: 20px;
+          .button {
+            margin: 30px;
+            display: block;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
 #codeigniter_profiler {
   display: none;
 }

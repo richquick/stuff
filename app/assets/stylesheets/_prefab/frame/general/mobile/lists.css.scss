@@ -22,9 +22,14 @@ ul {
   }
   &.list.of.links {
     @include clean_list($fr_li_padding 0);
-    > li {}
     &.condensed {
       @include inline_list($fr_li_padding);
+      &.spacious {
+        // TECHDEBT
+        li:not(:first-child) {
+          margin-left: 5px;
+        }
+      }
       &.separated {
         border: none;
         li {

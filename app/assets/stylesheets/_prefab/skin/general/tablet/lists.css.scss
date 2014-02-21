@@ -15,6 +15,14 @@ ul {
         }
       }
     }
+    &.testimonials {
+      padding-left: 135px;
+      li {
+        .creepy.image {
+          left: -130px;
+        }
+      }
+    }
     &.team.bios {
       max-width: 800px;
       margin: auto;

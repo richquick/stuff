@@ -51,6 +51,23 @@ body {
       }
     }
   }
+  &.three_column {
+    .content {
+      padding-bottom: $fr_three_col_content_padding_bottom;
+      &.main {
+        float: $fr_three_col_main_column_float;
+        @include column($fr_three_col_main_column_width_tablet);
+      }
+      &.second {
+        float: $fr_three_col_second_column_float;
+        @include column($fr_three_col_second_column_width_tablet);
+      }
+      &.third {
+        float: $fr_three_col_third_column_float;
+        @include column($fr_three_col_third_column_width_tablet);
+      }
+    }
+  }
   .section {
     &.tight {
       width: 75%;

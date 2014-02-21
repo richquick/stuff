@@ -1,1 +1,14 @@
 // Lists
+
+ul {
+  &.list.of.links {
+    &.condensed {
+      &.spacious {
+        // TECHDEBT
+        li:not(:first-child) {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}

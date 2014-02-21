@@ -33,6 +33,19 @@ body {
       }
     }
   }
+  &.three_column {
+    .content {
+      &.main {
+        @include column($fr_three_col_main_column_width_desktop);
+      }
+      &.second {
+        @include column($fr_three_col_second_column_width_desktop);
+      }
+      &.third {
+        @include column($fr_three_col_third_column_width_desktop);
+      }
+    }
+  }
 }
 
 .supplementary {

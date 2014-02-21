@@ -71,26 +71,42 @@ $fr_main_column_float_reversed: right;
 $fr_second_column_float_reversed: left;
 
   // 2 Column
-$fr_two_col_main_column_float: left;
-$fr_two_col_second_column_float: right;
-$fr_content_padding_bottom: 10px;
-$fr_two_col_content_padding_bottom: $fr_content_padding_bottom;
+$fr_two_col_main_column_float:              left;
+$fr_two_col_second_column_float:            right;
+$fr_content_padding_bottom:                 10px;
+$fr_two_col_content_padding_bottom:         $fr_content_padding_bottom;
 
-$fr_two_col_alt_content_padding_top: 10px;
+$fr_two_col_alt_content_padding_top:        10px;
 
     // Tablet - 2 Column
-$fr_two_col_main_column_width_tablet: 49%;
-$fr_two_col_second_column_width_tablet: 49%;
+$fr_two_col_main_column_width_tablet:       49%;
+$fr_two_col_second_column_width_tablet:     49%;
 
-$fr_two_col_alt_main_column_width_tablet: 75%;
+$fr_two_col_alt_main_column_width_tablet:   75%;
 $fr_two_col_alt_second_column_width_tablet: 23%;
 
     // Desktop - 2 Column
-$fr_two_col_alt_main_column_width_desktop: 78%;
-$fr_two_col_alt_second_column_width_desktop: 20%;
+$fr_two_col_alt_main_column_width_desktop:  78%;
+$fr_two_col_alt_second_column_width_desktop:20%;
 
-$fr_two_col_main_column_width_desktop: 49%;
-$fr_two_col_second_column_width_desktop: 49%;
+$fr_two_col_main_column_width_desktop:      49%;
+$fr_two_col_second_column_width_desktop:    49%;
+
+  // 3 Column
+$fr_three_col_main_column_float:            left;
+$fr_three_col_second_column_float:          left;
+$fr_three_col_third_column_float:           left;
+$fr_three_col_content_padding_bottom:       $fr_content_padding_bottom;
+
+    // Tablet - 3 Column
+$fr_three_col_main_column_width_tablet:     33%;
+$fr_three_col_second_column_width_tablet:   33%;
+$fr_three_col_third_column_width_tablet:    33%;
+
+    // Desktop - 3 Column
+$fr_three_col_main_column_width_desktop:    33%;
+$fr_three_col_second_column_width_desktop:  33%;
+$fr_three_col_third_column_width_desktop:   33%;
 
     // Fixed Width
 $fr_fixed_wrapper_width_tablet: $fr_tablet_min - (2 * $fr_stripe_wrapper_padding_sides) - 10px;

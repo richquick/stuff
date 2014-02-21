@@ -16,4 +16,16 @@ button {
     font-size: $sk_strong_button_font_size;
     padding: $sk_strong_button_padding;
   }
+  &.muted {
+    background-color: #c3b6ac;
+    &:hover {
+      background-color: darken(#c3b6ac,10%);
+    }
+  }
+  &.vibrant {
+    background-color: #5fac00;
+    &:hover {
+      background-color: darken(#5fac00,10%);
+    }
+  }
 }

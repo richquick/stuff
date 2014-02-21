@@ -22,8 +22,17 @@ a {
 
 .stripe {
   a {
-    &:not(.button):not(.lozenge):not(.resource):not(.chosen-single) {
+    &:not(.button):not(.lozenge):not(.resource):not(.chosen-single):not(.incognito) {
       color: $fr_link_color;
+      &:hover {
+        color: $fr_link_hover_color;
+      }
+    }
+    &.incognito:not(:hover) {
+      color: inherit;
+      text-decoration: none;
+    }
+    &.incognito {
       &:hover {
         color: $fr_link_hover_color;
       }

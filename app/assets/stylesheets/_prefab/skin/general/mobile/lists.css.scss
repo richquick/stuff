@@ -1,12 +1,38 @@
 // Lists
 
 ul {
+  li {
+    &.breather.breather.breather.breather.breather {
+      padding-bottom: 10px;
+      &:after {
+        content: " ";
+        display: block;
+        height: 0;
+        width: 95%;
+        margin: 15px 0 0 0;
+        border-bottom: 1px solid #f0f0ee;
+      }
+    }
+  }
   &.list.of.items {
     &.check {
       li {
+        padding-bottom: 0;
+        margin-left: -4px;
         background-image: asset_url($sk_check_icon);
-        @include icon($sk_icon_size,$sk_icon_padding_left);
+        // TECHDEBT - reverse order?
+        @include icon(30px,18px);
         background-position: 0 10px;
+        &.plus {
+          background-image: asset_url($sk_list_plus_icon);
+          @include icon(30px,12px);
+        }
+      }
+      &.plus {
+        li {
+          background-image: asset_url($sk_list_plus_icon);
+          @include icon(30px,12px);
+        }
       }
     }
   }
@@ -28,6 +54,18 @@ ul {
       &.banded {
         > li {
           @include zebra_striping($sk_zebra_striping_color_1,$sk_zebra_striping_color_2);
+        }
+      }
+    }
+    &.testimonials {
+      @include clean_list(0);
+      padding-left: 120px;
+      li {
+        position: relative;
+        .creepy.image {
+          position: absolute;
+          top: 0;
+          left: -120px;
         }
       }
     }
