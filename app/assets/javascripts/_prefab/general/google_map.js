@@ -78,7 +78,9 @@ pf.googleMap = {
   options: {
     center: new google.maps.LatLng(51.519156,-0.07081),
     zoom: 16,
-    disableDefaultUI: true,
+    panControl: false,
+    zoomControl: true,
+    scaleControl: false,
     mapTypeId: 'Styled',
     mapTypeControlOptions: {
         mapTypeIds: ['Styled']
