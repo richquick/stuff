@@ -66,9 +66,11 @@
             padding: 10px 20px;
             height: 22px;
             text-align: center;
-            &:hover,
-            &:active {
-              background: rgba(0,0,0,0.1);
+            &:not(.standout) {
+              &:hover,
+              &:active {
+                background: rgba(177,156,141,0.2);
+              }
             }
           }
           &:nth-child(2) {

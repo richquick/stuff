@@ -16,15 +16,18 @@ a {
 
 // TECHDEBT - size vs padding wrong way round?
 
-.twitter a {
+.twitter > a,
+a.twitter {
   background-image: asset_url($sk_twitter_icon_url);
   @include icon($sk_icon_size*0.9,$sk_icon_padding_left);
 }
-.email a {
+.email > a,
+a.email {
   background-image: asset_url($sk_email_icon_url);
   @include icon($sk_icon_size*0.9,$sk_icon_padding_left*0.8);
 }
-.github a {
+.github > a,
+a.github {
   background-image: asset_url($sk_github_icon_url);
   @include icon($sk_icon_size*0.9,$sk_icon_padding_left);
 }
