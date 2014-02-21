@@ -1,7 +1,65 @@
 pf.googleMap = {
   styles: [
-        // we will add the style rules here.
-  ],
+  {
+    "featureType": "landscape.man_made",
+    "stylers": [
+      { "color": "#EFEFED" }
+    ]
+  },{
+    "featureType": "road.highway",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#FFB680" }
+    ]
+  },{
+    "featureType": "road.highway",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      { "color": "#FFB680" },
+      { "saturation": -57 }
+    ]
+  },{
+    "featureType": "road.highway",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      { "color": "#FFB680" },
+      { "saturation": -45 }
+    ]
+  },{
+    "featureType": "transit.line",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "transit.station.bus",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "transit.station.airport",
+    "stylers": [
+      { "visibility": "simplified" }
+    ]
+  },{
+    "featureType": "water",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "administrative",
+    "stylers": [
+      { "visibility": "simplified" }
+    ]
+  },{
+    "featureType": "poi",
+    "stylers": [
+      { "visibility": "simplified" }
+    ]
+  },{
+    "featureType": "water"  }
+],
   conventions: {
     center:               new google.maps.LatLng(51.517156,-0.07081),
     customMarker:         "/assets/_prefab/skin/google_maps/pin.png",
