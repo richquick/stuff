@@ -1,6 +1,11 @@
 // Lists
 
 ul {
+  // TECHDEBT
+  padding-left: 20px;
+  li:not(:first-child) {
+    margin-top: 5px;
+  }
   &.list.of.items {
     @include clean_list($fr_li_padding 0);
      &.condensed {

@@ -32,4 +32,10 @@
     font-weight: bold;
     margin: 10px 20px;
   }
+  &.weak {
+    font-size: 100%;
+  }
+  &.strong {
+    font-size: 140%;
+  }
 }
