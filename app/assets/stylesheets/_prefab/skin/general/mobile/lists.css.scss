@@ -1,7 +1,19 @@
 // Lists
 
 ul {
+  &.strong {
+    font-size: 105%;
+  }
+  &.stronger {
+    font-size: 115%;
+  }
   li {
+    &.strong {
+      font-size: 105%;
+    }
+    &.stronger {
+      font-size: 115%;
+    }
     &.breather.breather.breather.breather.breather {
       padding-bottom: 10px;
       &:after {

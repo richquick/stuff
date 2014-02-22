@@ -2,6 +2,24 @@ body {
   margin-top: $sk_desktop_body_margin_top;
 }
 
+.grid {
+  &.pricing {
+    .content {
+      .section {
+        min-height: 340px;
+      }
+      &.third {
+        .section {
+          .button {
+            margin-top: 45px;
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
 #codeigniter_profiler {
   display: block;
 }

@@ -21,6 +21,9 @@ body {
       color: #999;
       font-weight: normal;
     }
+    a.button + ul {
+      padding-top: 20px;
+    }
     ul + h2 {
       padding-top: 15px;
     }

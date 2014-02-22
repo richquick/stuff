@@ -87,3 +87,42 @@ small {
     color: #ac0000;
   }
 }
+
+.cost {
+  margin: 15px 0 20px 0;
+  .price {
+    padding: 10px 0 0 10px;
+    height: 1.1em;
+    font-size: 330%;
+    font-weight: bold;
+    position: relative;
+    .currency {
+      position: absolute;
+      top: 20px;
+      margin-left: -14px;
+      font-size: 40%;
+      display: inline-block;
+    }
+    abbr {
+      font-size: 40%;
+    }
+  }
+  .billing.period {
+    margin-top: 15px;
+    font-style: italic;
+    font-size: 90%;
+    color: #999;
+  }
+  &:after,
+  &:before {
+    content: " ";
+    display: block;
+    height: 0;
+    width: 30%;
+    margin: 0 auto 0 auto;
+    border-bottom: 1px solid #d9d7d3;
+  }
+  &:after {
+    margin: 20px auto 0 auto;
+  }
+}
