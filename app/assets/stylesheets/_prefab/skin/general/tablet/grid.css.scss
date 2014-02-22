@@ -18,8 +18,14 @@
     background: linear-gradient(to right,  rgba(240,240,238,1) 0%,rgba(240,240,238,1) 33%,rgba(255,255,255,1) 33%,rgba(255,255,255,1) 100%); /* W3C */
     .content {
       padding: 0;
+      .section {
+        min-height: 340px;
+      }
       &.main {
         background: transparent;
+      }
+      &.second {
+        border-right: 1px solid #f0f0ee;
       }
       &.third {
         .section {
