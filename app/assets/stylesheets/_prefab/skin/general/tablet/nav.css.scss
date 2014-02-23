@@ -4,4 +4,15 @@
   &.main {
     margin-bottom: 35px;
   }
+  &.footer {
+    .group {
+      &.alternative.position {
+        ul:not(.bullet){
+          li:not(:first-child) {
+            margin-left: 6px;
+          }
+        }
+      }
+    }
+  }
 }
