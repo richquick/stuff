@@ -112,9 +112,11 @@ small {
     font-weight: bold;
     position: relative;
     .currency {
-      position: absolute;
-      top: 20px;
+      display: inline-block;
+      vertical-align: top;
       margin-left: -14px;
+      padding-right: 3px;
+      padding-top: 10px;
       font-size: 40%;
       display: inline-block;
     }
