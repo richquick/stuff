@@ -2,9 +2,18 @@
 .panel {
   background: $sk_panel_color;
   @include rounded_corners($sk_panel_radius);
-  @include box_shadow($sk_panel_shadow_left_offset,$sk_panel_shadow_right_offset,$sk_panel_shadow_blur,$sk_panel_shadow_color);
   &:not(.clear) {
     border: $sk_panel_border;
+    @include box_shadow($sk_panel_shadow_left_offset,$sk_panel_shadow_right_offset,$sk_panel_shadow_blur,$sk_panel_shadow_color);
+  }
+  &.signup {
+    border: 1px solid lighten(#326573,30%);
+    background: #e3f9ff;
+    h1,
+    h2,
+    h3 {
+      color: #326573;
+    }
   }
 }
 

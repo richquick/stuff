@@ -10,7 +10,7 @@ pf.common = {
   ui: {
     scrollToIdDelay:            150,
     scrollToIdTime:             500,
-    scrollToIdOffset:           10
+    scrollToIdOffset:           120
   },
   idExists: function(id) {
     return ($(pf.common.stringToID(id)).length > 0) // Boolean

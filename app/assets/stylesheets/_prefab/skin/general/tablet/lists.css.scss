@@ -33,3 +33,19 @@ ul {
     }
   }
 }
+
+.second.content,
+.third.content {
+  ul {
+    &.list.of {
+      &.testimonials {
+        padding-left: 120px;
+        li {
+          .creepy.image {
+            left: -115px;
+          }
+        }
+      }
+    }
+  }
+}

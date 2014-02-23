@@ -20,6 +20,40 @@
   }
 }
 
+// TECHDEBT
+.handwriting {
+  color: #c00;
+  font-size: 140%;
+  font-family: "felt-tip-roman", "Comic Sans", "Helvetica Neue",Helvetica,Arial,sans-serif;
+  &.balanced {
+    text-align: center;
+  }
+  &.tight {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.angled {
+  margin-bottom: 10px;
+  &.clockwise {
+    @include rotate(-2deg);
+  }
+  &.counter_clockwise {
+    @include rotate(2deg);
+  }
+}
+
+.arrow {
+  background-repeat: no-repeat;
+  &.up {
+    padding-top: 60px;
+    background-image: url('/assets/_prefab/skin/arrows/up_arrow_left_leaning.png');
+    background-position: 30px top;
+  }
+}
+
 .gm-style .gm-style-iw small a {
   font-size: inherit;
   color: #999!important;

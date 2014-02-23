@@ -34,6 +34,9 @@ body {
   .part {
     position: relative;
     padding-bottom: 20px;
+    &.balanced {
+      text-align: center;
+    }
   }
 }
 

@@ -29,6 +29,17 @@ body {
         @include column($fr_two_col_second_column_width_tablet);
       }
     }
+    // TECHDEBT
+    &.asymetric {
+      .content {
+        &.main {
+          width: 58%;
+        }
+        &.second {
+          width: 38%;
+        }
+      }
+    }
     &.alternative.layout {
       .content {
         padding-top: $fr_two_col_alt_content_padding_top;
@@ -73,19 +84,6 @@ body {
       width: 75%;
       margin-left: auto;
       margin-right: auto;
-    }
-  }
-}
-
-.asymetric {
-  .grid {
-    &.two_column {
-      .content {
-        &.main,
-        &.second {
-          width: $fr_asymetric_grid_two_col_width;
-        }
-      }
     }
   }
 }

@@ -7,7 +7,13 @@
     padding: 15px 0 28px 0;
     position: fixed;
     top: 0;
+    min-height: 62px;
     ul {
+      li {
+        &.branding {
+          margin-top: 18px;
+        }
+      }
       &.accordian {
         @include inline_list(0);
         li:not(.x) {
