@@ -16,6 +16,18 @@ textarea {
   }
 }
 
+select {
+  font-family: $sk_default_font_family;
+  margin-right: $sk_input_right_margin;
+  @include rounded_corners($sk_field_corner_radius);
+  option {
+    text-indent: $sk_form_field_padding;
+  }
+  &:focus {
+    outline: $sk_input_outline_width solid $sk_input_outline_color;
+  }
+}
+
 textarea {
   width: $sk_textarea_width;
 }

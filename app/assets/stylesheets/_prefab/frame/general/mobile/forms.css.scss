@@ -1,12 +1,22 @@
 // Form elements
 
+select {
+  font-family: $fr_default_font_family;
+  color: $fr_default_font_color;
+  font-size: 100%;
+  text-indent: $fr_form_field_padding;
+  border: $fr_form_field_border;
+  &:focus {
+    background-color: $fr_form_field_focus_background;
+  }
+}
+
 input {
   &[type='text'],
   &[type='password'],
   &[type='email'],
   &[type='phone'],
-  &[type='number']
-   {
+  &[type='number'] {
     font-family: $fr_default_font_family;
     color: $fr_default_font_color;
     font-size: 100%;
