@@ -119,6 +119,7 @@ form {
         &[type='checkbox'] {
           position: absolute;
           left: -25px;
+          border: $fr_form_field_border;
         }
       }
       small {
