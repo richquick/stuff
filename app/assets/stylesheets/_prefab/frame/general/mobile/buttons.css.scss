@@ -92,5 +92,8 @@ button,
   &.strong {
     font-size: $fr_strong_button_font_size;
     padding: $fr_strong_button_padding;
+    &.quite {
+      font-size: 110%;
+    }
   }
 }

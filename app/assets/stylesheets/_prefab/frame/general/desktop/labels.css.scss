@@ -1,11 +1,33 @@
 // Labels
 
-//techdebt
-.label {
-  display: inline-block;
-  padding: 0 7px;
-  margin: 0 5px 0 0;
-  color: #fff;
-  background-color: #5abf00;
-  @include rounded_corners(4px);
-}
+// //TECHDEBT
+// .label {
+//   display: inline-block;
+//   padding: 0 7px;
+//   margin: 0 5px 0 0;
+//   color: #fff;
+//   background-color: #5abf00;
+//   @include rounded_corners(4px);
+//   &.strong {
+//     font-weight: bold;
+//     padding: 3px 10px;
+//   }
+//   &.primary {
+//     background-color: #0056a6;
+//   }
+//   &.success {
+//     background-color: #5abf00;
+//   }
+//   &.warning {
+//     background-color: #c00;
+//   }
+//   &.muted {
+//     background-color: #999;
+//   }
+//   + h1,
+//   + h2,
+//   + h3,
+//   + h4 {
+//     margin-top: 10px;
+//   }
+// }

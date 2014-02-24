@@ -331,6 +331,21 @@ pf.validate = {
   validateNumber: function($element) {
     return (pf.common.isEmptyOrNotRequired($element) || pf.common.isNumber($element.val()));
   },
+  removeEmptyOption: function($element) {
+    if ($element.val() == "") {
+      $element.remove();
+    }
+  },
+  removeEmptyOptions: function($element) {
+    $element.children('option').each(function() {
+      pf.validate.removeEmptyOption($(this));
+    });
+  },
+  setupOptions: function() {
+    $('select').on('change', function() {
+      pf.validate.removeEmptyOptions($(this));
+    });
+  },
   validateInteger: function($element) {
     return (pf.common.isEmptyOrNotRequired($element) || pf.common.isInteger($element.val()));
   },
@@ -435,6 +450,7 @@ pf.validate = {
       var toSubmit = pf.validate.validateAll($(this));
       return toSubmit; // Returns true if no error messages, else false
     });
+    pf.validate.setupOptions();
   }
 };
 

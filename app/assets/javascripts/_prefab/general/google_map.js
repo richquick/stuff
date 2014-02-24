@@ -1,3 +1,5 @@
+// TECHDEBT - Google Maps needs to work with require JS and jasmine
+
 pf.googleMap = {
   styles: [
   {
@@ -105,8 +107,8 @@ pf.googleMap = {
     var styledMapType = new google.maps.StyledMapType(pf.googleMap.styles, { name: 'Styled' });
     map.mapTypes.set('Styled', styledMapType);
     google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(map,marker);
-  });
+      infowindow.open(map,marker);
+    });
   }
 };
 

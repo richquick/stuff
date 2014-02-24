@@ -10,7 +10,7 @@ var pf = {
     universal:        'body',
     validate:         'form.validatable',
     accordian:        'ul.accordian',
-    google_map:        'div#google_map'
+    google_map:       'div#google_map'
   },
   requireAll:         'body#require_all',
   requireSpecs:       'body#require_all.spec_runner',
