@@ -1,4 +1,4 @@
-body {
+body:not(.unfixed) {
   margin-top: $sk_desktop_body_margin_top;
 }
 

@@ -122,8 +122,9 @@ form {
           border: $fr_form_field_border;
         }
       }
-      small {
-        display: inline-block;
+      &.weak {
+        font-size: 90%;
+        color: #999;
         margin-top: 2px;
       }
     }

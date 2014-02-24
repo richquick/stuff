@@ -1,11 +1,17 @@
 // Navigation
 
-.nav {
+body:not(.unfixed) {
+  .nav {
+    &.main {
+      position: fixed;
+    }
+  }
+}
 
+.nav {
   &.main {
     // TECHDEBT
     padding: 15px 0 28px 0;
-    position: fixed;
     top: 0;
     min-height: 62px;
     ul {
@@ -61,3 +67,4 @@
     }
   }
 }
+
