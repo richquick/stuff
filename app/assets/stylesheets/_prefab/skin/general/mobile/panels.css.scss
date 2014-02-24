@@ -7,7 +7,7 @@
     @include box_shadow($sk_panel_shadow_left_offset,$sk_panel_shadow_right_offset,$sk_panel_shadow_blur,$sk_panel_shadow_color);
   }
   &.signup {
-    border: 1px solid lighten(#326573,30%);
+    border: 1px solid lighten(#326573,40%);
     background: #e3f9ff;
     h1,
     h2,
