@@ -6,9 +6,9 @@ select {
   font-size: 100%;
   text-indent: $fr_form_field_padding;
   border: $fr_form_field_border;
-  &:focus {
-    background-color: $fr_form_field_focus_background;
-  }
+  // &:focus {
+  //   background-color: $fr_form_field_focus_background;
+  // }
 }
 
 input {
