@@ -4,7 +4,7 @@ select {
   font-family: $fr_default_font_family;
   color: $fr_default_font_color;
   font-size: 100%;
-  text-indent: $fr_form_field_padding;
+  padding-left: $fr_form_field_padding;
   border: $fr_form_field_border;
   // &:focus {
   //   background-color: $fr_form_field_focus_background;
@@ -61,6 +61,7 @@ label {
   }
   &.weak {
     font-weight: normal;
+    font-size: 95%;
   }
 }
 

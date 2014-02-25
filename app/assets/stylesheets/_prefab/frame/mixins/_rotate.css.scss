@@ -5,3 +5,25 @@
   -moz-transform:rotate($angle);
   transform:rotate($angle);
 }
+
+@mixin rotation($from,$to) {
+  @-webkit-keyframes rotation {
+  from {-webkit-transform: rotate($from);}
+  to {-webkit-transform: rotate($to);}
+  }
+
+  @-moz-keyframes rotation {
+  from {-moz-transform: rotate($from);}
+  to {-moz-transform: rotate($to);}
+  }
+
+  @-o-keyframes rotation {
+  from {-o-transform: rotate($from);}
+  to {-o-transform: rotate($to);}
+  }
+
+  @keyframes rotation {
+  from {transform: rotate($from);}
+  to {transform: rotate($to);}
+  }
+}

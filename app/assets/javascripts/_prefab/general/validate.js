@@ -6,6 +6,11 @@ pf.validate = {
     "input",
     "textarea"
   ],
+  stateHolder: {
+    // TECHDEBT - Will this work with more than one form on the page?
+    originalButtonText:       {
+    }
+  },
   errorMessages: {
     Required:                 "fill out this field",
     Email:                    "give us a valid email address",
@@ -60,17 +65,21 @@ pf.validate = {
     shouldMatch:              "data-pf-should-match",
     shouldBeInteger:          "data-pf-should-be-integer",
     shouldBeNumber:           "data-pf-should-be-number",
-    shouldNotHaveSpaces:      "data-pf-should-not-have-spaces"
+    shouldNotHaveSpaces:      "data-pf-should-not-have-spaces",
+    waitingText:              "data-pf-waiting-text",
+    elementIdentifier:        "data-pf-element-identifier"
   },
   snippets: {
     errorMessageHolder:       '<div class="error message"></div>',
     matchElementIDHolder:     '<span style="display:none;" class="matchElementID" rel="#{}">&nbsp;</span>'
   },
   conventions: {
-    parentHolder:             '.segment, .segment .content',
-    parentHolderErrorClass:   'error',
-    errorMessageHolderClass:  '.error.message',
-    errorMessageSeparator:    ' ',
+    submitButton:             "button[type='submit']",
+    waitingClass:             "waiting",
+    parentHolder:             ".segment, .segment .content",
+    parentHolderErrorClass:   "error",
+    errorMessageHolderClass:  ".error.message",
+    errorMessageSeparator:    " ",
     matchElementID: {
       error: {
         indicator:            'class="matchElementID"',
@@ -346,6 +355,39 @@ pf.validate = {
       pf.validate.removeEmptyOptions($(this));
     });
   },
+  submitButtonHasWaitingText: function($form) {
+    var $button = $(pf.validate.conventions.submitButton,$form);
+    var attr = $button.attr(pf.validate.dataAttributes.waitingText);
+    return (typeof attr !== 'undefined' && attr !== false); // Return binary (true/false)
+  },
+  setWaitingState: function($button,state) {
+    // TECHDEBT - must be able to simplify this lot
+    if (state) {
+      var dateNow = Date.now();
+      pf.validate.stateHolder.originalButtonText[dateNow] = $button.html();
+      $button.attr(pf.validate.dataAttributes.elementIdentifier,dateNow);
+      var waitingText = $button.attr(pf.validate.dataAttributes.waitingText);
+      $button.html(waitingText).addClass(pf.validate.conventions.waitingClass);
+    } else {
+      // TECHDEBT - Probably time to create a "hasAttr" prototype function
+      var attr = $button.attr(pf.validate.dataAttributes.elementIdentifier);
+      if (typeof attr !== 'undefined' && attr !== false) {
+        $button.html(pf.validate.stateHolder.originalButtonText[$button.attr(pf.validate.dataAttributes.elementIdentifier)])
+      }
+      $button.removeClass(pf.validate.conventions.waitingClass);
+    }
+  },
+  toggleWaitingState: function($button) {
+    var state = !($button.hasClass(pf.validate.conventions.waitingClass));
+    pf.validate.setWaitingState($button,state);
+  },
+  beforeFormSubmits: function($form) {
+    if (pf.validate.submitButtonHasWaitingText($form)) {
+      var $button = $(pf.validate.conventions.submitButton,$form);
+      // pf.validate.setWaitingState($button,true);
+      pf.validate.toggleWaitingState($button,true);
+    }
+  },
   validateInteger: function($element) {
     return (pf.common.isEmptyOrNotRequired($element) || pf.common.isInteger($element.val()));
   },
@@ -447,7 +489,13 @@ pf.validate = {
   },
   setupValidation: function() {
     $(pf.requiredElements.validate).on('submit',function(){
-      var toSubmit = pf.validate.validateAll($(this));
+      $this = $(this);
+      var toSubmit = pf.validate.validateAll($this);
+      if (toSubmit) {
+        pf.validate.beforeFormSubmits($this);
+        // KILLER
+        return false;
+      }
       return toSubmit; // Returns true if no error messages, else false
     });
     pf.validate.setupOptions();

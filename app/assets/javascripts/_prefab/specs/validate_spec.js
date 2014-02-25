@@ -1,4 +1,8 @@
 // fieldTypeExists
+// beforeFormSubmits
+// submitButtonHasWaitingText
+// setWaitingState
+// toggleWaitingState
 
 describe("pf.validate:", function() {
   it("is an object", function() {
