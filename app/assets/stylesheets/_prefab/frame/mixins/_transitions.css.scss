@@ -53,3 +53,10 @@
   $transition: background-color $time ease-in-out, color $time ease-in-out;
   @include transition ($transition);
 }
+
+@mixin rotation_animation ($time) {
+  -webkit-animation: rotation $time infinite linear;
+  -moz-animation: rotation $time infinite linear;
+  -o-animation: rotation $time infinite linear;
+  animation: rotation $time infinite linear;
+}
