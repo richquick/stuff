@@ -1,9 +1,3 @@
-// fieldTypeExists
-// beforeFormSubmits
-// submitButtonHasWaitingText
-// setWaitingState
-// toggleWaitingState
-
 describe("pf.validate:", function() {
   it("is an object", function() {
     expect(typeof pf.validate).toEqual('object');
@@ -225,6 +219,31 @@ describe("pf.validate:", function() {
   describe("pf.validate.addError:", function() {
     it("is a function", function() {
       expect(typeof pf.validate.addError).toEqual('function');
+    });
+  });
+  describe("pf.validate.beforeFormSubmits:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.beforeFormSubmits).toEqual('function');
+    });
+  });
+  describe("pf.validate.submitButtonHasWaitingText:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.submitButtonHasWaitingText).toEqual('function');
+    });
+  });
+  describe("pf.validate.setWaitingState:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.setWaitingState).toEqual('function');
+    });
+  });
+  describe("pf.validate.toggleWaitingState:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.toggleWaitingState).toEqual('function');
+    });
+  });
+  describe("pf.validate.fieldTypeExists:", function() {
+    it("is a function", function() {
+      expect(typeof pf.validate.fieldTypeExists).toEqual('function');
     });
   });
   describe("pf.validate.findParentHolder:", function() {

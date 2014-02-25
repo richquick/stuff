@@ -384,8 +384,7 @@ pf.validate = {
   beforeFormSubmits: function($form) {
     if (pf.validate.submitButtonHasWaitingText($form)) {
       var $button = $(pf.validate.conventions.submitButton,$form);
-      // pf.validate.setWaitingState($button,true);
-      pf.validate.toggleWaitingState($button,true);
+      pf.validate.setWaitingState($button,true);
     }
   },
   validateInteger: function($element) {
@@ -493,8 +492,6 @@ pf.validate = {
       var toSubmit = pf.validate.validateAll($this);
       if (toSubmit) {
         pf.validate.beforeFormSubmits($this);
-        // KILLER
-        return false;
       }
       return toSubmit; // Returns true if no error messages, else false
     });
