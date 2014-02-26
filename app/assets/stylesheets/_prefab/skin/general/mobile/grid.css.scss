@@ -56,6 +56,18 @@ body {
   }
 }
 
+.stripe {
+  &.thankyou {
+    .wrapper {
+      background-color: #ecebe9;
+      background-position: left bottom;
+      background-repeat: no-repeat;
+      padding: 30px 20px 0 20px;
+      text-align: center;
+    }
+  }
+}
+
 #codeigniter_profiler {
   display: none;
 }

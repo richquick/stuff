@@ -477,7 +477,6 @@ pf.validate = {
         // First error message we hit, scroll to that field
         if (hasErrors == false) {
           hasErrors = true;
-          console.log($this.attr('id'));
           pf.common.scrollToId($this.attr('id'));
         }
         pf.validate.addError($this,errorMessage);
@@ -487,13 +486,20 @@ pf.validate = {
     return toSubmit;
   },
   setupValidation: function() {
-    $(pf.requiredElements.validate).on('submit',function(){
-      $this = $(this);
-      var toSubmit = pf.validate.validateAll($this);
-      if (toSubmit) {
-        pf.validate.beforeFormSubmits($this);
+    $(pf.requiredElements.validate).on('submit',function(e,force){
+      if (force != true) {
+        $this = $(this);
+        e.preventDefault();
+        var toSubmit = pf.validate.validateAll($this);
+        if (toSubmit) {
+          pf.validate.beforeFormSubmits($this);
+          setTimeout(function () {
+            $this.trigger("submit",[true]);
+          }, 50); // in milliseconds
+        };
+      } else {
+        return true;
       }
-      return toSubmit; // Returns true if no error messages, else false
     });
     pf.validate.setupOptions();
   }

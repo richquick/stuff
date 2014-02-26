@@ -10,10 +10,18 @@ body,
 p {
   color: $fr_default_font_color;
   line-height: $fr_default_line_height;
+  &.muted {
+    color: #999;
+  }
 }
 
 .standfirst {
   font-size: $fr_standfirst_font_size;
+}
+
+q {
+  font-size: 125%;
+  font-weight: bold;
 }
 
 .info {

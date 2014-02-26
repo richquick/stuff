@@ -88,6 +88,21 @@ body {
   }
 }
 
+.stripe {
+  &.thankyou {
+    margin: 30px 0;
+    .wrapper {
+      text-align: left;
+      padding: 60px 0;
+    }
+    &.standard {
+      .wrapper {
+        background-image: asset_url('/assets/_prefab/skin/background_thanks.jpg');
+      }
+    }
+  }
+}
+
 // TECHDEBT
 .supplementary {
   &.hanging {

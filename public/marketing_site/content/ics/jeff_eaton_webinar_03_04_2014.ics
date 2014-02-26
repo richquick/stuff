@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//www.marudot.com//iCal Event Maker
+X-WR-CALNAME:GatherContent Webinar
+X-WR-TIMEZONE:Europe/London
+BEGIN:VEVENT
+DTSTAMP:20140226T004100Z
+UID:20140226T004100Z-1677850325@marudot.com
+DTSTART;TZID=Europe/London:20140403T160000
+DTEND;TZID=Europe/London:20140403T170000
+SUMMARY:[Webinar] How to implement content strategy on small agency projects with Jeff Eaton
+DESCRIPTION:If you've had enough of clients who don't understand the importance of thinking content-first and aren't willing to hire you to help them\, then this session is for you.\n\nJeff Eaton will walk you through two case-studies and explain how he goes about successfully implementing content strategy services at his agency.\n\nThis is a free event courtesy of http://GatherContent.com
+LOCATION:Online
+END:VEVENT
+END:VCALENDAR
