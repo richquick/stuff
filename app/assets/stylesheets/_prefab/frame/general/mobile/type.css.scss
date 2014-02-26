@@ -24,6 +24,27 @@ q {
   font-weight: bold;
 }
 
+.hilite {
+  background-color: #fffeb8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  &.hilite {
+    display: inline-block;
+    padding: 1px 5px;
+    margin-left: -5px;
+    margin-bottom: 3px;
+    :after {
+      @include clearfix();
+    }
+  }
+}
+
 .info {
   &.additional {
     display: $fr_additional_info_display;
@@ -37,6 +58,9 @@ q {
     &.bio {
       font-size: 95%;
     }
+  }
+  &.weak {
+    font-size: 90%;
   }
 }
 
