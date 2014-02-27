@@ -40,3 +40,13 @@
     }
   }
 }
+
+.stripe {
+  &.thankyou {
+    .wrapper {
+      .panel {
+        max-width: 360px;
+      }
+    }
+  }
+}

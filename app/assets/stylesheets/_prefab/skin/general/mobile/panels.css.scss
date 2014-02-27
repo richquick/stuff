@@ -6,6 +6,12 @@
     border: $sk_panel_border;
     @include box_shadow($sk_panel_shadow_left_offset,$sk_panel_shadow_right_offset,$sk_panel_shadow_blur,$sk_panel_shadow_color);
   }
+  h1:not(.x),
+  h2:not(.x),
+  h3:not(.x) {
+    color: #333;
+    margin-top: 10px;
+  }
   &.signup {
     border: 1px solid lighten(#326573,40%);
     background: #e3f9ff;

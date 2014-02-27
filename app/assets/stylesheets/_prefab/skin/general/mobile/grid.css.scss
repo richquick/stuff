@@ -77,6 +77,14 @@ body {
       background-repeat: no-repeat;
       padding: 30px 20px 0 20px;
       text-align: center;
+      .panel {
+        padding-bottom: 0;
+        .check.list {
+          margin: auto;
+          max-width: 330px;
+          text-align: left;
+        }
+      }
     }
   }
 }

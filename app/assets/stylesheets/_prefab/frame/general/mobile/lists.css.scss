@@ -8,7 +8,7 @@ ul {
   }
   &.list.of.items {
     @include clean_list($fr_li_padding 0);
-     &.condensed {
+    &.condensed {
       @include inline_list($fr_li_padding);
     }
     &.check {
@@ -54,6 +54,10 @@ ul {
       li {
         border-bottom: $fr_separated_list_border;
       }
+    }
+    &.dwarf {
+      margin-top: -20px;
+      margin-bottom: -25px;
     }
     &.clean {
       a {
