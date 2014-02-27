@@ -7,7 +7,9 @@ body {
   }
   &.with {
     &.drip {
-      margin-bottom: 80px;
+      .drip-tab-container {
+        display: none;
+      }
     }
   }
 }
@@ -79,6 +81,9 @@ body {
       text-align: center;
       .panel {
         padding-bottom: 0;
+        h2.strong {
+          font-size: 155%;
+        }
         .check.list {
           margin: auto;
           max-width: 330px;

@@ -9,6 +9,7 @@ p {
 }
 
 .standfirst {
+  font-size: 110%;
   color: $sk_standfirst_color;
 }
 
@@ -27,19 +28,20 @@ h6 {
 h1 {
   padding-top: 25px;
   line-height: 1.3;
+  font-size: 150%;
   &.strong {
     // TECHDEBT
-    font-size: 200%;
+    font-size: 150%;
   }
   &.stronger {
     // TECHDEBT
-    font-size: 230%;
+    font-size: 150%;
     margin-bottom: 20px;
     line-height: 1.3;
   }
   &.strongest {
     // TECHDEBT
-    font-size: 260%;
+    font-size: 150%;
     margin-bottom: 20px;
     line-height: 1.3;
   }
@@ -64,13 +66,13 @@ h2 {
   }
   &.stronger {
     // TECHDEBT
-    font-size: 230%;
+    font-size: 150%;
     margin-bottom: 20px;
     line-height: 1.3;
   }
   &.strongest {
     // TECHDEBT
-    font-size: 260%;
+    font-size: 150%;
     margin-bottom: 20px;
     line-height: 1.3;
   }

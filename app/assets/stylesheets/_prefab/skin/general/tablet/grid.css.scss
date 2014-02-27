@@ -1,5 +1,16 @@
 // Grid
 
+body {
+  &.with {
+    &.drip {
+      margin-bottom: 80px;
+      .drip-tab-container {
+        display: block;
+      }
+    }
+  }
+}
+
 .grid {
   .section {
     &.asymetric {
@@ -48,5 +59,6 @@
         max-width: 360px;
       }
     }
+    margin-bottom: 50px;
   }
 }
