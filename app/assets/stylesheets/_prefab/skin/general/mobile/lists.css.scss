@@ -50,7 +50,7 @@ ul {
         background-image: asset_url($sk_check_icon);
         // TECHDEBT - reverse order?
         @include icon(30px,18px);
-        background-position: 0 10px;
+        background-position: 0 6px;
         &.plus {
           background-image: asset_url($sk_list_plus_icon);
           @include icon(30px,12px);
