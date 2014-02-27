@@ -92,6 +92,7 @@ body {
   &.thankyou {
     margin: 30px 0;
     .wrapper {
+      @include rounded_corners(4px);
       text-align: left;
       padding: 40px 0 10px 0;
     }
