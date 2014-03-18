@@ -3,3 +3,14 @@
 .google.map {
   height: 500px;
 }
+
+.not.needed.before {
+  &.desktop {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    height: auto;
+    @include undo_negative_text_indent();
+  }
+}
