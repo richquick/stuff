@@ -1,5 +1,36 @@
 // Utilities
 
+// TECHDEBT - Move to panels.css.scss
+
+.testimonial {
+  &.hanging {
+    display: block;
+    opacity: 0;
+    @include animate_on_opacity(1s);
+    position: absolute;
+    top: 0;
+    left: -60px;
+    text-align: left;
+    width: 200px;
+    p {
+      color: #999;
+    }
+    .info {
+      width: 180px;
+      font-size: 90%;
+    }
+  }
+}
+
+@media only screen
+and (min-width : 1050px) {
+  .testimonial {
+    &.hanging {
+      opacity: 1;
+    }
+  }
+}
+
 // TECHDEBT - Move to grid.css.scss
 .grid {
   .section {

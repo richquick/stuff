@@ -66,3 +66,9 @@
     color: #3f7ca5;
   }
 }
+
+.testimonial {
+  &.hanging {
+    display: none;
+  }
+}

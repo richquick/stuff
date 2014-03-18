@@ -30,7 +30,8 @@ $sk_standfirst_color: $sk_midlite_color;
 $sk_branding_image: '_prefab/skin/logo.png';
 $sk_branding_width: 193px;
 $sk_branding_height: 29px;
-$sk_navbar_background: url('_prefab/skin/nav-waves.png') -20% bottom;
+$sk_navbar_background: url('_prefab/skin/nav_waves.png') -20% bottom;
+$sk_homepage_navbar_background: url('_prefab/skin/homepage_nav_waves.png') center bottom;
 $sk_nav_color: #959493;
 $sk_nav_link_hover_background_color: rgba(0,0,0,0);
 $sk_nav_link_color: #959493;
@@ -41,6 +42,9 @@ $sk_nav_desktop_input_width: 90px;
 $sk_nav_desktop_input_width_focus: 190px;
 $sk_nav_field_transition: width 0.5s;
 $sk_nav_search_top_margin: -8px;
+
+// Homepage
+$sk_homepage_background: url('_prefab/skin/homepage_waves.png') center -635px repeat-x;
 
 // Grid
 $sk_tablet_asymetric_margin_left: 4%;

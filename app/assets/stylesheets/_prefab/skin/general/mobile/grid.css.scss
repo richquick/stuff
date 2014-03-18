@@ -108,6 +108,26 @@ body {
       }
     }
   }
+  &.hero {
+    .fixed.wrapper {
+      text-align: center;
+      .panel {
+        padding-bottom: 0;
+        h2.strong {
+          font-size: 115%;
+        }
+        .check.list {
+          margin: auto;
+          max-width: 330px;
+          text-align: left;
+        }
+        input {
+          margin: 0 0 20px 0;
+          width: 84%;
+        }
+      }
+    }
+  }
 }
 
 .floater {

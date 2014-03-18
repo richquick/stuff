@@ -5,8 +5,17 @@ body {
 }
 
 .stripe {
+  &.hero {
+    h1 {
+      background-color: rgba(230,229,227,0.5);
+    }
+    p.standfirst {
+      background-color: rgba(230,229,227,0.5);
+    }
+  }
   .wrapper {
     &.fixed {
+      position: relative;
       @include auto_margins();
       &.stepped{
         max-width: $fr_fixed_wrapper_width_tablet;
@@ -111,6 +120,29 @@ body {
     &.standard {
       .wrapper {
         background-image: asset_url('/assets/_prefab/skin/background_thanks.jpg');
+      }
+    }
+  }
+  &.hero {
+    .fixed.wrapper {
+      text-align: center;
+      .panel {
+        float: right;
+        max-width: 380px;
+        margin-top: 70px;
+        padding-bottom: 0;
+        h2.strong {
+          font-size: 155%;
+        }
+        .check.list {
+          margin: auto;
+          max-width: 330px;
+          text-align: left;
+        }
+        input {
+          margin: 0 0 20px 0;
+          width: 84%;
+        }
       }
     }
   }

@@ -1,6 +1,9 @@
 // Grid
 
 body {
+  &.homepage {
+    background: $sk_homepage_background;
+  }
   &.with {
     &.drip {
       margin-bottom: 80px;
@@ -53,6 +56,12 @@ body {
 }
 
 .stripe {
+  &.hero {
+    // TECHDEBT - SHOULD BE in SPECIFIC folder
+    margin-top: -20px;
+    min-height: 820px;
+    background: url('_prefab/skin/homepage/hero.jpg') center bottom no-repeat
+  }
   &.thankyou {
     .wrapper {
       .panel {

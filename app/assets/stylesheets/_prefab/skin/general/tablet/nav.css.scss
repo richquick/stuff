@@ -58,3 +58,11 @@
     }
   }
 }
+
+body.homepage {
+  .nav {
+    &.main {
+      background: $sk_homepage_navbar_background;
+    }
+  }
+}
