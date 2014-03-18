@@ -3,6 +3,48 @@
 .nav {
   &.main {
     margin-bottom: 35px;
+    ul {
+      &.cta.holder {
+        position: absolute;
+        top: 14px;
+        right: 10px;
+        @include inline_list(0);
+        li {
+          border: none;
+          text-align: left;
+          &:first-child {
+            border: none;
+          }
+          &.link.holder {
+            padding: 0;
+            a {
+              padding: 9px 20px 0 20px;
+            }
+          }
+          &.optional {
+            display: none;
+          }
+          form {
+            input {
+              &[type='text'],
+              &[type='password'],
+              &[type='email'],
+              &[type='phone'],
+              &[type='number'] {
+                width: 160px;
+                margin-bottom: 0;
+                margin-left: 10px;
+                @include animate_on_color_background_color_padding_margin_and_width(1s);
+                &:focus {
+                  margin-left: 0;
+                  width: 260px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
   &.footer {
     .group {

@@ -27,6 +27,39 @@
     margin-bottom: 10px;
     min-height: 62px;
     ul {
+      &.cta.holder {
+        display: block;
+        padding: 0 20px;
+        li {
+          border-bottom: 1px dotted #ccc;
+          padding: 9px 0;
+          display: block;
+          text-align: center;
+          &:first-child {
+            border-top: 1px dotted #ccc;
+            border-bottom: none;
+            padding-bottom: 0;
+          }
+          &.link.holder {
+            padding: 0;
+            a {
+              padding: 9px 0;
+            }
+          }
+          form {
+            margin: 0;
+            padding: 0;
+            input {
+              width: 90%;
+              margin-bottom: 15px;
+            }
+          }
+          button {
+            padding: 9px 17px;
+            font-weight: bold;
+          }
+        }
+      }
       &.accordian {
         &.expanded {
           li {

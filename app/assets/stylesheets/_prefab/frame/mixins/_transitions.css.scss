@@ -59,8 +59,20 @@
   @include transition ($transition);
 }
 
+@mixin animate_on_color_background_color_padding_margin_and_width($time) {
+  $transition: background-color $time ease-in-out, color $time ease-in-out, padding $time ease-in-out, margin $time ease-in-out, width $time ease-in-out;
+  @include transition ($transition);
+}
+
+
+
 @mixin animate_on_padding($time) {
   $transition: padding $time ease-in-out;
+  @include transition ($transition);
+}
+
+@mixin animate_on_width_and_padding($time) {
+  $transition: width $time ease-in-out, padding $time ease-in-out;
   @include transition ($transition);
 }
 

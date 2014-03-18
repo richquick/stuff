@@ -20,8 +20,21 @@ body:not(.unfixed) {
           margin-top: 18px;
         }
       }
+      &.cta.holder {
+        top: 23px;
+        li {
+          &.optional {
+            display: inline-block;
+          }
+        }
+      }
       &.accordian {
         @include inline_list(0);
+        &.expanded {
+          li:nth-child(2) {
+            height: auto;
+          }
+        }
         li:not(.x) {
           height: auto;
           display: inline-block;
