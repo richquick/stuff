@@ -20,6 +20,16 @@ body:not(.unfixed) {
   }
 }
 
+.floater {
+  padding: 120px 30% 30px 30px;
+  h1,
+  h2,
+  h3 {
+    width: 80%;
+    padding-bottom: 15px;
+  }
+}
+
 #codeigniter_profiler {
   display: block;
 }

@@ -1,5 +1,7 @@
 // Icon Mixins
 
+// TECHDEBT - ORDER IS WRONG HERE!!! PADDING AND ICON SIZE!!!
+
 @mixin icon($padding_left,$size) {
   @include icon_sub($padding_left,$size);
   &.strong {

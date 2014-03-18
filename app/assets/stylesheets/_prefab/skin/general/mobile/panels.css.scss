@@ -1,10 +1,12 @@
 // Panels
 .panel {
-  background: $sk_panel_color;
-  @include rounded_corners($sk_panel_radius);
-  &:not(.clear) {
-    border: $sk_panel_border;
-    @include box_shadow($sk_panel_shadow_left_offset,$sk_panel_shadow_right_offset,$sk_panel_shadow_blur,$sk_panel_shadow_color);
+  &:not(.simple) {
+    background: $sk_panel_color;
+    @include rounded_corners($sk_panel_radius);
+    &:not(.clear) {
+      border: $sk_panel_border;
+      @include box_shadow($sk_panel_shadow_left_offset,$sk_panel_shadow_right_offset,$sk_panel_shadow_blur,$sk_panel_shadow_color);
+    }
   }
   h1:not(.x),
   h2:not(.x),
@@ -13,12 +15,9 @@
     margin-top: 10px;
   }
   &.signup {
-    border: 1px solid lighten(#326573,40%);
-    background: #e3f9ff;
     h1,
     h2,
     h3 {
-      color: #326573;
       margin-bottom: 10px;
     }
     h2 {
@@ -26,6 +25,15 @@
     }
     .button_holder {
       margin-top: -5px;
+    }
+    &.email {
+      border: 1px solid lighten(#326573,40%);
+      background: #e3f9ff;
+      h1,
+      h2,
+      h3 {
+        color: #326573;
+      }
     }
   }
 }
@@ -47,5 +55,14 @@
   text-align: center;
   .button {
     margin: 0 20px;
+  }
+}
+
+.standout {
+  .cta {
+    margin-top: 10px;
+    padding: 20px 0 22px 0;
+    background: #dcf1ff;
+    color: #3f7ca5;
   }
 }

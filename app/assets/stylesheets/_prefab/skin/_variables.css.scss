@@ -18,6 +18,7 @@ $sk_default_font_family: "Proxima Nova", "proxima-nova", helvetica, arial, sans-
 
 // Colors
 $sk_heading_color: #111;
+$sk_alternate_heading_color: #ba2323;
 $sk_label_color: $sk_heading_color;
 $sk_th_color: $sk_heading_color;
 $sk_lowlite_color: #999;
@@ -45,7 +46,8 @@ $sk_nav_search_top_margin: -8px;
 $sk_tablet_asymetric_margin_left: 4%;
 $sk_tablet_asymetric_max_width: 53%;
 $sk_desktop_asymetric_margin_left: 16%;
-
+$sk_two_col_skewed_main_column_width_desktop: 42%;
+$sk_two_col_skewed_second_column_width_desktop: 50%;
 
   // Mobile
 $sk_mobile_body_margin_top: 200px;
@@ -126,7 +128,11 @@ $sk_twitter_icon_url: '_prefab/skin/icons/twitter.png';
 $sk_email_icon_url: '_prefab/skin/icons/email.png';
 $sk_github_icon_url: '_prefab/skin/icons/github.png';
 $sk_check_icon: '_prefab/skin/icons/tick.png';
+$sk_alt_check_icon: '_prefab/skin/icons/tick_alt.png';
+$sk_strong_alt_check_icon: '_prefab/skin/icons/tick_alt_strong.png';
 $sk_cross_icon: '_prefab/skin/icons/list_cross.png';
+$sk_strong_alt_cross_icon: '_prefab/skin/icons/list_cross_alt_big.png';
 $sk_list_plus_icon: '_prefab/skin/icons/list_plus.png';
+$sk_security_icon_url: '_prefab/skin/icons/security.png';
 
 

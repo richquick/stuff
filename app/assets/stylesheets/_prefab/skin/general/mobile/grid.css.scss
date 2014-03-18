@@ -15,10 +15,26 @@ body {
 }
 
 .section {
+  position: relative;
   &.standout {
     margin: 40px 0;
     padding: 20px;
     background-color: #f0f0ee;
+    &.flush {
+      padding: 0;
+      .container {
+        padding: 20px;
+      }
+    }
+  }
+  &.security {
+    font-weight: bold;
+    p {
+      display: inline-block;
+      background-image: asset_url($sk_security_icon_url);
+      @include icon(40px,18px);
+
+    }
   }
 }
 
@@ -91,6 +107,28 @@ body {
         }
       }
     }
+  }
+}
+
+.floater {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 3% 50% 20px 20px;
+  color: #fff;
+  h1,
+  h2,
+  h3 {
+    color: #fff;
+    font-size: 110%;
+    padding-bottom: 5px;
+  }
+  p {
+    font-size: 90%;
+    color: rgba(255,255,255,0.6);
+  }
+  img {
+    display: none;
   }
 }
 

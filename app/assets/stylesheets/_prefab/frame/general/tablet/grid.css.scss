@@ -84,6 +84,18 @@ body {
       width: 75%;
       margin-left: auto;
       margin-right: auto;
+      &.very {
+        width: auto;
+        max-width: 420px;
+        .signup.panel,
+        ul.list {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+      &.quite {
+        width: 80%;
+      }
     }
   }
 }

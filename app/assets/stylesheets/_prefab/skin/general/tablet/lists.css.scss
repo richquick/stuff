@@ -49,3 +49,29 @@ ul {
     }
   }
 }
+
+ol {
+  &.hanging.images {
+    width: 110%;
+    margin: 0 0 0 -5%;
+    li {
+      padding: 10px 20px 10px 230px;
+      position: relative;
+      min-height: 160px;
+      @include animate_on_color_and_background_color_and_padding(1s);
+      &:hover {
+        padding: 10px 10px 10px 240px;
+        background-color: #ffffef;
+      }
+    }
+  }
+  h2 {
+    padding-top: 15px;
+  }
+  .image.holder {
+    text-align: left;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+  }
+}

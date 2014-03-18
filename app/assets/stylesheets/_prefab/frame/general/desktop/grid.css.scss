@@ -22,6 +22,32 @@ body {
         @include column($fr_two_col_second_column_width_desktop);
       }
     }
+    &.display {
+      padding: 20px 0;
+      width: 85%;
+      @include animate_on_color_and_background_color(1s);
+      .content {
+        @include animate_on_padding(1s);
+        &.main {
+          padding-left: 20px;
+        }
+        &.second {
+          padding-left: 10px;
+          padding-right: 20px;
+        }
+      }
+      &:hover {
+        .content {
+          &.main {
+            padding-left: 10px;
+          }
+          &.second {
+            padding-left: 10px;
+          }
+        }
+        background-color: #ffffef;
+      }
+    }
     &.alternative.layout {
       .content {
         &.main {
@@ -29,6 +55,16 @@ body {
         }
         &.second {
           @include column($fr_two_col_alt_second_column_width_desktop);
+        }
+      }
+    }
+    &.skewed {
+      .content {
+        &.main {
+          @include column($sk_two_col_skewed_main_column_width_desktop);
+        }
+        &.second {
+          @include column($sk_two_col_skewed_second_column_width_desktop);
         }
       }
     }

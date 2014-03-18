@@ -42,8 +42,36 @@ ul {
         color: #bc1f15;
         font-weight: bold;
       }
+      &.alternative {
+        &.strong {
+          li {
+            background-image: asset_url($sk_strong_alt_cross_icon);
+            background-size: 28px;
+            padding-left: 42px;
+            padding-top: 7px;
+            font-weight: bold;
+            color: inherit;
+          }
+        }
+      }
     }
     &.check {
+      &.alternative {
+        li {
+          background-image: asset_url($sk_alt_check_icon);
+          padding-top: 4px;
+          margin-bottom: -4px;
+        }
+        &.strong {
+          li {
+            background-image: asset_url($sk_strong_alt_check_icon);
+            background-size: 28px;
+            padding-left: 42px;
+            padding-top: 7px;
+            font-weight: bold;
+          }
+        }
+      }
       li {
         padding-bottom: 0;
         margin-left: -4px;
@@ -51,10 +79,6 @@ ul {
         // TECHDEBT - reverse order?
         @include icon(30px,18px);
         background-position: 0 6px;
-        &.plus {
-          background-image: asset_url($sk_list_plus_icon);
-          @include icon(30px,12px);
-        }
       }
       &.plus {
         li {
@@ -154,6 +178,43 @@ ul {
         font-weight: inherit;
         padding-top: 10px;
       }
+    }
+  }
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  counter-reset: ol-counter;
+  .image.holder {
+    display: block;
+    text-align: center;
+  }
+  p {
+    font-size: 102%;
+  }
+  h2 {
+    color: #ba2323;
+    font-size: 120%;
+    margin-bottom: 20px;
+    padding-left: 38px;
+    position: relative;
+    &:before {
+      position: absolute;
+      left: 0;
+      content: counter(ol-counter);
+      counter-increment: ol-counter;
+      background-color: #ba2323;
+      color: #fff;
+      display: inline-block;
+      min-width: 28px;
+      margin-top: -1px;
+      padding-top: 2px;
+      min-height: 26px;
+      text-align: center;
+      @include rounded_corners(100px);
+      font-weight: bold;
     }
   }
 }

@@ -20,8 +20,22 @@ h4,
 h5,
 h6 {
   color: $sk_heading_color;
+  &.alternate {
+    color: $sk_alternate_heading_color;
+  }
   em {
     font-weight: normal;
+  }
+}
+
+.alternate.headings {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $sk_alternate_heading_color;
   }
 }
 
@@ -32,6 +46,9 @@ h1 {
   &.strong {
     // TECHDEBT
     font-size: 150%;
+    &.quite {
+      font-size: 140%
+    }
   }
   &.stronger {
     // TECHDEBT
@@ -63,6 +80,9 @@ h2 {
     // TECHDEBT
     font-size: 150%;
     margin-bottom: 20px;
+    &.quite {
+      font-size: 140%
+    }
   }
   &.stronger {
     // TECHDEBT
@@ -75,6 +95,11 @@ h2 {
     font-size: 150%;
     margin-bottom: 20px;
     line-height: 1.3;
+  }
+  + ul {
+    li:first-child {
+      margin-top: 10px;
+    }
   }
 }
 

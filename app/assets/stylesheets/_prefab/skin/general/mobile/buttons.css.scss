@@ -5,6 +5,7 @@ button {
   background-color: $sk_button_background_color;
   font-weight: $sk_button_font_weight;
   @include rounded_corners($sk_button_radius);
+  @include animate_on_color_and_background_color(0.25s);
   font-weight: $sk_button_font_weight;
   &:hover {
     background-color: $sk_button_background_color_hover;
