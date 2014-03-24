@@ -24,12 +24,13 @@ img {
     height: 192px;
   }
   &.landscape {
+
     width: 185px;
     height: 135px;
     &.large {
       width: auto;
       height: auto;
-      max-width: 360px;
+      width: 360px;
       height: 226px;
     }
   }
@@ -70,6 +71,23 @@ ol {
         height: 110%;
         margin: -5%;
       }
+    }
+  }
+}
+
+.display:hover {
+  .creepy.landscape.image {
+    &.large {
+      img {
+        width: 360px*1.1;
+        height: 226px*1.1;
+        margin: -5%;
+      }
+    }
+    img {
+      width: 185px*1.1;
+      height: 135px*1.1;
+      margin: -5%;
     }
   }
 }

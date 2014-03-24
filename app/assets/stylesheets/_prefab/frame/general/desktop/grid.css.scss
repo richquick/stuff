@@ -27,7 +27,7 @@ body {
       width: 85%;
       @include animate_on_color_and_background_color(1s);
       .content {
-        @include animate_on_padding(1s);
+        @include animate_on_padding(0.5s);
         &.main {
           padding-left: 20px;
         }
@@ -36,16 +36,44 @@ body {
           padding-right: 20px;
         }
       }
-      &:hover {
+      &.reversed {
         .content {
           &.main {
-            padding-left: 10px;
+            padding-right: 15px;
+            padding-left: 5px;
           }
           &.second {
-            padding-left: 10px;
+            padding-left: 20px;
+            padding-right: 10px;
           }
         }
+      }
+      &:hover {
         background-color: #ffffef;
+      }
+      &:not(.reversed) {
+        &:hover {
+          .content {
+            &.main {
+              padding-left: 10px;
+            }
+            &.second {
+              padding-left: 10px;
+            }
+          }
+        }
+      }
+      &.reversed {
+        &:hover {
+          .content {
+            &.main {
+              padding-right: 10px;
+            }
+            &.second {
+              padding-right: 10px;
+            }
+          }
+        }
       }
     }
     &.alternative.layout {
