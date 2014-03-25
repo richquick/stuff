@@ -3,8 +3,8 @@
 .creepy.image {
   &.landscape {
     &.large {
-      width: 360px;
-      height: 226px;
+      width: 240px;
+      height: 150px;
     }
   }
 }
@@ -13,8 +13,8 @@
   .creepy.landscape.image {
     &.large {
       img {
-        width: 360px*1.1;
-        height: 226px*1.1;
+        width: 240px*1.1;
+        height: 150px*1.1;
         margin: -5%;
       }
     }
