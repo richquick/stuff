@@ -59,11 +59,11 @@
   display: inline-block;
 }
 
-@mixin link_with_image($branding_image,$branding_width,$branding_height) {
+@mixin link_with_image($image,$width,$height) {
   @include negative_text_indent_inline_block();
-  width: $branding_width;
-  height: $branding_height;
-  background-image: asset_url($branding_image);
+  width: $width;
+  height: $height;
+  background-image: asset_url($image);
   padding: 0;
   background-repeat: none;
 }
