@@ -73,6 +73,16 @@
   }
 }
 
+.js_required {
+  display: none;
+}
+
+.js {
+  .js_required {
+    display: inherit;
+  }
+}
+
 .gm-style .gm-style-iw small a {
   font-size: inherit;
   color: #999!important;

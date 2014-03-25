@@ -156,6 +156,19 @@ small {
 }
 
 .cost {
+  .holder {
+    display: none;
+  }
+  &.monthly {
+    .monthly.holder {
+      display: block;
+    }
+  }
+  &.yearly {
+    .yearly.holder {
+      display: block;
+    }
+  }
   margin: 15px 0 20px 0;
   .price {
     padding: 10px 0 0 10px;

@@ -17,6 +17,36 @@ describe("pf.universal:", function() {
       expect(typeof pf.universal.getThisDomain).toEqual('function');
     });
   });
+  describe("pf.universal.getToggleTarget:", function() {
+    it("is a function", function() {
+      expect(typeof pf.universal.getToggleTarget).toEqual('function');
+    });
+  });
+  describe("pf.universal.getToggleClass:", function() {
+    it("is a function", function() {
+      expect(typeof pf.universal.getToggleClass).toEqual('function');
+    });
+  });
+  describe("pf.universal.getToggleAction:", function() {
+    it("is a function", function() {
+      expect(typeof pf.universal.getToggleAction).toEqual('function');
+    });
+  });
+  describe("pf.universal.hasToggleTarget:", function() {
+    it("is a function", function() {
+      expect(typeof pf.universal.hasToggleTarget).toEqual('function');
+    });
+  });
+  describe("pf.universal.hasToggleClass:", function() {
+    it("is a function", function() {
+      expect(typeof pf.universal.hasToggleClass).toEqual('function');
+    });
+  });
+  describe("pf.universal.hasToggleAction:", function() {
+    it("is a function", function() {
+      expect(typeof pf.universal.hasToggleAction).toEqual('function');
+    });
+  });
   describe("pf.universal.isUrlExternal:", function() {
     var thisUrl = window.location.host;
     it("is a function", function() {

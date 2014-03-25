@@ -64,7 +64,6 @@ pf.googleMap = {
 ],
   conventions: {
     center:               new google.maps.LatLng(51.517156,-0.07081),
-    customMarker:         "/assets/_prefab/skin/google_maps/pin.png",
     mapContainer:         "google_map",
     headingLevel:         "h2",
     headingClass:         "strong",
