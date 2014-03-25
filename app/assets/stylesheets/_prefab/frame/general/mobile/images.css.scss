@@ -24,14 +24,10 @@ img {
     height: 192px;
   }
   &.landscape {
-
     width: 185px;
     height: 135px;
     &.large {
-      width: auto;
-      height: auto;
-      width: 360px;
-      height: 226px;
+      height: 116px;
     }
   }
   &.circular {
@@ -79,9 +75,7 @@ ol {
   .creepy.landscape.image {
     &.large {
       img {
-        width: 360px*1.1;
-        height: 226px*1.1;
-        margin: -5%;
+        height: 116px*1.1;
       }
     }
     img {
