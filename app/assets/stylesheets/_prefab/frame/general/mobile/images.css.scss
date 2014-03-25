@@ -27,7 +27,8 @@ img {
     width: 185px;
     height: 135px;
     &.large {
-      height: 116px;
+      width: 278px;
+      height: 174px;
     }
   }
   &.circular {
@@ -75,7 +76,8 @@ ol {
   .creepy.landscape.image {
     &.large {
       img {
-        height: 116px*1.1;
+        width: 278px*1.1;
+        height: 174px*1.1;
       }
     }
     img {
