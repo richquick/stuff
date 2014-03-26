@@ -7,6 +7,9 @@ body:not(.unfixed) {
     .content {
       .section {
         min-height: 340px;
+        > .button {
+          margin-top: 10px;
+        }
       }
       &.third {
         .section {
@@ -14,6 +17,42 @@ body:not(.unfixed) {
             margin-top: 45px;
             margin-bottom: 15px;
           }
+        }
+      }
+    }
+  }
+}
+
+.stripe {
+  &.hero {
+    .fixed.wrapper {
+      .panel {
+        margin-right: -15px;
+      }
+    }
+  }
+}
+
+@media only screen
+and (min-width : 1050px) {
+  .stripe {
+    &.hero {
+      .fixed.wrapper {
+        .panel {
+          margin-right: -30px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen
+and (min-width : 1100px) {
+  .stripe {
+    &.hero {
+      .fixed.wrapper {
+        .panel {
+          margin-right: -40px;
         }
       }
     }

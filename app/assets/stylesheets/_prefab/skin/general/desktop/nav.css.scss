@@ -26,6 +26,17 @@ body:not(.unfixed) {
           &.optional {
             display: inline-block;
           }
+          form {
+            input {
+              &[type='text'],
+              &[type='password'],
+              &[type='email'],
+              &[type='phone'],
+              &[type='number'] {
+                width: 260px;
+              }
+            }
+          }
         }
       }
       &.accordian {

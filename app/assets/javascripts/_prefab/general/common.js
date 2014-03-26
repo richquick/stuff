@@ -88,6 +88,10 @@ pf.common = {
   isFieldEmpty: function($element) {
     return (pf.common.isEmpty($element.val())); // Return binary (true/false)
   },
+  hasTitle: function($element) {
+    var attr = $element.attr('title');
+    return (typeof attr !== 'undefined' && attr !== false); // Return binary (true/false)
+  },
   hasTrailingPeriod: function(string) {
     return (string.slice(-1) == '.');
   }

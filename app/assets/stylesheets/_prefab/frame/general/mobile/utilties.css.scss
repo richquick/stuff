@@ -134,5 +134,43 @@
   }
 }
 
+.tooltip {
+  position: relative;
+  .tooltip.holder {
+    position: absolute;
+    z-index: 1000;
+    top: -44px;
+    margin-top: 10px;
+    background-color: #efefed;
+    color: #333;
+    box-shadow: 2px 2px 0 rgba(177,156,141,0.4);
+    padding: 7px 15px;
+    opacity: 0;
+    left: -9000px;
+    @include animate_on_opacity_and_margin_top(0.5s);
+    @include rounded_corners (4px);
+    &:after {
+      @include rotate(45deg);
+      @include rounded_corners(3px);
+      content: " ";
+      display: block;
+      position: absolute;
+      background-color: #efefed;
+      bottom: -6px;
+      margin: 0 35%;
+      width: 13px;
+      height: 13px;
+      box-shadow: 3px 0 0 rgba(177,156,141,0.4);
+    }
+  }
+  &:hover {
+    .tooltip.holder {
+      opacity: 1;
+      left: 20%;
+      margin-top: 0;
+    }
+  }
+}
+
 @include rotation(0deg,359deg);
 

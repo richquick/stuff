@@ -127,8 +127,9 @@ body {
     .fixed.wrapper {
       text-align: center;
       .panel {
+        @include animate_on_margins(0.5s);
         float: right;
-        max-width: 380px;
+        max-width: 360px;
         margin-top: 70px;
         padding-bottom: 0;
         h2.strong {

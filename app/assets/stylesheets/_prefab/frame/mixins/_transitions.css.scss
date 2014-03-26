@@ -32,6 +32,16 @@
   @include transition ($transition);
 }
 
+@mixin animate_on_margins($time) {
+  $transition: margin-top $time ease-in-out, margin-left $time ease-in-out, margin-bottom $time ease-in-out, margin-right $time ease-in-out;
+  @include transition ($transition);
+}
+
+@mixin animate_on_opacity_and_margins($time) {
+  $transition: opacity $time ease-in-out,margin-top $time ease-in-out, margin-left $time ease-in-out, margin-bottom $time ease-in-out, margin-right $time ease-in-out;
+  @include transition ($transition);
+}
+
 @mixin animate_on_height($time) {
   $transition: height $time ease-in-out;
   @include transition ($transition);

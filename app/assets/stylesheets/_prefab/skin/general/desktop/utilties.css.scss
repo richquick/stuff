@@ -6,7 +6,7 @@
   &.hanging {
     display: block;
     opacity: 0;
-    @include animate_on_opacity(1s);
+    @include animate_on_opacity_and_margins(1s);
     position: absolute;
     top: 0;
     left: -60px;
@@ -27,6 +27,15 @@ and (min-width : 1050px) {
   .testimonial {
     &.hanging {
       opacity: 1;
+    }
+  }
+}
+
+@media only screen
+and (min-width : 1100px) {
+  .testimonial {
+    &.hanging {
+      margin-left: -40px;
     }
   }
 }

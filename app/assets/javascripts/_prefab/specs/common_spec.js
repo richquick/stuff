@@ -95,6 +95,12 @@ describe("pf.common:", function() {
       expect(typeof pf.common.firstLetterToLowerCase).toEqual('function');
     });
   });
+  describe("pf.common.hasTitle:", function() {
+    describe("pf.common.hasTitle:", function() {
+    it("is a function", function() {
+      expect(typeof pf.common.hasTitle).toEqual('function');
+    });
+  });
   describe("pf.common.hasNoSpaces:", function() {
     describe("pf.common.hasNoSpaces:", function() {
     it("is a function", function() {

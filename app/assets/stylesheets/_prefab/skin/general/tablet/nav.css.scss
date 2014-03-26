@@ -31,14 +31,10 @@
               &[type='email'],
               &[type='phone'],
               &[type='number'] {
-                width: 160px;
+                width: 230px;
                 margin-bottom: 0;
                 margin-left: 10px;
                 @include animate_on_color_background_color_padding_margin_and_width(1s);
-                &:focus {
-                  margin-left: 0;
-                  width: 260px;
-                }
               }
             }
           }

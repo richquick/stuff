@@ -28,6 +28,9 @@ h2 {
   &.stronger {
     // TECHDEBT
     font-size: 230%;
+    + .standfirst {
+      margin-top: -12px;
+    }
   }
   &.strongest {
     // TECHDEBT

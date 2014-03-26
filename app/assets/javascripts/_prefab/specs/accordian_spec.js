@@ -1,5 +1,3 @@
-// fieldTypeExists
-
 describe("pf.accordian:", function() {
   it("is an object", function() {
     expect(typeof pf.accordian).toEqual('object');

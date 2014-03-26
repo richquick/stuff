@@ -4,7 +4,9 @@ pf.universal = {
     expanderSelector:         '.expander',
     expandedClass:            'expanded',
     toggleSelector:           'a.toggle',
-    toggleClass:              'on'
+    toggleClass:              'on',
+    tooltipSelector:          '.tooltip',
+    tooltipSnippet:           '<div class="tooltip holder">#{}</div>'
   },
   dataAttributes: {
     toggleTarget:             "data-pf-toggle-target",
@@ -38,37 +40,25 @@ pf.universal = {
   hasToggleRemove: function($element) {
     return (pf.universal.getToggleRemove($element) !== false);
   },
+  doToggle: function($element) {
+    var $toggleTarget = $(pf.common.stringToID(pf.universal.getToggleTarget($element)));
+    var toggleClass = pf.universal.getToggleClass($element);
+    var hasToggleRemove = pf.universal.hasToggleRemove($element);
+    if (hasToggleRemove) {
+      var toggleRemove = pf.universal.getToggleRemove($element);
+      $toggleTarget.addClass(toggleClass).removeClass(toggleRemove);
+    } else {
+      $toggleTarget.toggleClass(toggleClass);
+    }
+  },
   setupToggles: function() {
     $(pf.universal.conventions.toggleSelector).on( "click", function() {
       var $this = $(this);
       if (pf.universal.hasToggleClass($this) && pf.universal.hasToggleTarget($this)) {
-        var $toggleTarget = $(pf.common.stringToID(pf.universal.getToggleTarget($this)));
-        var toggleClass = pf.universal.getToggleClass($this);
-        var hasToggleRemove = pf.universal.hasToggleRemove($this);
-        if (hasToggleRemove) {
-          var toggleRemove = pf.universal.getToggleRemove($this);
-          $toggleTarget.addClass(toggleClass).removeClass(toggleRemove);
-        } else {
-          $toggleTarget.toggleClass(toggleClass);
-        }
+        pf.universal.doToggle($this);
         return false;
       }
     });
-    // $('a.toggle').each(function() {
-    //   $this = $(this);
-    //   if (pf.universal.hasToggleClass($this) && pf.universal.hasToggleTarget($this)) {
-    //     $this.click(function(event) {
-    //       event.preventDefault();
-    //       event.stopPropagation();
-    //       $toggleTarget = $(pf.common.stringToID(pf.universal.getToggleTarget($this)));
-    //       toggleClass = pf.universal.getToggleClass($this);
-    //       hasToggleRemove = pf.universal.hasToggleRemove($this);
-
-    //       alert(toggleClass);
-    //       // window.open(this.href, '_blank');
-    //     });
-    //   }
-    // });
   },
   setupExternalLinks: function() {
     $('a[href]').each(function() {
@@ -82,9 +72,21 @@ pf.universal = {
       }
     });
   },
+  setupTooltips: function() {
+    $(pf.universal.conventions.tooltipSelector).each(function() {
+      var $this = $(this);
+      if (pf.common.hasTitle($this)) {
+        tooltipText = $this.attr('title');
+        var snippet = pf.common.interpolateString(pf.universal.conventions.tooltipSnippet,tooltipText);
+        $this.append(snippet);
+      }
+      // var tooltipText = 'Coming Soon';
+    });
+  },
   setupUniversal: function() {
     pf.universal.setupExternalLinks();
     pf.universal.setupToggles();
+    pf.universal.setupTooltips();
   }
 };
 
