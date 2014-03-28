@@ -29,9 +29,14 @@
             <ul class="cta holder">
                 <li class="optional">30-Day Free Trial</li>
                 <li>
-                    <form action="#" method="post">
-                        <input type="email" placeholder="Your Email Address">
-                        <button>Start My Trial</button>
+                    <form action="#" method="post" class="validatable">
+                        <div class="very tight segment">
+                            <label for="header_email">Email</label>
+                            <input type="email" placeholder="Email" name="email" id="header_email" required>
+                        </div>
+                        <div class="button_holder">
+                            <button>Start My Trial</button>
+                        </div>
                     </form>
                 </li>
                 <li class="link holder"><a href="#">Login</a></li>
@@ -298,8 +303,8 @@ Planning And Production Process</h2>
                         <form action="#" method="post" class="validatable with maximized fields">
                             <div  class="balanced part">
                                 <div class="very tight segment">
-                                    <label for="fm_00003">Email</label>
-                                    <input type="email" placeholder="Email" name="fm_00003" id="fm_00003" required>
+                                    <label for="email">Email</label>
+                                    <input type="email" placeholder="Email" name="email" id="email" required>
                                 </div>
                                 <div class="button_holder">
                                     <button class="strong">Start Your 30-Day Free Trial</button>
