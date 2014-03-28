@@ -48,30 +48,30 @@ body {
           }
         }
       }
-      &:not(.reversed) {
-        &:hover {
-          .content {
-            &.main {
-              padding-left: 10px;
-            }
-            &.second {
-              padding-left: 10px;
-            }
-          }
-        }
-      }
-      &.reversed {
-        &:hover {
-          .content {
-            &.main {
-              padding-right: 10px;
-            }
-            &.second {
-              padding-right: 10px;
-            }
-          }
-        }
-      }
+      // &:not(.reversed) {
+      //   &:hover {
+      //     .content {
+      //       &.main {
+      //         padding-left: 10px;
+      //       }
+      //       &.second {
+      //         padding-left: 10px;
+      //       }
+      //     }
+      //   }
+      // }
+      // &.reversed {
+      //   &:hover {
+      //     .content {
+      //       &.main {
+      //         padding-right: 10px;
+      //       }
+      //       &.second {
+      //         padding-right: 10px;
+      //       }
+      //     }
+      //   }
+      // }
     }
     &.alternative.layout {
       .content {
