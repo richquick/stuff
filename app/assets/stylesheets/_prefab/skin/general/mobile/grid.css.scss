@@ -25,6 +25,9 @@ body {
       padding: 0;
       .container {
         padding: 20px;
+        &.generous {
+          padding: 30px 40px;
+        }
       }
     }
   }

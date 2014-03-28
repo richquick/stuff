@@ -1,5 +1,6 @@
 // Global JQuery Selectors - only for VERY Common uses
 var $html_body = $('html,body');
+var $body = $('body');
 
 pf.common = {
   conventions: {

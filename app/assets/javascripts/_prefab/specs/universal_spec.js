@@ -1,3 +1,5 @@
+// getLightboxTarget, getHref, isTargetImage, hasLightboxTarget, hasHref, openLightbox, bindLightboxClosing, setupLightboxes, verticallyAlignLightboxContent
+
 describe("pf.universal:", function() {
   it("is an object", function() {
     expect(typeof pf.universal).toEqual('object');

@@ -87,3 +87,55 @@ ol {
     }
   }
 }
+
+.lightbox {
+  cursor: pointer;
+}
+
+.lightbox.holder {
+  opacity: 0;
+  @include animate_on_opacity(0.5s);
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+  text-align: center;
+  &.on {
+    opacity: 1;
+  }
+  .inner {
+    position: relative;
+    padding-top: 15px;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  div.close {
+    @include rounded_corners(100px);
+    background: #fff;
+    border: 2px solid #ccc;
+    color: #333;
+    font-size: 90%;
+    font-weight: bold;
+    width: 20px;
+    height: 18px;
+    padding-top: 2px;
+    position: absolute;
+    right: -3px;
+    top: 10px;
+    cursor: pointer;
+    &:hover {
+      background: darken(#fff,10%);
+    border: 2px solid darken(#ccc,10%);
+    }
+  }
+  img {
+    margin-top: 10px;
+    max-width: 100%;
+    cursor: default;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+  }
+}

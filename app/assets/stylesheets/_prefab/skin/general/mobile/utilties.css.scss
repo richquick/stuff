@@ -52,6 +52,49 @@
     background-image: url('/assets/_prefab/skin/arrows/up_arrow_left_leaning.png');
     background-position: 30px top;
   }
+  &.right {
+    display: inline-block;
+    padding-right: 60px;
+    background-image: url('/assets/_prefab/skin/arrows/right_arrow.png');
+    background-position: right top;
+  }
+  &.left {
+    display: inline-block;
+    padding-left: 60px;
+    background-image: url('/assets/_prefab/skin/arrows/left_arrow.png');
+    background-position: left top;
+  }
+}
+
+// div {
+//   outline: 1px solid green;
+// }
+.homepage {
+  .hanging.right.arrow {
+    position: absolute;
+    width: 160px;
+    top: -50px;
+    left: -305px;
+    background-position: right 10px;
+    opacity: 0;
+    @include animate_on_opacity_and_margins(1s);
+  }
+  .hanging.left.arrow {
+    position: absolute;
+    top: -150px;
+    right: 40px;
+    opacity: 0;
+    @include animate_on_opacity_and_margins(0.5s);
+  }
+}
+
+@media only screen
+and (min-width : 1500px) {
+  .homepage {
+    .hanging.right.arrow {
+      opacity: 1;
+    }
+  }
 }
 
 .slideshare {
