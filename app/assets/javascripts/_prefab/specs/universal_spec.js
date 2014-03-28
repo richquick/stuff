@@ -1,4 +1,5 @@
-// getLightboxTarget, getHref, isTargetImage, hasLightboxTarget, hasHref, openLightbox, bindLightboxClosing, setupLightboxes, verticallyAlignLightboxContent
+// getLightboxTarget, getHref, hasLightboxTarget, hasHref, openLightbox, bindLightboxClosing, setupLightboxes, verticallyAlignLightboxContent
+// addChromeClass, hasChromeSelector
 
 describe("pf.universal:", function() {
   it("is an object", function() {
@@ -57,27 +58,6 @@ describe("pf.universal:", function() {
   describe("pf.universal.doToggle:", function() {
     it("is a function", function() {
       expect(typeof pf.universal.doToggle).toEqual('function');
-    });
-  });
-  describe("pf.universal.isUrlExternal:", function() {
-    var thisUrl = window.location.host;
-    it("is a function", function() {
-      expect(typeof pf.universal.isUrlExternal).toEqual('function');
-    });
-    it("should fail for a relative URL", function() {
-      expect(pf.universal.isUrlExternal('/test/')).toEqual(false);
-    });
-    it("should fail for an absolute URL inside this domain", function() {
-      expect(pf.universal.isUrlExternal('http://' + thisUrl + '/thispage/')).toEqual(false);
-    });
-    it("should fail for an absolute secure URL inside this domain", function() {
-      expect(pf.universal.isUrlExternal('http://' + thisUrl + '/thispage/')).toEqual(false);
-    });
-    it("should pass for an absolute URL outside this domain", function() {
-      expect(pf.universal.isUrlExternal('http://www.madeUpURL.com/thispage/')).toEqual(true);
-    });
-    it("should pass for an absolute secure URL outside this domain", function() {
-      expect(pf.universal.isUrlExternal('https://www.madeUpURL.com/thispage/')).toEqual(true);
     });
   });
 });

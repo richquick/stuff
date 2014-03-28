@@ -13,6 +13,12 @@ pf.common = {
     scrollToIdTime:             500,
     scrollToIdOffset:           120
   },
+  imageFormats: [
+    'jpg',
+    'jpeg',
+    'png',
+    'gif'
+  ],
   idExists: function(id) {
     return ($(pf.common.stringToID(id)).length > 0) // Boolean
   },
@@ -75,6 +81,19 @@ pf.common = {
   },
   isValidSubdomain: function (string) {
     return (/^[a-z|A-Z][a-z|A-Z|0-9]+$/.test(string)); // Return binary (true/false)
+  },
+  isUrlExternal: function(url) {
+    return ((url.indexOf("http://") >= 0 || url.indexOf("https://") >= 0) && url.indexOf(pf.universal.getThisDomain()) < 0);
+  },
+  isUrlImage: function(url) {
+    var isImage = false;
+    $.each(pf.common.imageFormats, function(n,imageFormat) {
+      var suffix = '.' + imageFormat;
+      if (url.indexOf(suffix, url.length - suffix.length) !== -1) {
+        isImage = true;
+      }
+    });
+    return isImage;
   },
   isEmpty: function(string) {
     return (pf.common.stripTrailingSpaces(string).length <= 0); // Return binary (true/false)

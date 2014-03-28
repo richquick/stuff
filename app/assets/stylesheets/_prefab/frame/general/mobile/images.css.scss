@@ -133,9 +133,23 @@ ol {
     }
   }
   img {
-    margin-top: 10px;
     max-width: 100%;
     cursor: default;
-    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+  }
+  &.with.chrome {
+    div.close {
+      right: 55px;
+      top: 1px;
+      @include box_shadow(0,0,5px,rgba(0,0,0,0.2))
+    }
+    img {
+      margin-top: -35px;
+    }
+  }
+  &:not(.with.chrome) {
+    img {
+      margin-top: 10px;
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+    }
   }
 }

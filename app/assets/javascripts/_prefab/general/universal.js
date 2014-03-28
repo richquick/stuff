@@ -7,6 +7,8 @@ pf.universal = {
     toggleClass:              'on',
     tooltipSelector:          '.tooltip',
     tooltipSnippet:           '<div class="tooltip holder">#{}</div>',
+    lightboxChromeSelector:    '.with.chrome',
+    lightboxChromeClass:       'with chrome',
     lightboxSelector:         '.lightbox',
     lightboxHolder:           '.lightbox.holder',
     lightboxContent:          '.lightbox.holder .inner',
@@ -42,13 +44,6 @@ pf.universal = {
     var attr = $element.attr('href');
     return (typeof attr !== 'undefined' && attr !== false && pf.common.isValidID(attr)) ? attr : false;
   },
-  isUrlExternal: function(url) {
-    return ((url.indexOf("http://") >= 0 || url.indexOf("https://") >= 0) && url.indexOf(pf.universal.getThisDomain()) < 0);
-  },
-  isTargetImage: function(url) {
-    // MAJOR TECHDEBT
-    return (url.indexOf(".jpg") >= 0 || url.indexOf(".png") >= 0  || url.indexOf(".png") >= 0);
-  },
   hasToggleTarget: function($element) {
     return (pf.universal.getToggleTarget($element) !== false);
   },
@@ -63,6 +58,9 @@ pf.universal = {
   },
   hasHref: function($element) {
     return (pf.universal.getHref($element) !== false);
+  },
+  hasChromeSelector: function($element) {
+    return ($element.is(pf.universal.conventions.lightboxChromeSelector));
   },
   doToggle: function($element) {
     var $toggleTarget = $(pf.common.stringToID(pf.universal.getToggleTarget($element)));
@@ -81,6 +79,9 @@ pf.universal = {
   getWindowHeight: function() {
     return $(window).height();
   },
+  addChromeClass: function($element) {
+    $element.addClass(pf.universal.conventions.lightboxChromeClass);
+  },
   setLightboxHolderVerticalOffset: function(offset) {
     // BIT OF TECHDEBT HERE
     if (offset < 10) {offset = 10};
@@ -94,18 +95,24 @@ pf.universal = {
     pf.universal.setLightboxHolderVerticalOffset((windowHeight - lightboxContentHeight)/2);
   },
   showLightbox: function() {
-    $(pf.universal.conventions.lightboxHolder).addClass('on');
+    $(pf.universal.conventions.lightboxHolder).addClass('on').addClass;
   },
   hideLightbox: function() {
     $(pf.universal.conventions.lightboxHolder).removeClass('on');
   },
-  openLightbox: function(url) {
+  openLightbox: function($element,url) {
     // TECHDEBT - Lightboxes should be able to accmodate iFrames and embedded video too
     var snippet = pf.common.interpolateString(pf.universal.conventions.lightboxSnippet,url);
     $body.append(snippet);
+    if(pf.universal.hasChromeSelector($element)) {
+      $(pf.universal.conventions.lightboxHolder).addClass('with').addClass('chrome');
+    }
     pf.universal.bindLightboxClosing();
-    pf.universal.verticallyAlignLightboxContent();
-    pf.universal.showLightbox();
+    setTimeout(function(){
+      pf.universal.verticallyAlignLightboxContent();
+      pf.universal.showLightbox();
+    },300);
+
   },
   removeLightbox: function() {
     $(pf.universal.conventions.lightboxHolder).remove();
@@ -138,7 +145,7 @@ pf.universal = {
   setupExternalLinks: function() {
     $('a[href]').each(function() {
       var $this = $(this);
-      if (pf.universal.isUrlExternal($this.attr('href'))) {
+      if (pf.common.isUrlExternal($this.attr('href'))) {
         $this.click(function(event) {
           event.preventDefault();
           event.stopPropagation();
@@ -163,11 +170,11 @@ pf.universal = {
       var $this = $(this);
       if (pf.universal.hasLightboxTarget($this)) {
         var target = (pf.universal.hasLightboxTarget($this)) ? pf.universal.getLightboxTarget($this) : pf.universal.getHref($this);
-        if (pf.universal.isTargetImage(target)) {
+        if (pf.common.isUrlImage(target)) {
           $this.click(function(event) {
             event.preventDefault();
             event.stopPropagation();
-            pf.universal.openLightbox(target);
+            pf.universal.openLightbox($this,target);
           });
         }
       };

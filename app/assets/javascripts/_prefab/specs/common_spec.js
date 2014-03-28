@@ -1,3 +1,5 @@
+// isUrlImage
+
 describe("pf:", function() {
   it("is an object", function() {
     expect(typeof pf).toEqual('object');
@@ -335,6 +337,48 @@ describe("pf.common:", function() {
     });
     it("should fail if element has a populated value", function() {
       expect(pf.common.isFieldEmpty($('<input type="text" value="test">'))).toEqual(false);
+    });
+  });
+  describe("pf.common.isUrlExternal:", function() {
+    var thisUrl = window.location.host;
+    it("is a function", function() {
+      expect(typeof pf.common.isUrlExternal).toEqual('function');
+    });
+    it("should fail for a relative URL", function() {
+      expect(pf.common.isUrlExternal('/test/')).toEqual(false);
+    });
+    it("should fail for an absolute URL inside this domain", function() {
+      expect(pf.common.isUrlExternal('http://' + thisUrl + '/thispage/')).toEqual(false);
+    });
+    it("should fail for an absolute secure URL inside this domain", function() {
+      expect(pf.common.isUrlExternal('http://' + thisUrl + '/thispage/')).toEqual(false);
+    });
+    it("should pass for an absolute URL outside this domain", function() {
+      expect(pf.common.isUrlExternal('http://www.madeUpURL.com/thispage/')).toEqual(true);
+    });
+    it("should pass for an absolute secure URL outside this domain", function() {
+      expect(pf.common.isUrlExternal('https://www.madeUpURL.com/thispage/')).toEqual(true);
+    });
+  });
+describe("pf.common.isUrlImage:", function() {
+    var thisUrl = window.location.host;
+    it("is a function", function() {
+      expect(typeof pf.common.isUrlImage).toEqual('function');
+    });
+    it("should fail for a relative URL", function() {
+      expect(pf.common.isUrlImage('/test/')).toEqual(false);
+    });
+    it("should fail for an absolute URL inside this domain", function() {
+      expect(pf.common.isUrlImage('http://this.com/thispage/')).toEqual(false);
+    });
+    it("should fail for an absolute with a valid image format in the middle", function() {
+      expect(pf.common.isUrlImage('http://this.jpg.com/thispage/')).toEqual(false);
+    });
+    it("should pass for an absolute URL ending in a valid image format", function() {
+      expect(pf.common.isUrlImage('http://www.madeUpURL.com/thispage/thisimage.jpg')).toEqual(true);
+    });
+    it("should pass for a relative URL ending in a valid image format", function() {
+      expect(pf.common.isUrlImage('thisimage.jpg/')).toEqual(true);
     });
   });
 });
