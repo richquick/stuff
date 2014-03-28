@@ -92,7 +92,9 @@ pf.universal = {
   verticallyAlignLightboxContent: function() {
     var lightboxContentHeight = pf.universal.getElementHeight($(pf.universal.conventions.lightboxContent));
     var windowHeight = pf.universal.getWindowHeight();
-    pf.universal.setLightboxHolderVerticalOffset((windowHeight - lightboxContentHeight)/2);
+    if (lightboxContentHeight > 10) {
+      pf.universal.setLightboxHolderVerticalOffset((windowHeight - lightboxContentHeight)/2);
+    }
   },
   showLightbox: function() {
     $(pf.universal.conventions.lightboxHolder).addClass('on').addClass;
