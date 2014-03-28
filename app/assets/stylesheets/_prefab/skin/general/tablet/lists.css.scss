@@ -59,9 +59,9 @@ ol {
       position: relative;
       min-height: 160px;
       @include animate_on_color_and_background_color_and_padding(1s);
-      &:hover {
-        padding: 10px 10px 10px 240px;
-      }
+      // &:hover {
+      //   padding: 10px 10px 10px 240px;
+      // }
     }
   }
   h2 {
