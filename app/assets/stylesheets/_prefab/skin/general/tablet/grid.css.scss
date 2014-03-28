@@ -16,6 +16,15 @@ body {
 
 .grid {
   .section {
+    &.standout {
+      &.flush {
+        .container {
+          &.generous {
+            padding: 30px 40px;
+          }
+        }
+      }
+    }
     &.asymetric {
       max-width: $sk_tablet_asymetric_max_width;
       margin-left: $sk_tablet_asymetric_margin_left;

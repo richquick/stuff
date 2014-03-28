@@ -25,6 +25,13 @@ body {
 }
 
 .grid {
+  .section {
+    &.separated {
+      &.generous {
+        margin: 10px 40px;
+      }
+    }
+  }
   @include clearfix();
   &.two_column {
     .content {
