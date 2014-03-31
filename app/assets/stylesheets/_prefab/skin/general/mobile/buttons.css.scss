@@ -33,4 +33,10 @@ button {
       background-color: darken(#5fac00,10%);
     }
   }
+  &.cta {
+    background-color: #1890d0;
+    &:hover {
+      background-color: darken(#1890d0,10%);
+    }
+  }
 }
