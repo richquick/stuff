@@ -178,5 +178,17 @@
   }
 }
 
+.standout {
+  .tooltip {
+    position: relative;
+    .tooltip.holder {
+      background-color: #fff;
+      &:after {
+        background-color: #fff;
+      }
+    }
+  }
+}
+
 @include rotation(0deg,359deg);
 

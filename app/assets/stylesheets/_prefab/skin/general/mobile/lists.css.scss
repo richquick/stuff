@@ -224,4 +224,18 @@ ol {
   }
 }
 
+.standout {
+  ul {
+    &.list.of.items,
+    &.list {
+      &.check {
+        li {
+          &.coming.soon {
+            background-image: asset_url($sk_strong_alt_check_icon_grey);
+          }
+        }
+      }
+    }
+  }
+}
 
