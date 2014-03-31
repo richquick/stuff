@@ -139,7 +139,7 @@
   .tooltip.holder {
     position: absolute;
     z-index: 1000;
-    top: -44px;
+    bottom: 32px;
     margin-top: 10px;
     background-color: #efefed;
     color: #333;
@@ -149,6 +149,12 @@
     left: -9000px;
     @include animate_on_opacity_and_margin_top(0.5s);
     @include rounded_corners (4px);
+    &.paragraph {
+      width: 300px;
+      &:after {
+        margin: 0 140px;
+      }
+    }
     &:after {
       @include rotate(45deg);
       @include rounded_corners(3px);
@@ -166,7 +172,7 @@
   &:hover {
     .tooltip.holder {
       opacity: 1;
-      left: 20%;
+      left: 0;
       margin-top: 0;
     }
   }

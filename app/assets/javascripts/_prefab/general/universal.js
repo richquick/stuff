@@ -7,8 +7,9 @@ pf.universal = {
     toggleClass:              'on',
     tooltipSelector:          '.tooltip',
     tooltipSnippet:           '<div class="tooltip holder">#{}</div>',
-    lightboxChromeSelector:    '.with.chrome',
-    lightboxChromeClass:       'with chrome',
+    lightboxChromeSelector:   '.with.chrome',
+    lightboxParagraphSelector:'.paragraph',
+    lightboxChromeClass:      'with chrome',
     lightboxSelector:         '.lightbox',
     lightboxHolder:           '.lightbox.holder',
     lightboxContent:          '.lightbox.holder .inner',
@@ -61,6 +62,10 @@ pf.universal = {
   },
   hasChromeSelector: function($element) {
     return ($element.is(pf.universal.conventions.lightboxChromeSelector));
+  },
+  hasParagraphSelector: function($element) {
+    alert('hi');
+    return ($element.is(pf.universal.conventions.lightboxParagraphSelector));
   },
   doToggle: function($element) {
     var $toggleTarget = $(pf.common.stringToID(pf.universal.getToggleTarget($element)));
@@ -164,6 +169,9 @@ pf.universal = {
         $this.attr('title','');
         var snippet = pf.common.interpolateString(pf.universal.conventions.tooltipSnippet,tooltipText);
         $this.append(snippet);
+        // if(pf.universal.hasParagraphSelector($element)) {
+        //   $(pf.universal.conventions.lightboxHolder).addClass('paragraph');
+        // }
       }
     });
   },

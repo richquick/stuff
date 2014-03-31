@@ -1,5 +1,5 @@
 // getLightboxTarget, getHref, hasLightboxTarget, hasHref, openLightbox, bindLightboxClosing, setupLightboxes, verticallyAlignLightboxContent
-// addChromeClass, hasChromeSelector
+// addChromeClass, hasChromeSelector, hasParagraphClass
 
 describe("pf.universal:", function() {
   it("is an object", function() {
