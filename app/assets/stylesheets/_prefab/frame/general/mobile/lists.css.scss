@@ -1,5 +1,18 @@
 // Lists
-
+@-webkit-keyframes fade {
+    0% {opacity: 0;}
+    20% {opacity: 1;}
+    33% {opacity: 1;}
+    53% {opacity: 0;}
+    100% {opacity: 0;}
+}
+@keyframes fade {
+    0% {opacity: 0;}
+    20% {opacity: 1;}
+    33% {opacity: 1;}
+    53% {opacity: 0;}
+    100% {opacity: 0;}
+}
 ul {
   // TECHDEBT
   padding-left: 20px;
@@ -17,6 +30,29 @@ ul {
         background-image: asset_url($fr_check_icon);
         @include icon($fr_icon_size,$fr_icon_padding_left);
         background-position: 0 10px;
+      }
+    }
+  }
+  &.slider {
+    position: relative;
+    @include clean_list($fr_li_padding 0);
+    li {
+      position: absolute;
+      top: 0;
+      left: 0;
+      &:not(.overlay) {
+        -webkit-animation-name: fade;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-duration: 6s;
+        animation-name: fade;
+        animation-iteration-count: infinite;
+        animation-duration: 6s;
+      }
+      &:nth-child(2) {
+        -webkit-animation-delay: -4s;
+      }
+      &:nth-child(3) {
+        -webkit-animation-delay: -2s;
       }
     }
   }

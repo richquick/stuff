@@ -33,6 +33,51 @@ body:not(.unfixed) {
   }
 }
 
+.homepage {
+  .screenshot {
+    z-index: 9999999;
+    display: block;
+    position: absolute;
+    top: 485px;
+    left: 35px;
+    width: 392px;
+    height: 245px;
+    border: none;
+    ul.slider {
+      li {
+        &.button_holder {
+          position: absolute;
+          top: 0;
+          text-align: center;
+          width: 100%;
+          padding-top: 100px;
+          height: 140px;
+          background: rgba(0,0,0,0.4);
+          display: block;
+          opacity: 0;
+          @include animate_on_opacity(0.3s);
+        }
+      }
+    }
+    &:hover {
+      ul.slider {
+        li {
+          &.button_holder {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    img {
+      border-top: 1px solid rgba(0,0,0,0.5);
+      @include rounded_corners(2px);
+      width: 392px;
+      height: 245px;
+    }
+  }
+}
+
 @media only screen
 and (min-width : 1050px) {
   .stripe {

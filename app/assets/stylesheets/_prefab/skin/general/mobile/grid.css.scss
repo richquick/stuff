@@ -131,6 +131,10 @@ body {
   }
 }
 
+.screenshot {
+  display: none;
+}
+
 .floater {
   position: absolute;
   top: 0;
@@ -152,6 +156,8 @@ body {
     display: none;
   }
 }
+
+
 
 #codeigniter_profiler {
   display: none;
