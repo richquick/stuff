@@ -34,7 +34,7 @@ body:not(.unfixed) {
 }
 
 .homepage {
-  .screenshot {
+  div.screenshot {
     z-index: 9999999;
     display: block;
     position: absolute;
