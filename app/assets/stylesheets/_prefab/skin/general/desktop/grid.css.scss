@@ -44,6 +44,7 @@ body:not(.unfixed) {
     height: 245px;
     border: none;
     ul.slider {
+      background: #000;
       li {
         &.button_holder {
           position: absolute;
